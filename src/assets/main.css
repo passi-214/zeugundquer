@@ -1,0 +1,9 @@
+@import './base.css';
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+
+#app {
+  font-weight: normal;
+}
+
