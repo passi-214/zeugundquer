@@ -1,0 +1,32 @@
+<template>
+  <div class="w-full min-h-[1000px] p-10">
+    <!-- Profile -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Profile</h2>
+      <slot name="profile">
+        <p>[Default profile placeholder]</p>
+      </slot>
+    </section>
+
+    <!-- Description -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Description</h2>
+      <slot name="description">
+        <p>[Default description placeholder]</p>
+      </slot>
+    </section>
+
+    <!-- Sponsorships -->
+    <section>
+      <h2 class="text-2xl font-bold mb-4">Sponsorships</h2>
+      <slot name="sponsorships">
+        <p>[Default sponsorships placeholder]</p>
+      </slot>
+    </section>
+  </div>
+</template>
+
+<script setup lang="ts">
+</script>
+
+
