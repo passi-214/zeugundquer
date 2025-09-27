@@ -4,13 +4,16 @@ import SingingHands from '../components/SingingHands.vue'
 import EnsembleScope from '../components/EnsembleScope.vue'
 import NeuesZeug from '../components/NeuesZeug.vue'
 import Vereinszeug from '../components/Vereinszeug.vue'
-import { useRouter } from 'vue-router'
-import { ref, onMounted } from 'vue'
 import CloseIcon from "@/components/icons/CloseIcon.vue"
+import { useRouter, useRoute } from 'vue-router'
+import { ref, onMounted, watch } from 'vue'
 
 const router = useRouter()
+const route = useRoute()
 const showControls = ref(true)
 const showCloseIcon = ref(false)
+const currentIndex = ref(0)
+const activeComponent = ref<null | any>(null)
 
 const items = [
   { name: 'Vereinszeug', component: Vereinszeug },
@@ -20,37 +23,40 @@ const items = [
   { name: 'NeuesZeug', component: NeuesZeug }
 ]
 
-const currentIndex = ref(0)
-
-// Restore from localStorage on reload/navigation
-onMounted(() => {
-  const savedIndex = localStorage.getItem('currentIndex')
-  if (savedIndex !== null) {
-    currentIndex.value = parseInt(savedIndex, 10)
-  }
-})
-
 function openItem(itemName: string) {
-  currentIndex.value = items.findIndex(i => i.name === itemName)
-  localStorage.setItem('currentIndex', currentIndex.value.toString())
-
-  showControls.value = false
-  showCloseIcon.value = true
-  router.push(`/zeugundquer/${itemName}`)
+  const index = items.findIndex(i => i.name === itemName)
+  if (index !== -1) {
+    currentIndex.value = index
+    activeComponent.value = items[index].component
+    showControls.value = false
+    showCloseIcon.value = true
+    router.push(`/zeugundquer/${itemName}`)
+  }
 }
 
 function handleClose() {
   showControls.value = true
   showCloseIcon.value = false
-
-  // Save slide before going back
-  localStorage.setItem('currentIndex', currentIndex.value.toString())
-
-  // Navigate back to default route
-  router.push('/zeugundquer/')
-  // Scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  router.push('/zeugundquer')
 }
+
+// **Watch route to auto-open child if user navigates manually**
+watch(
+    () => route.fullPath,
+    (path) => {
+      const parts = path.split('/')
+      const childName = parts[2] // '/zeugundquer/<child>'
+      if (childName) {
+        openItem(childName)
+      } else {
+        showCloseIcon.value = false
+        showControls.value = true
+      }
+    },
+    { immediate: true } // run on page load
+)
+
+
 </script>
 
 <template>
@@ -87,7 +93,7 @@ function handleClose() {
     <div class="router-container">
       <router-view v-slot="{ Component }">
         <transition name="slide-up" mode="out-in">
-          <component :is="Component" :key="$route.fullPath" />
+          <component v-if="showCloseIcon" :is="Component" :key="$route.fullPath" />
         </transition>
       </router-view>
     </div>
