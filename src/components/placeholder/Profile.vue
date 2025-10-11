@@ -7,7 +7,7 @@
   >
     <!-- Header -->
     <div class="border-b pb-6 mb-8">
-      <h3 :class="['text-4xl font-extrabold', headerTextColor]">
+      <h3 :class="['text-3xl font-extrabold', headerTextColor]">
         Projekt-Steckbrief: <span :class="titleTextColor">{{ title }}</span>
       </h3>
     </div>

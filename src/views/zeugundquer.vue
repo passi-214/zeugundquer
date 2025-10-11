@@ -115,11 +115,29 @@ watch(
   transform: translateY(-200px);
 }
 
+@media (max-width: 768px) {
+  .carousel-container.shifted {
+    transform: translateY(-250px); /* increase the slide-up on mobile */
+  }
+
+  .router-container {
+    margin-top: -300px; /* match the carousel shift */
+  }
+}
+
 /* Router view reveals itself underneath carousel */
 .router-container {
   margin-top: -200px; /* pulls content up into revealed space */
   position: relative;
   z-index: 5; /* underneath carousel */
+}
+
+@media (max-width: 768px) {
+  .router-container {
+    margin-top: -300px; /* pulls content up into revealed space */
+    position: relative;
+    z-index: 5; /* underneath carousel */
+  }
 }
 
 /* Slide-up transition for router view */
