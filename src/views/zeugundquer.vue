@@ -7,6 +7,7 @@ import Vereinszeug from '../components/Vereinszeug.vue'
 import CloseIcon from "@/components/icons/CloseIcon.vue"
 import { useRouter, useRoute } from 'vue-router'
 import { ref, onMounted, watch } from 'vue'
+import Aktuelles from "@/components/Aktuelles.vue";
 
 const router = useRouter()
 const route = useRoute()
@@ -20,7 +21,8 @@ const items = [
   { name: 'MusiCasa', component: MusiCasa },
   { name: 'SingingHands', component: SingingHands },
   { name: 'EnsembleScope', component: EnsembleScope },
-  { name: 'NeuesZeug', component: NeuesZeug }
+  { name: 'NeuesZeug', component: NeuesZeug },
+  { name: 'Aktuelles', component: Aktuelles }
 ]
 
 function openItem(itemName: string) {

@@ -5,6 +5,7 @@ import MusiCasaContent from "@/components/ProjectContents/MusiCasaContent.vue";
 import SingingHandsContent from "@/components/ProjectContents/SingingHandsContent.vue";
 import EnsembleScopeContent from "@/components/ProjectContents/EnsembleScopeContent.vue";
 import NeuesZeugContent from "@/components/ProjectContents/NeuesZeugContent.vue";
+import AktuellesContent from "@/components/ProjectContents/AktuellesContent.vue";
 
 const routes = [
     { path: '/', redirect: '/zeugundquer' },
@@ -14,7 +15,8 @@ const routes = [
             { path: 'MusiCasa', component: MusiCasaContent },
             { path: 'SingingHands', component: SingingHandsContent },
             { path: 'EnsembleScope', component: EnsembleScopeContent },
-            { path: 'NeuesZeug', component: NeuesZeugContent }
+            { path: 'NeuesZeug', component: NeuesZeugContent },
+            { path: 'Aktuelles', component: AktuellesContent }
         ]
     }
 ]

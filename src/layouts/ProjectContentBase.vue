@@ -4,7 +4,6 @@
     <section class="mb-12 pt-10 p-5">
       <h2 class="text-2xl font-bold mb-4"></h2>
       <slot name="profile">
-        <p>[Default profile placeholder]</p>
       </slot>
     </section>
 
