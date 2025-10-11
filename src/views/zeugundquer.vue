@@ -73,7 +73,8 @@ watch(
           :ui="{
             wrapper: 'w-screen h-screen relative overflow-hidden',
             container: 'flex w-screen h-screen',
-            controls: 'absolute top-1/2 inset-x-30 flex justify-center gap-2 z-20',
+           controls: 'absolute top-1/2 inset-x-1 md:inset-x-30 lg:inset-x-40 flex justify-center gap-2 z-20',
+
             dots: 'absolute top-60 inset-x-0 flex justify-center gap-2 z-20',
             item: 'w-screen h-screen flex-shrink-0 m-0 p-0 cursor-pointer',
             dot: 'w-3 h-3 rounded-full bg-white/50 hover:bg-white transition',
@@ -101,6 +102,7 @@ watch(
 </template>
 
 <style scoped>
+
 /* Carousel moves up when item is opened */
 .carousel-container {
   position: relative;
