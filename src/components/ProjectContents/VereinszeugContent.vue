@@ -54,6 +54,10 @@
       </p>
 
     </template>
+
+    <template #sponsorships>
+      <Sponsors :sponsors="sponsors" />
+    </template>
   </ProjectContentBase>
   <!--  <div class="mt-12">-->
   <!--    <ContentCarousel :images="images" :config="myConfig" />-->
@@ -66,12 +70,20 @@ import {ref, onMounted, onUnmounted, computed} from 'vue';
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import ContentCarousel from "@/components/placeholder/ContentCarousel.vue";
+import Sponsors from "@/components/placeholder/Sponsors.vue";
 
 const images = Array.from({length: 4}, (_, i) => ({
   id: i + 1,
   url: `/images/vereinszeug/vereinszeug${i + 1}.png`,
   alt: `Image ${i + 1}`,
 }))
+
+const sponsors = [
+  { id: 1, url: '/images/sponsor/aventis_foundation.avif', name: 'Sponsor 1', current: true },
+  { id: 2, url: '/images/sponsor/bundesregierung.avif', name: 'Sponsor 2', current: false },
+  { id: 3, url: '/images/sponsor/bw_kunst.avif', name: 'Sponsor 3', current: true },
+  { id: 4, url: '/images/sponsor/bw_soziales.avif', name: 'Sponsor 4', current: false },
+];
 
 // Reactive width
 const windowWidth = ref(window.innerWidth)
