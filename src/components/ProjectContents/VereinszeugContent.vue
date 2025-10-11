@@ -69,7 +69,7 @@
 import {ref, onMounted, onUnmounted, computed} from 'vue';
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
-import ContentCarousel from "@/components/placeholder/ContentCarousel.vue";
+import ContentCarousel from "@/components/placeholder/ImageContentCarousel.vue";
 import Sponsors from "@/components/placeholder/Sponsors.vue";
 
 const images = Array.from({length: 4}, (_, i) => ({
@@ -111,14 +111,14 @@ const myConfig = computed(() => {
     }
   } else if (windowWidth.value < 1024) { // tablet
     return {
-      height: 400,
+      height: 500,
       itemsToShow: 1.2,
       wrapAround: true,
       showNavigation: true,
     }
   } else { // desktop
     return {
-      height: 700,
+      height: 800,
       itemsToShow: 1.3,
       wrapAround: true,
       showNavigation: true,
