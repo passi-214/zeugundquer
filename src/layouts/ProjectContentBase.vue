@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full min-h-[1000px] p-10">
+  <div class="w-full min-h-[1000px] pt-10">
     <!-- Profile -->
-    <section class="mb-12">
+    <section class="mb-12 p-10">
       <h2 class="text-2xl font-bold mb-4"></h2>
       <slot name="profile">
         <p>[Default profile placeholder]</p>
@@ -10,9 +10,8 @@
 
     <!-- Description -->
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Description</h2>
+
       <slot name="description">
-        <p>[Default description placeholder]</p>
       </slot>
     </section>
 

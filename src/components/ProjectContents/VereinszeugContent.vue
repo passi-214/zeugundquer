@@ -33,23 +33,41 @@
           responsibleTextColor="text-green-800"
       />
       <div class="h-12 sm:h-12"></div>
-      <!-- Add ContentCarousel here -->
+
+    </template>
+    <template #description>
+      <!-- Full-width carousel inside description -->
+      <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">Was sind wir?</h2>
+      <div class="-mx-10 mt-6 pb-10">
+        <ContentCarousel :images="images" :config="myConfig"/>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">
+        Wer sind wir?
+      </h2>
+      <p class="text-xl font-bold mb-4 px-4 sm:px-10 pb-6 sm:pb-10">
+        zeug und quer e. V. hat sich im April 2015 gegründet und besteht derzeit aus ca. 35 Mitgliedern (großteils
+        Studierende der Musikhochschule Freiburg). Der Kulturverein möchte Verbindungen schaffen, insbesondere
+        interdisziplinärer, interkultureller und generationenübergreifender Art. Genauso sollen laut Satzung zwischen
+        Kunst und ihrer Vermittlung, Tradition und Gegenwart, Anspruch und Vergnügen, dem Profi- und Laienmusikbetrieb
+        Brücken geschlagen werden.
+      </p>
 
     </template>
   </ProjectContentBase>
-  <div class="mt-12">
-    <ContentCarousel :images="images" :config="myConfig" />
-  </div>
+  <!--  <div class="mt-12">-->
+  <!--    <ContentCarousel :images="images" :config="myConfig" />-->
+  <!--  </div>-->
 </template>
 
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue';
+import {ref, onMounted, onUnmounted, computed} from 'vue';
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import ContentCarousel from "@/components/placeholder/ContentCarousel.vue";
 
-const images = Array.from({ length: 4 }, (_, i) => ({
+const images = Array.from({length: 4}, (_, i) => ({
   id: i + 1,
   url: `/images/vereinszeug/vereinszeug${i + 1}.png`,
   alt: `Image ${i + 1}`,
@@ -88,8 +106,8 @@ const myConfig = computed(() => {
     }
   } else { // desktop
     return {
-      height: 600,
-      itemsToShow: 1.4,
+      height: 700,
+      itemsToShow: 1.3,
       wrapAround: true,
       showNavigation: true,
     }

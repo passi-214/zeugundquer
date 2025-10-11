@@ -69,12 +69,12 @@ img {
 
 /* Move the left arrow much closer to the center */
 .carousel__prev {
-  left: 2%;   /* 25% from the left of carousel */
+  left: 4%;   /* 25% from the left of carousel */
 }
 
 /* Move the right arrow much closer to the center */
 .carousel__next {
-  right: 2%;  /* 25% from the right of carousel */
+  right: 4%;  /* 25% from the right of carousel */
 }
 
 
