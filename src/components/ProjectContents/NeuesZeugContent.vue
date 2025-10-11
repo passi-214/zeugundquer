@@ -1,23 +1,85 @@
 <template>
   <ProjectContentBase>
     <template #profile>
-      <p>Neues Zeug profile info goes here.</p>
+      <Profile
+          title="NEUES ZEUG"
+          foundingYear="2014"
+          :projects="[
+          { title: 'seit 2015 ‘Neues Zeug’ komponiert, geprobt und gespielt:',
+            subitems: [
+              'ca. 40 Komponist:innen',
+              '80 Musikpädagog:innen',
+              '200 Instrumentalschüler:innen'
+            ]
+          }
+        ]"
+          concertsPerYear="2 Konzerte pro Jahr"
+          responsible="Vasiliki Kourti-Papamoustou, Lara Jakob"
+
+          containerBg="bg-gradient-to-br from-indigo-50 to-purple-50"
+          headerTextColor="text-purple-700"
+          titleTextColor="text-purple-900"
+          badgeTitleBg="bg-purple-200"
+          badgeTitleText="text-purple-900"
+          badgeYearBg="bg-indigo-200"
+          badgeYearText="text-indigo-900"
+          boxBg="bg-white"
+          sectionTitleColor="text-indigo-700"
+          textColor="text-gray-800"
+          subTextColor="text-gray-600"
+          concertsBoxBg="bg-yellow-100"
+          concertsTextColor="text-yellow-900"
+          responsibleBoxBg="bg-green-100"
+          responsibleTextColor="text-green-800"
+      />
+      <div class="h-12 sm:h-12"></div>
+
     </template>
 
     <template #description>
-      <p>
-        Neues Zeug description – Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </p>
+      <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">
+        Die fünf zentralen Aspekte von NEUES ZEUG:
+      </h2>
 
-      <!-- Text Carousel -->
-      <TextContentCarousel :slides="sampleSlides" :config="myConfig" />
+      <TextContentCarousel
+          :slides="sampleSlides"
+          :config="myConfig"
+          class="mt-6"
+      />
+
+      <!-- only render iframe when we have a valid embedUrl -->
+      <div class="p-11">
+        <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">
+          Projekt Teaser
+        </h2>
+        <Video url="https://www.youtube.com/watch?v=iwqa6B6KHRI" title="Neues Zeug Video" />
+      </div>
+
+      <!-- Secondary Button Section -->
+      <div class="flex flex-col items-center py-16 px-6">
+        <div class="text-center inline-block">
+          <p class="text-lg text-gray-700 mb-6 pb-5">
+            Erfahre mehr über das Projekt:
+          </p>
+
+          <a
+              href="https://clemenskthomas.de/neues-zeug-musik-aus-dem-jetzt"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block border border-gray-800 text-gray-800 font-semibold px-6 py-2 rounded-md transition-all duration-300 hover:bg-gray-800 hover:text-white w-full"
+          >
+            NEUES ZEUG
+          </a>
+        </div>
+      </div>
+
+
+
+
     </template>
 
     <template #sponsorships>
-      <ul class="list-disc pl-6">
-        <li>Sponsor A</li>
-        <li>Sponsor B</li>
-      </ul>
+      <Sponsors :sponsors="sponsors" />
     </template>
   </ProjectContentBase>
 </template>
@@ -25,7 +87,9 @@
 <script setup lang="ts">
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import TextContentCarousel from "@/components/placeholder/TextContentCarousel.vue";
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import {ref, computed, onMounted, onUnmounted} from "vue";
+import Profile from "@/components/placeholder/Profile.vue";
+import Sponsors from "@/components/placeholder/Sponsors.vue";
 
 // Reactive window width
 const windowWidth = ref(window.innerWidth);
@@ -37,35 +101,31 @@ onUnmounted(() => window.removeEventListener("resize", updateWidth));
 const myConfig = computed(() => {
   if (windowWidth.value < 430) {
     return {
-      height: 600,
-      itemsToShow: 1.3,
+      itemsToShow: 1.1,
       wrapAround: true,
       showNavigation: false,
     };
-  }
-  else if (windowWidth.value < 640) {
+  } else if (windowWidth.value < 640) {
     return {
-      height: 500,
-      itemsToShow: 1.3,
+      itemsToShow: 1.2,
       wrapAround: true,
       showNavigation: false,
     };
   } else if (windowWidth.value < 1024) {
     return {
-      height: 340,
-      itemsToShow: 1.27,
+      itemsToShow: 1.25,
       wrapAround: true,
       showNavigation: true,
     };
   } else {
     return {
-      height: 270,
       itemsToShow: 1.3,
       wrapAround: true,
       showNavigation: true,
     };
   }
 });
+
 
 // Sample slides
 const sampleSlides = [
@@ -118,4 +178,35 @@ const sampleSlides = [
         "zu-Eigen-Machen der neuen Klangwelt.",
   },
 ];
+
+const sponsors = [
+  { id: 1, url: '/images/sponsor/aventis_foundation.avif', name: 'Sponsor 1', current: true },
+  { id: 2, url: '/images/sponsor/bundesregierung.avif', name: 'Sponsor 2', current: false },
+  { id: 3, url: '/images/sponsor/bw_kunst.avif', name: 'Sponsor 3', current: true },
+  { id: 5, url: '/images/sponsor/deutsche_orchester_stiftung.avif', name: 'Sponsor 3', current: true },
+  { id: 4, url: '/images/sponsor/bw_soziales.avif', name: 'Sponsor 4', current: false },
+];
+
 </script>
+
+
+<style scoped>
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.youtube-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+</style>

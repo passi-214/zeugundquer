@@ -104,27 +104,31 @@ onUnmounted(() => {
 const myConfig = computed(() => {
   if (windowWidth.value < 640) { // mobile
     return {
-      height: 180,
-      itemsToShow: 1.3,
-      wrapAround: true,
-      showNavigation: false, // hide arrows on mobile
-    }
-  } else if (windowWidth.value < 1024) { // tablet
-    return {
-      height: 500,
       itemsToShow: 1.2,
+      wrapAround: true,
+      showNavigation: false,
+    }
+  } else if (windowWidth.value < 1200) { // tablet
+    return {
+      itemsToShow: 1.3,
       wrapAround: true,
       showNavigation: true,
     }
-  } else { // desktop
+  } else if (windowWidth.value < 1500) { // desktop
     return {
-      height: 800,
-      itemsToShow: 1.3,
+      itemsToShow: 1.4,
+      wrapAround: true,
+      showNavigation: true,
+    }
+  } else {
+    return {
+      itemsToShow: 1.5,
       wrapAround: true,
       showNavigation: true,
     }
   }
 })
+
 
 </script>
 

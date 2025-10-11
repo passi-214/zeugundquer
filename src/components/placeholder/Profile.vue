@@ -55,7 +55,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
       <div :class="['p-6 sm:p-8 rounded-xl shadow-md flex flex-col items-start hover:scale-105 transform transition', concertsBoxBg]">
         <span :class="['text-3xl font-bold mb-3', concertsTextColor]">🎵 {{ concertsPerYear }}</span>
-        <span :class="['text-lg font-medium', concertsTextColor]">Konzerte pro Jahr</span>
+<!--        <span :class="['text-lg font-medium', concertsTextColor]">Konzerte pro Jahr</span>-->
       </div>
 
       <div :class="['p-6 sm:p-8 rounded-xl shadow-md flex flex-col items-start hover:scale-105 transform transition', responsibleBoxBg]">
