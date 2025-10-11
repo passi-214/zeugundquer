@@ -32,12 +32,69 @@
           responsibleBoxBg="bg-green-100"
           responsibleTextColor="text-green-800"
       />
+      <div class="h-12 sm:h-12"></div>
+      <!-- Add ContentCarousel here -->
+
     </template>
   </ProjectContentBase>
+  <div class="mt-12">
+    <ContentCarousel :images="images" :config="myConfig" />
+  </div>
 </template>
 
 
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
+import ContentCarousel from "@/components/placeholder/ContentCarousel.vue";
+
+const images = Array.from({ length: 4 }, (_, i) => ({
+  id: i + 1,
+  url: `/images/vereinszeug/vereinszeug${i + 1}.png`,
+  alt: `Image ${i + 1}`,
+}))
+
+// Reactive width
+const windowWidth = ref(window.innerWidth)
+
+const updateWidth = () => {
+  windowWidth.value = window.innerWidth
+}
+
+onMounted(() => {
+  window.addEventListener('resize', updateWidth)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWidth)
+})
+
+// Compute carousel config based on screen size
+const myConfig = computed(() => {
+  if (windowWidth.value < 640) { // mobile
+    return {
+      height: 180,
+      itemsToShow: 1.3,
+      wrapAround: true,
+      showNavigation: false, // hide arrows on mobile
+    }
+  } else if (windowWidth.value < 1024) { // tablet
+    return {
+      height: 400,
+      itemsToShow: 1.2,
+      wrapAround: true,
+      showNavigation: true,
+    }
+  } else { // desktop
+    return {
+      height: 600,
+      itemsToShow: 1.4,
+      wrapAround: true,
+      showNavigation: true,
+    }
+  }
+})
+
 </script>
+
