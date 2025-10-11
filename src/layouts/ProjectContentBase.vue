@@ -2,7 +2,7 @@
   <div class="w-full min-h-[1000px] p-10">
     <!-- Profile -->
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Profile</h2>
+      <h2 class="text-2xl font-bold mb-4"></h2>
       <slot name="profile">
         <p>[Default profile placeholder]</p>
       </slot>
