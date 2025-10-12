@@ -8,6 +8,7 @@ import CloseIcon from "@/components/icons/CloseIcon.vue"
 import { useRouter, useRoute } from 'vue-router'
 import { ref, onMounted, watch } from 'vue'
 import Aktuelles from "@/components/Aktuelles.vue";
+import OrchesterConAnima from "@/components/OrchesterConAnima.vue";
 
 const router = useRouter()
 const route = useRoute()
@@ -22,7 +23,8 @@ const items = [
   { name: 'SingingHands', component: SingingHands },
   { name: 'EnsembleScope', component: EnsembleScope },
   { name: 'NeuesZeug', component: NeuesZeug },
-  { name: 'Aktuelles', component: Aktuelles }
+  { name: 'Aktuelles', component: Aktuelles },
+  { name: 'OrchesterConAnima', component: OrchesterConAnima }
 ]
 
 function openItem(itemName: string) {

@@ -6,6 +6,7 @@ import SingingHandsContent from "@/components/ProjectContents/SingingHandsConten
 import EnsembleScopeContent from "@/components/ProjectContents/EnsembleScopeContent.vue";
 import NeuesZeugContent from "@/components/ProjectContents/NeuesZeugContent.vue";
 import AktuellesContent from "@/components/ProjectContents/AktuellesContent.vue";
+import OrchesterConAnimaContent from "@/components/ProjectContents/OrchesterConAnimaContent.vue";
 
 const routes = [
     { path: '/', redirect: '/zeugundquer' },
@@ -16,7 +17,8 @@ const routes = [
             { path: 'SingingHands', component: SingingHandsContent },
             { path: 'EnsembleScope', component: EnsembleScopeContent },
             { path: 'NeuesZeug', component: NeuesZeugContent },
-            { path: 'Aktuelles/:slug?', component: AktuellesContent } // optional slug
+            { path: 'Aktuelles/:slug?', component: AktuellesContent }, // optional slug
+            { path: 'OrchesterConAnima/:slug?', component: OrchesterConAnimaContent } // optional slug
         ]
     }
 ]
