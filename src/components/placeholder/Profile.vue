@@ -37,13 +37,22 @@
       <h4 :class="['font-semibold text-2xl mb-4', sectionTitleColor]">Projekte & Initiativen</h4>
       <ul class="list-disc pl-6 space-y-3 text-xl" :class="textColor">
         <template v-for="(item, index) in projects" :key="index">
-          <li>
-            {{ item.title || item }}
+          <!-- Case 1: item has a title -->
+          <li v-if="item.title && item.title.trim() !== ''">
+            {{ item.title }}
             <ul v-if="item.subitems" class="list-disc pl-6 mt-1 space-y-4 text-lg" :class="subTextColor">
               <li v-for="(sub, subIndex) in item.subitems" :key="subIndex">{{ sub }}</li>
             </ul>
           </li>
+
+          <!-- Case 2: no title, just show subitems -->
+          <template v-else-if="item.subitems">
+            <ul class="list-disc pl-6 space-y-4 text-lg" :class="subTextColor">
+              <li v-for="(sub, subIndex) in item.subitems" :key="subIndex">{{ sub }}</li>
+            </ul>
+          </template>
         </template>
+
       </ul>
     </div>
 
