@@ -52,34 +52,19 @@
         <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">
           Projekt Teaser
         </h2>
-        <Video url="https://www.youtube.com/watch?v=iwqa6B6KHRI" title="Neues Zeug Video" />
+        <Video url="https://www.youtube.com/watch?v=iwqa6B6KHRI" title="Neues Zeug Video"/>
       </div>
 
       <!-- Secondary Button Section -->
-      <div class="flex flex-col items-center py-16 px-6">
-        <div class="text-center inline-block">
-          <p class="text-lg text-gray-700 mb-6 pb-5">
-            Erfahre mehr über das Projekt:
-          </p>
-
-          <a
-              href="https://clemenskthomas.de/neues-zeug-musik-aus-dem-jetzt"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block border border-gray-800 text-gray-800 font-semibold px-6 py-2 rounded-md transition-all duration-300 hover:bg-gray-800 hover:text-white w-full"
-          >
-            NEUES ZEUG
-          </a>
-        </div>
-      </div>
-
-
-
-
+      <SecondaryButton
+          paragraph="Erfahre mehr über das Projekt:"
+          buttonText="NEUES ZEUG"
+          link="https://clemenskthomas.de/neues-zeug-musik-aus-dem-jetzt"
+      />
     </template>
 
     <template #sponsorships>
-      <Sponsors :sponsors="sponsors" />
+      <Sponsors :sponsors="sponsors"/>
     </template>
   </ProjectContentBase>
 </template>
@@ -90,6 +75,7 @@ import TextContentCarousel from "@/components/placeholder/TextContentCarousel.vu
 import {ref, computed, onMounted, onUnmounted} from "vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import Sponsors from "@/components/placeholder/Sponsors.vue";
+import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
 
 // Reactive window width
 const windowWidth = ref(window.innerWidth);
@@ -180,11 +166,11 @@ const sampleSlides = [
 ];
 
 const sponsors = [
-  { id: 1, url: '/images/sponsor/aventis_foundation.avif', name: 'Sponsor 1', current: true },
-  { id: 2, url: '/images/sponsor/bundesregierung.avif', name: 'Sponsor 2', current: false },
-  { id: 3, url: '/images/sponsor/bw_kunst.avif', name: 'Sponsor 3', current: true },
-  { id: 5, url: '/images/sponsor/deutsche_orchester_stiftung.avif', name: 'Sponsor 3', current: true },
-  { id: 4, url: '/images/sponsor/bw_soziales.avif', name: 'Sponsor 4', current: false },
+  {id: 1, url: '/images/sponsor/aventis_foundation.avif', name: 'Sponsor 1', current: true},
+  {id: 2, url: '/images/sponsor/bundesregierung.avif', name: 'Sponsor 2', current: false},
+  {id: 3, url: '/images/sponsor/bw_kunst.avif', name: 'Sponsor 3', current: true},
+  {id: 5, url: '/images/sponsor/deutsche_orchester_stiftung.avif', name: 'Sponsor 3', current: true},
+  {id: 4, url: '/images/sponsor/bw_soziales.avif', name: 'Sponsor 4', current: false},
 ];
 
 </script>
