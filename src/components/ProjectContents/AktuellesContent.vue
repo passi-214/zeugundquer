@@ -1,8 +1,8 @@
 ﻿<script setup>
-import { ref, onMounted, nextTick } from "vue"; // ✅ added nextTick
+import {ref, onMounted, nextTick} from "vue"; // ✅ added nextTick
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import AktuellesCard from "@/components/placeholder/AktuellesCard.vue";
-import { useRouter } from "vue-router";
+import {useRouter} from "vue-router";
 
 const aktuellesData = ref([]);
 const activeCard = ref(null);
@@ -14,16 +14,48 @@ onMounted(async () => {
   const res = await fetch("/data/aktuelles.json");
   const json = await res.json();
   aktuellesData.value = json.Aktuelles;
+
+  // Check if URL has a slug
+  const slugFromUrl = route.params.slug;
+  if (slugFromUrl) {
+    const decodedSlug = decodeURIComponent(slugFromUrl);
+    const card = aktuellesData.value.find(
+        (entry) =>
+            entry.title.toLowerCase().replace(/\s+/g, '-') === decodedSlug
+    );
+    if (card) {
+      activeCard.value = card;
+
+      // Scroll to the top of the section
+      await nextTick();
+      if (aktuellesHeader.value) {
+        const headerOffset =
+            aktuellesHeader.value.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({
+          top: headerOffset,
+          behavior: "smooth",
+        });
+      }
+    }
+  }
 });
 
+
 // Handle card click
+
+const router = useRouter();
+
 const handleCardClick = async (entry) => {
   activeCard.value = entry;
 
-  // ✅ Wait for DOM updates before scrolling
+  // Update the URL without reloading
+  const slug = encodeURIComponent(entry.title.toLowerCase().replace(/\s+/g, '-'));
+  router.replace({ path: `/zeugundquer/Aktuelles/${slug}` });
+
+
+  // Wait for DOM updates before scrolling
   await nextTick();
 
-  // ✅ Smooth scroll to the top of the Aktuelles section
   if (aktuellesHeader.value) {
     const headerOffset =
         aktuellesHeader.value.getBoundingClientRect().top + window.scrollY - 80;
@@ -34,13 +66,19 @@ const handleCardClick = async (entry) => {
   }
 };
 
+
 // Handle clicks outside the description
-const handleClickOutside = (event) => {
+const handleClickOutside = async (event) => {
   const path = event.composedPath();
   if (descriptionRef.value && !path.includes(descriptionRef.value)) {
-    activeCard.value = null;
+    if (activeCard.value) {
+      activeCard.value = null;
+
+      // Only replace route if there was an active card
+    }
   }
 };
+
 
 // Attach global click listener
 onMounted(() => {
