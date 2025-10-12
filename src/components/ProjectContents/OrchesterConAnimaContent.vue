@@ -36,16 +36,20 @@
     </template>
 
     <template #description>
-      <div class="button-panel flex flex-wrap gap-4">
-        <SquareButton
-            v-for="button in buttons"
-            :key="button.title"
-            :title="button.title"
-            :route="button.route"
-        />
+      <div class="button-panel flex flex-wrap gap-4 mb-4">
+        <SquareButton label="Aktuelles" to="conAnimaAktuelles" />
+        <SquareButton label="ConAnima" to="conAnima" />
+        <SquareButton label="Orchester" to="conAnimaOrchester" />
+        <SquareButton label="Team" to="conAnimaTeam" />
+        <SquareButton label="Mitspielen" to="conAnimaMitspielen" />
+        <SquareButton label="Unterstützen" to="conAnimaSupport" />
       </div>
 
+      <!-- Render the selected child component -->
+      <router-view />
     </template>
+
+    <router-view />
 
     <template #sponsorships>
       <ul class="list-disc pl-6">
@@ -61,12 +65,4 @@ import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import SquareButton from "@/components/placeholder/SquareButton.vue";
 
-const buttons = [
-  { title: 'Con Anima', route: '/conanima' },
-  { title: 'Aktuelles', route: '/aktuelles' },
-  { title: 'Orchester', route: '/orchester' },
-  { title: 'Team', route: '/team' },
-  { title: 'Mitspielen', route: '/mitspielen' },
-  { title: 'Unterstützen', route: '/unterstuetzen' }
-]
 </script>

@@ -48,17 +48,25 @@ function handleClose() {
 watch(
     () => route.fullPath,
     (path) => {
-      const parts = path.split('/')
-      const childName = parts[2] // '/zeugundquer/<child>'
-      if (childName) {
-        openItem(childName)
-      } else {
+      const parts = path.split('/').filter(Boolean) // e.g. ['zeugundquer', 'OrchesterConAnima', 'Aktuelles']
+      const firstChild = parts[1] // first-level child of Zeugundquer
+      const isNested = parts.length > 2 // true if we are in a nested child
+
+      if (!isNested && firstChild && items.some(i => i.name === firstChild)) {
+        // Only auto-open first-level child if we are NOT inside nested route
+        openItem(firstChild)
+      } else if (!isNested) {
+        // We are at top-level /zeugundquer
         showCloseIcon.value = false
         showControls.value = true
       }
+      // if isNested, do nothing → nested child will render normally
     },
-    { immediate: true } // run on page load
+    { immediate: true }
 )
+
+
+
 
 
 </script>
@@ -96,11 +104,7 @@ watch(
 
     <!-- Router view content -->
     <div class="router-container">
-      <router-view v-slot="{ Component }">
-        <transition name="slide-up" mode="out-in">
-          <component v-if="showCloseIcon" :is="Component" :key="$route.fullPath" />
-        </transition>
-      </router-view>
+      <router-view />
     </div>
   </div>
 </template>

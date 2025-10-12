@@ -1,24 +1,23 @@
 ﻿<template>
-  <button
-      class="w-24 h-24 flex items-center justify-center font-bold text-lg border-2 border-gray-400 rounded-lg hover:bg-gray-100 transition-colors"
-      @click="goToRoute"
+  <RouterLink
+      :to="{ name: to }"
+      class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-none"
+      active-class="bg-blue-800"
   >
-    {{ title }}
-  </button>
+    {{ label }}
+  </RouterLink>
+
 </template>
 
-<script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { defineProps } from 'vue'
-
-const props = defineProps<{
-  title: string
-  route: string
-}>()
-
-const router = useRouter()
-
-const goToRoute = () => {
-  router.push(props.route)
-}
+<script setup>
+defineProps({
+  label: String,
+  to: String // this should now match the route name
+})
 </script>
+
+<style scoped>
+.router-link-active {
+  font-weight: bold;
+}
+</style>
