@@ -16,7 +16,7 @@ const routes = [
             { path: 'SingingHands', component: SingingHandsContent },
             { path: 'EnsembleScope', component: EnsembleScopeContent },
             { path: 'NeuesZeug', component: NeuesZeugContent },
-            { path: 'Aktuelles', component: AktuellesContent }
+            { path: 'Aktuelles/:slug?', component: AktuellesContent } // optional slug
         ]
     }
 ]

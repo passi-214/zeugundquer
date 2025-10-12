@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full min-h-[1000px] pt-10">
+  <div class="w-full min-h-[100px] pt-10">
     <!-- Profile -->
     <section class="mb-12 pt-10 p-5">
       <h2 class="text-2xl font-bold mb-4"></h2>
