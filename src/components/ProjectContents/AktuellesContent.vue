@@ -1,13 +1,14 @@
 ﻿<script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue"; // ✅ added nextTick
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import AktuellesCard from "@/components/placeholder/AktuellesCard.vue";
-import {useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 
 const aktuellesData = ref([]);
-const activeCard = ref(null); // store the clicked card
+const activeCard = ref(null);
+const descriptionRef = ref(null);
+const aktuellesHeader = ref(null); // ✅ add a ref for the header
 
-const descriptionRef = ref(null); // reference to the #description container
 // Fetch JSON from public folder at runtime
 onMounted(async () => {
   const res = await fetch("/data/aktuelles.json");
@@ -16,8 +17,21 @@ onMounted(async () => {
 });
 
 // Handle card click
-const handleCardClick = (entry) => {
+const handleCardClick = async (entry) => {
   activeCard.value = entry;
+
+  // ✅ Wait for DOM updates before scrolling
+  await nextTick();
+
+  // ✅ Smooth scroll to the top of the Aktuelles section
+  if (aktuellesHeader.value) {
+    const headerOffset =
+        aktuellesHeader.value.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({
+      top: headerOffset,
+      behavior: "smooth",
+    });
+  }
 };
 
 // Handle clicks outside the description
@@ -28,17 +42,27 @@ const handleClickOutside = (event) => {
   }
 };
 
-
 // Attach global click listener
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
 });
 </script>
 
+
 <template>
   <ProjectContentBase>
     <template #description>
-      <div ref="descriptionRef" class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full">
+      <h2
+          ref="aktuellesHeader"
+          class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10"
+      >
+        Aktuelles
+      </h2>
+
+      <div
+          ref="descriptionRef"
+          class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full"
+      >
         <AktuellesCard
             v-for="(entry, index) in aktuellesData"
             :key="index"
@@ -51,3 +75,4 @@ onMounted(() => {
     </template>
   </ProjectContentBase>
 </template>
+
