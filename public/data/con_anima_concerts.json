@@ -1,0 +1,26 @@
+﻿[
+  {
+    "title": "Con Anima Frühjahreskonzert",
+    "date": "Samstag, 20.06, 11:30 Uhr",
+    "location": "Stadthalle Graz",
+    "mapsUrl": "https://www.google.com/maps/place/Stadthalle+Graz"
+  },
+  {
+    "title": "Sommernacht mit Con Anima",
+    "date": "Freitag, 11.07, 20:00 Uhr",
+    "location": "Schloss Eggenberg, Graz",
+    "mapsUrl": "https://www.google.com/maps/place/Schloss+Eggenberg"
+  },
+  {
+    "title": "Con Anima im Park",
+    "date": "Sonntag, 17.08, 16:00 Uhr",
+    "location": "Stadtpark Graz",
+    "mapsUrl": "https://www.google.com/maps/place/Stadtpark+Graz"
+  },
+  {
+    "title": "Adventkonzert mit Con Anima",
+    "date": "Sonntag, 14.12, 17:00 Uhr",
+    "location": "Dom zu Graz",
+    "mapsUrl": "https://www.google.com/maps/place/Dom+zu+Graz"
+  }
+]
