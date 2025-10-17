@@ -13,12 +13,14 @@ const handleImageError = () => {
 
 <template>
   <section class="flex flex-col items-center px-6 py-20 text-gray-800 leading-relaxed">
-    <div class="max-w-4xl space-y-8 text-justify text-lg md:text-xl">
+    <!-- ✅ Left-aligned title, justified text only on larger screens -->
+    <div class="w-full max-w-4xl space-y-8 text-left md:text-justify text-lg md:text-xl">
 
       <!-- Title -->
       <h2 class="text-3xl font-semibold text-amber-700">
         Auch du kannst mitspielen
       </h2>
+
 
       <!-- Rehearsal Info -->
       <p class="pt-4">
