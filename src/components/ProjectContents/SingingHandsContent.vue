@@ -126,12 +126,14 @@
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
-
 import {ref, onMounted} from 'vue'
 import ConcertCard from "@/components/placeholder/ConcertCard.vue";
+import Gallery from "@/components/placeholder/Gallery.vue";
 import bwSoziales from '@/assets/images/sponsor/bw_soziales.avif'
+import {useGallery} from "@/composables/useGallery";
 
 const imageSrc = ref('/images/orchestra.jpg')
+
 const placeholder = 'https://via.placeholder.com/800x500?text=Singing_Hands'
 
 const handleImageError = () => {
@@ -179,39 +181,17 @@ onMounted(async () => {
   }
 })
 
-import Gallery from "@/components/placeholder/Gallery.vue";
-
 // Low-res images
-const imageModules = import.meta.glob('@/assets/images/singing_hands/*.{jpg,jpeg}', {
+const lowResMusik = import.meta.glob('@/assets/images/singing_hands/*.{jpg,jpeg}', {
   eager: true,
   import: 'default'
 });
 
-// High-res images
-const highResModules = import.meta.glob('@/assets/images/singing_hands/high_quality/*.{jpg,jpeg}', {
+// High-res images (optional)
+const highResMusik = import.meta.glob('@/assets/images/singing_hands/high_quality/*.{jpg,jpeg}', {
   eager: true,
   import: 'default'
 });
 
-const galleryImages = Object.keys(imageModules).map((lowResPath) => {
-  const fileName = lowResPath.split('/').pop()!; // e.g., "Pi7compressed014_DSC04682.jpg"
-
-  // Remove prefix
-  const baseName = fileName.replace(/^Pi7compressed/, ''); // "014_DSC04682.jpg"
-
-  // Find matching high-res image
-  const highResPath = Object.entries(highResModules).find(
-      ([key]) => key.endsWith(fileName)
-  )?.[1];
-
-  if (!highResPath) {
-    console.warn('No high-res image found for:', fileName);
-  }
-
-  return {
-    src: imageModules[lowResPath],     // low-res
-    highResSrc: highResPath || '',     // high-res fallback
-    alt: fileName.split('.')[0] || 'image'
-  };
-});
+const galleryImages = useGallery(lowResMusik, highResMusik);
 </script>

@@ -56,6 +56,7 @@ import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import SquareButton from "@/components/placeholder/SquareButton.vue";
 import Gallery from "@/components/placeholder/Gallery.vue";
+import {useGallery} from "@/composables/useGallery";
 
 const buttons = [
   {label: "Aktuelles", to: "conAnimaAktuelles"},
@@ -82,13 +83,14 @@ function handleClick(to: string) {
 }
 
 
-const images = import.meta.glob('@/assets/images/orchester_con_anima/*.{jpg,jpeg}', { eager: true, import: 'default' })
+// Low-res images
+const lowResMusik = import.meta.glob('@/assets/images/orchester_con_anima/*.{jpg,jpeg}', {
+  eager: true,
+  import: 'default'
+});
 
-// Convert to array format expected by <Gallery>
-const galleryImages = Object.entries(images).map(([path, src]) => ({
-  src: src as string,
-  alt: path.split('/').pop() || 'Gallery image'
-}))
+
+const galleryImages = useGallery(lowResMusik);
 
 </script>
 
