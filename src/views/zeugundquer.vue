@@ -10,6 +10,7 @@ import { ref, onMounted, watch } from 'vue'
 import Aktuelles from "@/components/Aktuelles.vue";
 import OrchesterConAnima from "@/components/OrchesterConAnima.vue";
 import SchallUndRauch from "@/components/SchallUndRauch.vue";
+import MusikOhneGockeln from "@/components/MusikOhneGockeln.vue";
 
 const router = useRouter()
 const route = useRoute()
@@ -26,7 +27,8 @@ const items = [
   { name: 'NeuesZeug', component: NeuesZeug },
   { name: 'Aktuelles', component: Aktuelles },
   { name: 'OrchesterConAnima', component: OrchesterConAnima },
-  { name: 'SchallUndRauch', component: SchallUndRauch }
+  { name: 'SchallUndRauch', component: SchallUndRauch },
+  { name: 'MusikOhneGockeln', component: MusikOhneGockeln }
 ]
 
 function openItem(itemName: string) {
@@ -46,19 +48,26 @@ function handleClose() {
   router.push('/zeugundquer')
 }
 
+
 // **Watch route to auto-open child if user navigates manually**
 watch(
     () => route.fullPath,
     (path) => {
-      const parts = path.split('/').filter(Boolean) // e.g. ['zeugundquer', 'OrchesterConAnima', 'Aktuelles']
+      // early exit for impressum: make sure carousel isn't shifted & close icon hidden
+      if (path === '/zeugundquer/impressum') {
+        // ensure we do not trigger any carousel open/shift logic for Impressum
+        showCloseIcon.value = false
+        showControls.value = true
+        return
+      }
+
+      const parts = path.split('/').filter(Boolean) // e.g. ['zeugundquer', 'OrchesterConAnima']
       const firstChild = parts[1] // first-level child of Zeugundquer
-      const isNested = parts.length > 2 // true if we are in a nested child
+      const isNested = parts.length > 2 // true if nested route
 
       if (!isNested && firstChild && items.some(i => i.name === firstChild)) {
-        // Only auto-open first-level child if we are NOT inside nested route
         openItem(firstChild)
       } else if (!isNested) {
-        // We are at top-level /zeugundquer
         showCloseIcon.value = false
         showControls.value = true
       }
@@ -70,13 +79,16 @@ watch(
 
 
 
-
 </script>
 
 <template>
   <div class="page-wrapper">
     <!-- Carousel -->
-    <div class="carousel-container" :class="{ 'shifted': showCloseIcon }">
+    <div
+        v-if="route.path !== '/zeugundquer/impressum'"
+        class="carousel-container"
+        :class="{ 'shifted': showCloseIcon }"
+    >
       <UCarousel
           v-slot="{ item }"
           :loop="showControls"
@@ -85,21 +97,21 @@ watch(
           :swipe="showControls ? { vertical: false } : false"
           :items="showControls ? items : [items[currentIndex]]"
           :ui="{
-            wrapper: 'w-screen h-screen relative overflow-hidden',
-            container: 'flex w-screen h-screen',
-           controls: 'absolute top-1/2 inset-x-1 md:inset-x-30 lg:inset-x-40 flex justify-center gap-2 z-20',
-
-            dots: 'absolute top-60 inset-x-0 flex justify-center gap-2 z-20',
-            item: 'w-screen h-screen flex-shrink-0 m-0 p-0 cursor-pointer',
-            dot: 'w-3 h-3 rounded-full bg-white/50 hover:bg-white transition',
-            dotActive: 'bg-white'
-          }"
+        wrapper: 'w-screen h-screen relative overflow-hidden',
+        container: 'flex w-screen h-screen',
+        controls: 'absolute top-1/2 inset-x-1 md:inset-x-30 lg:inset-x-40 flex justify-center gap-2 z-20',
+        dots: 'absolute top-60 inset-x-0 flex justify-center gap-2 z-20',
+        item: 'w-screen h-screen flex-shrink-0 m-0 p-0 cursor-pointer',
+        dot: 'w-3 h-3 rounded-full bg-white/50 hover:bg-white transition',
+        dotActive: 'bg-white'
+      }"
       >
         <div @click="openItem(item.name)">
           <component :is="item.component" class="w-full h-screen"/>
         </div>
       </UCarousel>
     </div>
+
 
     <!-- Close button -->
     <CloseIcon v-if="showCloseIcon" @close="handleClose"/>

@@ -14,6 +14,8 @@ import ConAnimaTeam from "@/components/ProjectContents/OrchesterConAnima/ConAnim
 import ConAnimaMitspielen from "@/components/ProjectContents/OrchesterConAnima/ConAnimaMitspielen.vue";
 import ConAnimaSupport from "@/components/ProjectContents/OrchesterConAnima/ConAnimaSupport.vue";
 import SchallUndRauchContent from "@/components/ProjectContents/SchallUndRauchContent.vue";
+import MusikOhneGockelnContent from "@/components/ProjectContents/MusikOhneGockelnContent.vue";
+import Impressum from "@/views/impressum.vue";
 
 const routes = [
     {path: '/', redirect: '/zeugundquer'},
@@ -26,22 +28,24 @@ const routes = [
             {path: 'EnsembleScope', component: EnsembleScopeContent},
             {path: 'NeuesZeug', component: NeuesZeugContent},
             {path: 'SchallUndRauch', component: SchallUndRauchContent},
+            {path: 'MusikOhneGockeln', component: MusikOhneGockelnContent},
+            { path: 'impressum', component: Impressum, name: 'impressum' },
+
             {path: 'Aktuelles/:slug?', component: AktuellesContent}, // optional slug
             {
                 path: 'OrchesterConAnima',
                 component: OrchesterConAnimaContent,
                 children: [
-                    { path: 'Aktuelles', component: ConAnimaAktuelles, name: 'conAnimaAktuelles' },
-                    { path: 'ConAnima', component: ConAnima, name: 'conAnima' },
-                    { path: 'Orchester', component: ConAnimaOrchester, name: 'conAnimaOrchester' },
-                    { path: 'Team', component: ConAnimaTeam, name: 'conAnimaTeam' },
-                    { path: 'Mitspielen', component: ConAnimaMitspielen, name: 'conAnimaMitspielen' },
-                    { path: 'Unterstuetzen', component: ConAnimaSupport, name: 'conAnimaSupport' },
+                    {path: 'Aktuelles', component: ConAnimaAktuelles, name: 'conAnimaAktuelles'},
+                    {path: 'ConAnima', component: ConAnima, name: 'conAnima'},
+                    {path: 'Orchester', component: ConAnimaOrchester, name: 'conAnimaOrchester'},
+                    {path: 'Team', component: ConAnimaTeam, name: 'conAnimaTeam'},
+                    {path: 'Mitspielen', component: ConAnimaMitspielen, name: 'conAnimaMitspielen'},
+                    {path: 'Unterstuetzen', component: ConAnimaSupport, name: 'conAnimaSupport'},
                 ]
             }
-
         ]
-    }
+    },
 ]
 
 export default createRouter({
