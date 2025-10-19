@@ -1,5 +1,10 @@
 ﻿<script setup lang="ts">
-// no special logic needed for now
+import { onMounted } from "vue";
+
+onMounted(() => {
+  // Scroll to the top smoothly when this component is mounted
+  window.scrollTo({ top: 0, behavior: "instant" });
+});
 </script>
 
 <template>
@@ -89,6 +94,46 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.impressum-container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+a {
+  color: #1e90ff;
+  text-decoration: underline;
+}
+
+.section {
+  margin-top: 2rem;
+}
+</style>
+
 
 <style scoped>
 .impressum-container {
