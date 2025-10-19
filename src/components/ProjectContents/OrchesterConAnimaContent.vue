@@ -28,10 +28,19 @@
               v-show="!clickedButton || clickedButton === btn.to"
           />
         </div>
-        <router-view :key="$route.fullPath" />
-      </div>
-    </template>
+        <router-view :key="$route.fullPath"/>
+        <div class="w-full pl-50 pr-50 pt-40">
+          <h2 class="text-4xl font-semibold text-amber-700 pt-8 pb-12">
+            Gallerie
+          </h2>
+            <Gallery :images="galleryImages" />
+        </div>
 
+
+
+      </div>
+
+    </template>
 
 
     <template #sponsorships>
@@ -48,6 +57,7 @@ import {useRouter} from 'vue-router'
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import SquareButton from "@/components/placeholder/SquareButton.vue";
+import Gallery from "@/components/placeholder/Gallery.vue";
 
 const buttons = [
   {label: "Aktuelles", to: "conAnimaAktuelles"},
@@ -72,6 +82,15 @@ function handleClick(to: string) {
     router.push({name: to})
   }
 }
+
+
+const images = import.meta.glob('@/assets/images/orchester_con_anima/*.{jpg,jpeg}', { eager: true, import: 'default' })
+
+// Convert to array format expected by <Gallery>
+const galleryImages = Object.entries(images).map(([path, src]) => ({
+  src: src as string,
+  alt: path.split('/').pop() || 'Gallery image'
+}))
 
 </script>
 

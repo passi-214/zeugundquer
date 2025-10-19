@@ -61,7 +61,7 @@ watch(
         return
       }
 
-      const parts = path.split('/').filter(Boolean) // e.g. ['zeugundquer', 'OrchesterConAnima']
+      const parts = path.split('/').filter(Boolean) // e.g. ['zeugundquer', 'orchester_con_anima']
       const firstChild = parts[1] // first-level child of Zeugundquer
       const isNested = parts.length > 2 // true if nested route
 
