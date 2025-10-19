@@ -126,11 +126,11 @@ function getTitleAlignment(index) {
 }
 
 const sponsors = [
-  { id: 1, url: "/images/sponsor/aventis_foundation.avif", name: "Sponsor 1", current: true },
-  { id: 2, url: "/images/sponsor/bundesregierung.avif", name: "Sponsor 2", current: false },
-  { id: 3, url: "/images/sponsor/bw_kunst.avif", name: "Sponsor 3", current: true },
-  { id: 5, url: "/images/sponsor/deutsche_orchester_stiftung.avif", name: "Sponsor 3", current: true },
-  { id: 4, url: "/images/sponsor/bw_soziales.avif", name: "Sponsor 4", current: false },
+  { id: 1, url: "@assets/images/sponsor/aventis_foundation.avif", name: "Sponsor 1", current: true },
+  { id: 2, url: "@assets/images/sponsor/bundesregierung.avif", name: "Sponsor 2", current: false },
+  { id: 3, url: "@assets/images/sponsor/bw_kunst.avif", name: "Sponsor 3", current: true },
+  { id: 5, url: "@assets/images/sponsor/deutsche_orchester_stiftung.avif", name: "Sponsor 3", current: true },
+  { id: 4, url: "@assets/images/sponsor/bw_soziales.avif", name: "Sponsor 4", current: false },
 ];
 
 onMounted(() => {
