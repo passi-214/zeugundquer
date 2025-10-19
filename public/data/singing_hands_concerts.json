@@ -1,0 +1,20 @@
+﻿[
+  {
+    "title": "Gottesdienst der Erzdiözese Freiburg",
+    "date": "Samstag, 16.06, 11:30 Uhr",
+    "location": "Rastatt",
+    "mapsUrl": "https://www.google.com/maps/place/Stadthalle+Graz"
+  },
+  {
+    "title": "Kulturtagen der Gehörlosen",
+    "date": "Freitag, 21.09, 20:00 Uhr",
+    "location": "Messe, Friedrichshafen",
+    "mapsUrl": "https://www.google.com/maps/place/Schloss+Eggenberg"
+  },
+  {
+    "title": "TRIO Lörach",
+    "date": "Sonntag, 12.10, 16:00 Uhr",
+    "location": "Festival TRIO, Lörrach",
+    "mapsUrl": "https://www.google.com/maps/place/Stadtpark+Graz"
+  }
+]
