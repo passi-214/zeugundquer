@@ -13,6 +13,7 @@ import ConAnimaOrchester from "@/components/ProjectContents/OrchesterConAnima/Co
 import ConAnimaTeam from "@/components/ProjectContents/OrchesterConAnima/ConAnimaTeam.vue";
 import ConAnimaMitspielen from "@/components/ProjectContents/OrchesterConAnima/ConAnimaMitspielen.vue";
 import ConAnimaSupport from "@/components/ProjectContents/OrchesterConAnima/ConAnimaSupport.vue";
+import SchallUndRauchContent from "@/components/ProjectContents/SchallUndRauchContent.vue";
 
 const routes = [
     {path: '/', redirect: '/zeugundquer'},
@@ -24,6 +25,7 @@ const routes = [
             {path: 'SingingHands', component: SingingHandsContent},
             {path: 'EnsembleScope', component: EnsembleScopeContent},
             {path: 'NeuesZeug', component: NeuesZeugContent},
+            {path: 'SchallUndRauch', component: SchallUndRauchContent},
             {path: 'Aktuelles/:slug?', component: AktuellesContent}, // optional slug
             {
                 path: 'OrchesterConAnima',

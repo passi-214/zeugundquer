@@ -9,6 +9,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { ref, onMounted, watch } from 'vue'
 import Aktuelles from "@/components/Aktuelles.vue";
 import OrchesterConAnima from "@/components/OrchesterConAnima.vue";
+import SchallUndRauch from "@/components/SchallUndRauch.vue";
 
 const router = useRouter()
 const route = useRoute()
@@ -24,7 +25,8 @@ const items = [
   { name: 'EnsembleScope', component: EnsembleScope },
   { name: 'NeuesZeug', component: NeuesZeug },
   { name: 'Aktuelles', component: Aktuelles },
-  { name: 'OrchesterConAnima', component: OrchesterConAnima }
+  { name: 'OrchesterConAnima', component: OrchesterConAnima },
+  { name: 'SchallUndRauch', component: SchallUndRauch }
 ]
 
 function openItem(itemName: string) {
