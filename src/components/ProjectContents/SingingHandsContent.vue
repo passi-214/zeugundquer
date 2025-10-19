@@ -122,6 +122,7 @@ import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
 
 import {ref, onMounted} from 'vue'
 import ConcertCard from "@/components/placeholder/ConcertCard.vue";
+import bwSoziales from '@/assets/images/sponsor/bw_soziales.avif'
 
 const imageSrc = ref('/images/orchestra.jpg')
 const placeholder = 'https://via.placeholder.com/800x500?text=Con+Anima+Orchester'
@@ -131,7 +132,7 @@ const handleImageError = () => {
 }
 
 const sponsors = [
-  {id: 1, url: '/images/sponsor/bw_soziales.avif', name: 'Sponsor 1', current: true},
+  {id: 1, url: bwSoziales, name: 'Sponsor 1', current: true},
 ];
 
 const rehearsal = ref<Array<{

@@ -1,5 +1,5 @@
 <template>
-  <ProjectContentBase>
+  <ProjectContentBase >
     <template #profile>
       <Profile
           title="zeug und quer e.V."
@@ -75,12 +75,18 @@ import aventis from '@/assets/images/sponsor/aventis_foundation.avif'
 import bundesregierung from '@/assets/images/sponsor/bundesregierung.avif'
 import bwKunst from '@/assets/images/sponsor/bw_kunst.avif'
 import bwSoziales from '@/assets/images/sponsor/bw_soziales.avif'
+import img1 from '@/assets/images/vereinszeug/vereinszeug1.png'
+import img2 from '@/assets/images/vereinszeug/vereinszeug2.png'
+import img3 from '@/assets/images/vereinszeug/vereinszeug3.png'
+import img4 from '@/assets/images/vereinszeug/vereinszeug4.png'
 
-const images = Array.from({length: 4}, (_, i) => ({
-  id: i + 1,
-  url: `/images/vereinszeug/vereinszeug${i + 1}.png`,
-  alt: `Image ${i + 1}`,
-}))
+
+const images = [
+  { id: 1, url: img1, alt: 'Image 1' },
+  { id: 2, url: img2, alt: 'Image 2' },
+  { id: 3, url: img3, alt: 'Image 3' },
+  { id: 4, url: img4, alt: 'Image 4' },
+]
 
 
 const sponsors = [
