@@ -107,6 +107,13 @@
 
         </div>
       </section>
+
+      <div class="w-full px-4 sm:px-12 md:px-24 lg:px-48 pt-10">
+        <h2 class="text-4xl font-semibold text-amber-700 pt-8 pb-12 text-center">
+          Gallerie
+        </h2>
+        <Gallery :images="galleryImages"  :currentImage="null"/>
+      </div>
     </template>
 
     <template #sponsorships>
@@ -125,7 +132,7 @@ import ConcertCard from "@/components/placeholder/ConcertCard.vue";
 import bwSoziales from '@/assets/images/sponsor/bw_soziales.avif'
 
 const imageSrc = ref('/images/orchestra.jpg')
-const placeholder = 'https://via.placeholder.com/800x500?text=Con+Anima+Orchester'
+const placeholder = 'https://via.placeholder.com/800x500?text=Singing_Hands'
 
 const handleImageError = () => {
   imageSrc.value = placeholder
@@ -171,4 +178,40 @@ onMounted(async () => {
     console.error('Error loading rehearsal data:', error)
   }
 })
+
+import Gallery from "@/components/placeholder/Gallery.vue";
+
+// Low-res images
+const imageModules = import.meta.glob('@/assets/images/singing_hands/*.{jpg,jpeg}', {
+  eager: true,
+  import: 'default'
+});
+
+// High-res images
+const highResModules = import.meta.glob('@/assets/images/singing_hands/high_quality/*.{jpg,jpeg}', {
+  eager: true,
+  import: 'default'
+});
+
+const galleryImages = Object.keys(imageModules).map((lowResPath) => {
+  const fileName = lowResPath.split('/').pop()!; // e.g., "Pi7compressed014_DSC04682.jpg"
+
+  // Remove prefix
+  const baseName = fileName.replace(/^Pi7compressed/, ''); // "014_DSC04682.jpg"
+
+  // Find matching high-res image
+  const highResPath = Object.entries(highResModules).find(
+      ([key]) => key.endsWith(fileName)
+  )?.[1];
+
+  if (!highResPath) {
+    console.warn('No high-res image found for:', fileName);
+  }
+
+  return {
+    src: imageModules[lowResPath],     // low-res
+    highResSrc: highResPath || '',     // high-res fallback
+    alt: fileName.split('.')[0] || 'image'
+  };
+});
 </script>

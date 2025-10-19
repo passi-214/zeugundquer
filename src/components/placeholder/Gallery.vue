@@ -3,11 +3,13 @@ import { ref, computed, watch } from 'vue';
 
 interface ImageItem {
   src: string;
+  highResSrc?: string;
   alt?: string;
 }
 
 const props = defineProps<{
   images: ImageItem[];
+  currentImage: { src: string; highResSrc?: string; alt?: string } | null;
 }>();
 
 const currentIndex = ref<number | null>(null);
@@ -38,7 +40,39 @@ const currentImage = computed(() => {
   return null;
 });
 
-// Disable scroll when lightbox is open
+const displayedSrc = ref<string | null>(null);
+const isHighResLoaded = ref(false);
+
+watch(
+    currentImage,
+    (newImage) => {
+      if (!newImage) {
+        displayedSrc.value = null;
+        isHighResLoaded.value = false;
+        return;
+      }
+
+      // Always show low-res first
+      displayedSrc.value = newImage.src;
+      isHighResLoaded.value = false;
+
+      // If high-res exists, load it in background
+      if (newImage.highResSrc) {
+        const img = new Image();
+        img.src = newImage.highResSrc;
+        img.onload = () => {
+          displayedSrc.value = newImage.highResSrc;
+          isHighResLoaded.value = true;
+        };
+      } else {
+        // No high-res available, consider low-res as fully loaded
+        isHighResLoaded.value = true;
+      }
+    },
+    { immediate: true }
+);
+
+
 
 </script>
 
@@ -46,14 +80,14 @@ const currentImage = computed(() => {
   <!-- Thumbnails grid -->
   <div class="gallery-container w-full flex justify-center mt-6">
     <div
-        class="grid gap-12 w-full
-         grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
-        style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr))"
+        class="grid gap-6 justify-center w-[90%] max-w-[1400px]
+           grid-cols-[repeat(auto-fit,minmax(0,400px))] justify-items-center"
     >
-    <button
+      <button
           v-for="(image, index) in images"
           :key="index"
-          class="overflow-hidden rounded-xl shadow-lg aspect-square transform transition hover:scale-105 hover:shadow-2xl"
+          class="overflow-hidden rounded-xl shadow-lg aspect-square transform transition hover:scale-105 hover:shadow-2xl
+             w-full sm:w-auto"
           @click="open(index)"
       >
         <img
@@ -61,10 +95,13 @@ const currentImage = computed(() => {
             :alt="image.alt || 'image'"
             class="w-full h-full object-cover transition-all duration-200"
         />
-
       </button>
     </div>
   </div>
+
+
+
+
 
   <!-- Lightbox Overlay -->
   <div
@@ -94,14 +131,16 @@ const currentImage = computed(() => {
     </button>
 
     <!-- Image -->
-    <div class="flex items-center justify-center max-h-[90vh] max-w-[90vw] rounded-lg overflow-hidden shadow-2xl">
+    <div class="flex items-center justify-center w-full min-h-[60vh] sm:min-h-[80vh] p-4 sm:p-8">
       <img
-          v-if="currentImage"
-          :src="currentImage.src"
-          :alt="currentImage.alt || 'image'"
-          class="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-lg"
+          v-if="displayedSrc"
+          :src="displayedSrc"
+          :alt="props.currentImage?.alt || 'image'"
+          class="max-h-[80vh] max-w-[90vw] sm:max-h-[85vh] sm:max-w-[80vw] object-contain rounded-2xl shadow-2xl transition-opacity duration-500"
+          :class="{'opacity-50 blur-xxs': !isHighResLoaded, 'opacity-100 blur-0': isHighResLoaded}"
       />
     </div>
+
 
     <!-- Next -->
     <button
@@ -115,6 +154,8 @@ const currentImage = computed(() => {
     </button>
   </div>
 </template>
+
+
 
 <style scoped>
 .gallery-container button img {

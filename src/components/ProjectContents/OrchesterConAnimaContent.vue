@@ -29,14 +29,12 @@
           />
         </div>
         <router-view :key="$route.fullPath"/>
-        <div class="w-full pl-50 pr-50 pt-40">
-          <h2 class="text-4xl font-semibold text-amber-700 pt-8 pb-12">
+        <div class="w-full px-4 sm:px-12 md:px-24 lg:px-48 pt-10">
+          <h2 class="text-4xl font-semibold text-amber-700 pt-8 pb-12 text-center">
             Gallerie
           </h2>
-            <Gallery :images="galleryImages" />
+          <Gallery :images="galleryImages"  :currentImage="null"/>
         </div>
-
-
 
       </div>
 

@@ -84,6 +84,11 @@
 import { ref, onMounted, nextTick } from "vue"; // ✅ added nextTick import
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import MusiCasaProjectCard from "@/components/placeholder/MusiCasaProjectCard.vue";
+import aventis from "@/assets/images/sponsor/aventis_foundation.avif";
+import bundesregierung from "@/assets/images/sponsor/bundesregierung.avif";
+import bwKunst from "@/assets/images/sponsor/bw_kunst.avif";
+import bwSoziales from "@/assets/images/sponsor/bw_soziales.avif";
+
 
 const musiCasaProjects = ref([]);
 const activeCard = ref(null);
@@ -126,12 +131,11 @@ function getTitleAlignment(index) {
 }
 
 const sponsors = [
-  { id: 1, url: "@assets/images/sponsor/aventis_foundation.avif", name: "Sponsor 1", current: true },
-  { id: 2, url: "@assets/images/sponsor/bundesregierung.avif", name: "Sponsor 2", current: false },
-  { id: 3, url: "@assets/images/sponsor/bw_kunst.avif", name: "Sponsor 3", current: true },
-  { id: 5, url: "@assets/images/sponsor/deutsche_orchester_stiftung.avif", name: "Sponsor 3", current: true },
-  { id: 4, url: "@assets/images/sponsor/bw_soziales.avif", name: "Sponsor 4", current: false },
-];
+  { id: 1, url: aventis, name: 'Sponsor 1', current: true },
+  { id: 2, url: bundesregierung, name: 'Sponsor 2', current: false },
+  { id: 3, url: bwKunst, name: 'Sponsor 3', current: true },
+  { id: 4, url: bwSoziales, name: 'Sponsor 4', current: false },
+]
 
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
