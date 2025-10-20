@@ -1,8 +1,9 @@
 ﻿<template>
   <ProjectContentBase
       :showSponsorships="true"
-      class="bg-gradient-to-b from-[#F5B95F] via-[#FCCD85] to-[#DD7126] min-h-screen"
+      class="bg-gradient-to-b from-[#F7D28D] via-[#FBE1B5] to-[#E9A972] min-h-screen"
   >
+
 
     <template #profile>
       <Profile
@@ -42,27 +43,32 @@
       <div class="p-5">
         <div class="button-panel grid gap-4 justify-center justify-items-center mb-4"
              style="grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); max-width: 40rem; margin-inline: auto;">
-          <SquareButton v-for="(btn, index) in buttons" :key="index"
-                        :label="btn.label"
-                        :to="btn.to"
-                        :isActive="clickedButton === btn.to"
-                        @click="handleClick(btn.to)"
-                        v-show="!clickedButton || clickedButton === btn.to"/>
+          <SquareButton
+              v-for="(btn, index) in buttons"
+              :key="index"
+              :label="btn.label"
+              :to="btn.to"
+              :isActive="clickedButton === btn.to"
+              @click="handleClick(btn.to)"
+              v-show="!clickedButton || clickedButton === btn.to"
+              bgColor="#A34865"
+              activeBgColor="#C40F3C"
+              textColor="#FFF8EC"
+          />
+
+
+
         </div>
         <router-view :key="$route.fullPath"/>
         <CollapsibleGallery
             class="pt-20"
             :images="galleryImages"
-            bgColor="bg-[#8C4B5C]"
+            bgColor="bg-[#A34865]"
             hoverBgColor="bg-[#B25B6D]"
             textColor="text-[#FFF8EC]"
             pulseFrom="#9C5F6E"
-            pulseTo="#AC6F7E"
+            pulseTo="#A34865"
         />
-
-
-
-
       </div>
     </template>
 
