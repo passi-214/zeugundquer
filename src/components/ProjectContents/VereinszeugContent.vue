@@ -62,8 +62,7 @@
     </template>
 
     <template #sponsorships>
-      <section class="bg-[#3F6576] text-white py-12">
-        <h2 class="text-2xl font-semibold text-center mb-8">Unsere Förderer</h2>
+      <section class="text-white py-12">
         <Sponsors :sponsors="sponsors"/>
       </section>
     </template>

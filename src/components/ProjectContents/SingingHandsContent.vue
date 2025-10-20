@@ -1,25 +1,41 @@
 <template>
-  <ProjectContentBase :showSponsorships="true">
+  <ProjectContentBase
+      :showSponsorships="true"
+      class="bg-gradient-to-b from-[#012420]/40 via-[#014F4F]/30 to-[#32CCCC]/20 min-h-screen"
+  >
+
     <template #profile>
-      <Profile title="Singende Hände Freiburg" foundingYear="2023"
-               :projects="[ { title: '', subitems: [ 'ca. 20 Musizierende'] } ]"
-               concertsPerYear="3-4 Konzerte im Jahr" responsible="Sophia Kirstein und Stephanie Mündel-Möhr"
-               containerBg="bg-gradient-to-br from-indigo-50 to-purple-50" headerTextColor="text-purple-700"
-               titleTextColor="text-purple-900" badgeTitleBg="bg-purple-200" badgeTitleText="text-purple-900"
-               badgeYearBg="bg-indigo-200" badgeYearText="text-indigo-900" boxBg="bg-white"
-               sectionTitleColor="text-indigo-700" textColor="text-gray-800" subTextColor="text-gray-600"
-               concertsBoxBg="bg-yellow-100" concertsTextColor="text-yellow-900" responsibleBoxBg="bg-green-100"
-               responsibleTextColor="text-green-800"/>
+      <Profile
+          title="Singende Hände Freiburg"
+          foundingYear="2023"
+          :projects="[ { title: '', subitems: [ 'ca. 20 Musizierende'] } ]"
+          concertsPerYear="3-4 Konzerte im Jahr"
+          responsible="Sophia Kirstein und Stephanie Mündel-Möhr"
+          containerBg="bg-[#012420]/95 backdrop-blur-md"
+          headerTextColor="text-gray-300"
+          titleTextColor="text-gray-200"
+          badgeTitleBg="bg-[#014F4F]/80"
+          badgeTitleText="text-gray-300"
+          badgeYearBg="bg-[#32CCCC]/60"
+          badgeYearText="text-gray-300"
+          boxBg="bg-[#012420]/90"
+          sectionTitleColor="text-[#32CCCC]"
+          textColor="text-gray-200"
+          subTextColor="text-gray-300"
+          concertsBoxBg="bg-[#014F4F]/50"
+          concertsTextColor="text-gray-300"
+          responsibleBoxBg="bg-[#014F4F]/50"
+          responsibleTextColor="text-gray-200"
+      />
+
+
       <div class="h-12 sm:h-12"></div>
     </template>
 
     <template #description>
-      <section class="flex flex-col items-center px-6 py-20 text-gray-800 leading-relaxed">
-        <!-- ✅ Left-aligned title, justified text only on larger screens -->
+      <section class="flex flex-col items-center px-6 py-20 text-[#E0F7F7] leading-relaxed">
         <div class="w-full max-w-4xl space-y-8 text-left md:text-justify text-lg md:text-xl">
-          <h2 class="text-3xl font-semibold text-amber-700">
-            Über uns
-          </h2>
+          <h2 class="text-3xl font-semibold text-[#012420]">Über uns</h2>
           <p class="pt-8">
             Wir sind ein Ensemble aus hörenden und Tauben Menschen in Freiburg und verbinden Chormusik und
             Gebärdenpoesie.
@@ -28,30 +44,46 @@
             Wir wollen diesen Austausch zudem in die Öffentlichkeit bringen und durch Kunst und Kultur Brücken bauen.
             <br>
             Zurzeit besteht unser Chor aus ca. 20 Leuten und wir freuen uns über jeden, der mitmachen möchte! Weitere
-            Infos
-            findet ihr hier auf der Website.
+            Infos findet ihr hier auf der Website.
             <br>
             Bei Fragen könnt ihr uns gerne per E-Mail kontaktieren.
           </p>
 
-          <SecondaryButton button-text="Mail" link="mailto:singendehaendefreiburg@gmail.com" width-class="w-50"/>
-          <SecondaryButton button-text="Instagram"
-                           link="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjm6Y-y07CQAxWARPEDHSdyBvkQFnoECBkQAQ&url=https%3A%2F%2Fwww.instagram.com%2Fsingendehaendefreiburg%2F&usg=AOvVaw08oT8hmG0YLzu2LS-QBKts&opi=89978449"
-                           width-class="w-50"/>
-
-
-          <h2 class="text-3xl font-semibold text-amber-700 pt-8">
-            Zeitungsberichte
-          </h2>
-          <div class="self-start flex flex-wrap gap-4 -ml-6 justify-center pt-6">
+          <div class="flex gap-4 flex-wrap pt-8">
             <SecondaryButton
-                buttonText="SWR-Artikel"
+                button-text="Mail"
+                link="mailto:singendehaendefreiburg@gmail.com"
+                bgColor="#32CCCC"
+                textColor="#012420"
+                hoverBgColor="#014F4F"
+                width-class="w-50"
+            />
+            <SecondaryButton
+                button-text="Instagram"
+                link="https://www.instagram.com/singendehaendefreiburg/"
+                bgColor="#32CCCC"
+                textColor="#012420"
+                hoverBgColor="#014F4F"
+                width-class="w-50"
+            />
+          </div>
+
+          <h2 class="text-3xl font-semibold text-[#012420] pt-12">Zeitungsberichte</h2>
+          <div class="flex flex-wrap gap-4 pt-6">
+            <SecondaryButton
+                button-text="SWR-Artikel"
                 link="https://www.swr.de/swraktuell/baden-wuerttemberg/suedbaden/gehoerlosen-chor-freiburg-singende-haende-100.html"
+                bgColor="#32CCCC"
+                textColor="#012420"
+                hoverBgColor="#014F4F"
                 width-class="w-50"
             />
             <SecondaryButton
                 button-text="Chilli Artikel"
                 link="https://www.chilli-freiburg.de/musik/wenn-gehoerlose-singen-freiburg-hat-einen-wohl-einzigartigen-inklusiven-chor/"
+                bgColor="#32CCCC"
+                textColor="#012420"
+                hoverBgColor="#014F4F"
                 width-class="w-50"
             />
           </div>
@@ -59,29 +91,22 @@
           <!-- Image -->
           <div class="pt-8 pb-16 w-full flex justify-center">
             <div
-                class="relative w-full max-w-4xl aspect-[16/9] bg-gray-100 rounded-2xl overflow-hidden shadow-lg flex items-center justify-center">
+                class="relative w-full max-w-4xl aspect-[16/9] rounded-2xl overflow-hidden shadow-lg flex items-center justify-center bg-[#014F4F]">
               <img
                   :src="imageSrc"
-                  alt="Con Anima Orchester"
+                  alt="Singende Hände Freiburg"
                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-[1.03]"
                   @error="handleImageError"
               />
-              <div
-                  v-if="imageSrc === placeholder"
-                  class="absolute inset-0 flex items-center justify-center text-gray-500 text-base md:text-lg bg-gray-50"
-              >
+              <div v-if="imageSrc === placeholder"
+                   class="absolute inset-0 flex items-center justify-center text-[#E0F7F7] text-base md:text-lg bg-[#012420]/70">
                 Bild wird geladen oder ist nicht verfügbar
               </div>
             </div>
           </div>
 
-          <h2 class="text-3xl font-semibold text-amber-700 pt-8">
-            Termine
-          </h2>
-          <h3 class="text-2xl font-semibold text-amber-700 pt-8 pb-8">
-            Konzerte
-          </h3>
-
+          <h2 class="text-3xl font-semibold text-[#012420] pt-8">Termine</h2>
+          <h3 class="text-2xl font-semibold text-[#012420] pt-8 pb-8">Konzerte</h3>
           <div class="flex flex-col items-left space-y-12 gap-12 pb-10 min-h-160">
             <ConcertCard
                 v-for="(concert, index) in concerts"
@@ -90,12 +115,17 @@
                 :date="concert.date"
                 :location="concert.location"
                 :maps-url="concert.mapsUrl"
-                class="w-200 max-w-2xl transform hover:scale-[1.02] transition-transform duration-300"
+                class="w-full max-w-2xl transform hover:scale-[1.02] transition-transform duration-300"
+                borderColor="#012420"
+                fontColor="#012420"
+            titleColor="#012420"
+            textColor="#012420"
+            linkColor="#012420"
             />
+
           </div>
-          <h3 class="text-2xl font-semibold text-amber-700 pt-16 pb-8">
-            Proben
-          </h3>
+
+          <h3 class="text-2xl font-semibold text-[#012420] pt-16 pb-8">Proben</h3>
           <div class="flex flex-col items-left space-y-12 gap-12 pb-10 min-h-240">
             <ConcertCard
                 v-for="(rehearsal, index) in rehearsal"
@@ -105,19 +135,33 @@
                 :location="rehearsal.location"
                 :maps-url="rehearsal.mapsUrl"
                 class="w-full max-w-2xl transform hover:scale-[1.02] transition-transform duration-300"
+                borderColor="#012420"
+                fontColor="#012420"
+                titleColor="#012420"
+                textColor="#012420"
+                linkColor="#012420"
             />
           </div>
-
-
         </div>
       </section>
-      <CollapsibleGallery :images="galleryImages" class="pt-0"/>
+
+      <CollapsibleGallery
+          :images="galleryImages"
+          class="pt-0"
+          bgColor="bg-[#329999]"
+          hoverBgColor="bg-[#329999]"
+          textColor="#32CCCC"
+          pulseFrom="#329999"
+          pulseTo="#32CCCC"
+      />
     </template>
 
     <template #sponsorships>
       <Sponsors :sponsors="sponsors"/>
     </template>
   </ProjectContentBase>
+
+
 </template>
 
 <script setup lang="ts">
