@@ -1,5 +1,5 @@
 ﻿<script setup lang="ts">
-import { ref, computed, watch } from 'vue';
+import {ref, computed, watch, onMounted} from 'vue';
 
 interface ImageItem {
   src: string;
@@ -10,7 +10,23 @@ interface ImageItem {
 const props = defineProps<{
   images: ImageItem[];
   currentImage: { src: string; highResSrc?: string; alt?: string } | null;
+  imageCount?: number; // new optional prop
 }>();
+
+
+const loadedThumbnails = ref<boolean[]>([]);
+
+onMounted(() => {
+  loadedThumbnails.value = props.images.map(() => false);
+
+  props.images.forEach((image, index) => {
+    const img = new Image();
+    img.src = image.src;
+    img.onload = () => {
+      loadedThumbnails.value[index] = true;
+    };
+  });
+});
 
 const currentIndex = ref<number | null>(null);
 
@@ -69,38 +85,43 @@ watch(
         isHighResLoaded.value = true;
       }
     },
-    { immediate: true }
+    {immediate: true}
 );
-
 
 
 </script>
 
 <template>
   <!-- Thumbnails grid -->
-  <div class="gallery-container w-full flex justify-center mt-6">
-    <div
-        class="grid gap-6 justify-center w-[90%] max-w-[1400px]
+
+    <div class="gallery-container w-full flex justify-center mt-6">
+      <div
+          class="grid gap-6 justify-center w-[90%] max-w-[1400px]
            grid-cols-[repeat(auto-fit,minmax(0,400px))] justify-items-center"
-    >
-      <button
-          v-for="(image, index) in images"
-          :key="index"
-          class="overflow-hidden rounded-xl shadow-lg aspect-square transform transition hover:scale-105 hover:shadow-2xl
-             w-full sm:w-auto"
-          @click="open(index)"
       >
-        <img
-            :src="image.src"
-            :alt="image.alt || 'image'"
-            class="w-full h-full object-cover transition-all duration-200"
-        />
-      </button>
+        <div
+            v-for="(image, index) in images"
+            :key="index"
+            class="overflow-hidden rounded-xl shadow-lg aspect-square transform transition hover:scale-105 hover:shadow-2xl w-full sm:w-auto"
+            @click="open(index)"
+        >
+          <!-- Placeholder -->
+          <div
+              v-if="!loadedThumbnails[index]"
+              class="w-full h-full bg-gray-300 animate-pulse"
+          ></div>
+
+          <!-- Actual image -->
+          <img
+              v-else
+              :src="image.src"
+              :alt="image.alt || 'image'"
+              class="w-full h-full object-cover transition-all duration-200"
+          />
+        </div>
+
+      </div>
     </div>
-  </div>
-
-
-
 
 
   <!-- Lightbox Overlay -->
@@ -114,8 +135,9 @@ watch(
         @click="close"
         aria-label="Close"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+           stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>
 
@@ -125,8 +147,9 @@ watch(
         @click="prev"
         aria-label="Previous"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+           stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
       </svg>
     </button>
 
@@ -148,19 +171,20 @@ watch(
         @click="next"
         aria-label="Next"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+           stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
       </svg>
     </button>
   </div>
 </template>
 
 
-
 <style scoped>
 .gallery-container button img {
   transition: transform 0.2s ease;
 }
+
 .gallery-container button:hover img {
   transform: scale(1.05);
 }

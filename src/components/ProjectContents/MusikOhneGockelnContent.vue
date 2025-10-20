@@ -3,6 +3,9 @@ import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Gallery from "@/components/placeholder/Gallery.vue";
 import {useGallery} from "@/composables/useGallery";
 import Profile from "@/components/placeholder/Profile.vue";
+import {ref, computed} from 'vue';
+import {ChevronRight} from 'lucide-vue-next'
+import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
 
 
 // Low-res images
@@ -18,6 +21,13 @@ const highResMusik = import.meta.glob('@/assets/images/musik_ohne_gockeln/high_q
 });
 
 const galleryImages = useGallery(lowResMusik, highResMusik, 'Pi7compressed');
+
+const chevronRotation = computed(() => (open.value ? 'rotate-180' : 'rotate-0'))
+const open = ref(false)
+
+defineShortcuts({
+  o: () => open.value = !open.value
+})
 </script>
 
 
@@ -81,13 +91,7 @@ const galleryImages = useGallery(lowResMusik, highResMusik, 'Pi7compressed');
           </p>
         </div>
       </section>
-      <!-- ✅ Centered Gallery -->
-      <div class="w-full px-4 sm:px-12 md:px-24 lg:px-48 pt-10">
-        <h2 class="text-4xl font-semibold text-amber-700 pt-8 pb-12 text-center">
-          Gallerie
-        </h2>
-        <Gallery :images="galleryImages" :currentImage="null"/>
-      </div>
+      <CollapsibleGallery :images="galleryImages"/>
     </template>
     <template #sponsorships>
 
@@ -96,5 +100,19 @@ const galleryImages = useGallery(lowResMusik, highResMusik, 'Pi7compressed');
 </template>
 
 <style scoped>
+/* Background pulse animation */
+@keyframes bgPulse {
+  0%, 100% {
+    background-color: #fef3c7;
+  }
+  /* amber-50 */
+  50% {
+    background-color: #fde68a;
+  }
+  /* amber-200, bright */
+}
 
+.bg-pulse-amber {
+  animation: bgPulse 3s infinite ease-in-out;
+}
 </style>

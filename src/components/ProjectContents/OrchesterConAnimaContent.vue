@@ -29,12 +29,7 @@
           />
         </div>
         <router-view :key="$route.fullPath"/>
-        <div class="w-full px-4 sm:px-12 md:px-24 lg:px-48 pt-10">
-          <h2 class="text-4xl font-semibold text-amber-700 pt-8 pb-12 text-center">
-            Gallerie
-          </h2>
-          <Gallery :images="galleryImages"  :currentImage="null"/>
-        </div>
+        <CollapsibleGallery :images="galleryImages" class="pt-20"/>
 
       </div>
 
@@ -57,6 +52,7 @@ import Profile from "@/components/placeholder/Profile.vue";
 import SquareButton from "@/components/placeholder/SquareButton.vue";
 import Gallery from "@/components/placeholder/Gallery.vue";
 import {useGallery} from "@/composables/useGallery";
+import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
 
 const buttons = [
   {label: "Aktuelles", to: "conAnimaAktuelles"},
