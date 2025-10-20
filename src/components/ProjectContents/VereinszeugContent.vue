@@ -1,67 +1,73 @@
 <template>
-  <ProjectContentBase :showSponsorships="true">
+  <ProjectContentBase
+      :showSponsorships="true"
+      class="bg-gradient-to-b from-[#F7B267] via-[#FFD89B] to-[#FFF8EC] min-h-screen"
+  >
     <template #profile>
       <Profile
           title="zeug und quer e.V."
           foundingYear="2015"
           :projects="[
-          { title: '6 dauerhafte Projekte, etliche einmalige Initiativen und Projekt-Starthilfen insbesondere in den Bereichen:',
-            subitems: [
-              'Kulturelle Bildung und Teilhabe',
-              'Inklusion',
-              'Musikvermittlung in postmigrantischen Communities'
-            ]
-          }
-        ]"
-          concertsPerYear="ca. 15-20 Konzerte pro Jahr"
+      {
+        title: '6 dauerhafte Projekte, etliche einmalige Initiativen und Projekt-Starthilfen insbesondere in den Bereichen:',
+        subitems: [
+          'Kulturelle Bildung und Teilhabe',
+          'Inklusion',
+          'Musikvermittlung in postmigrantischen Communities'
+        ]
+      }
+    ]"
+          concertsPerYear="ca. 15–20 Konzerte pro Jahr"
           responsible="Vereinsvorstand: Katharina Schmauder, Samira Nowarra, Hansjörg Schmauder"
 
-          containerBg="bg-gradient-to-br from-indigo-50 to-purple-50"
-          headerTextColor="text-purple-700"
-          titleTextColor="text-purple-900"
-          badgeTitleBg="bg-purple-200"
-          badgeTitleText="text-purple-900"
-          badgeYearBg="bg-indigo-200"
-          badgeYearText="text-indigo-900"
-          boxBg="bg-white"
-          sectionTitleColor="text-indigo-700"
-          textColor="text-gray-800"
-          subTextColor="text-gray-600"
-          concertsBoxBg="bg-yellow-100"
-          concertsTextColor="text-yellow-900"
-          responsibleBoxBg="bg-green-100"
-          responsibleTextColor="text-green-800"
+          containerBg="bg-gradient-to-br from-[#B8C8D6]/60 via-[#E9EEF3]/80 to-white shadow-md border border-[#3F6576]/30 rounded-2xl"
+          headerTextColor="text-[#12243D]"
+      titleTextColor="text-[#12243D]"
+      badgeTitleBg="bg-[#F5E7B2]"
+      badgeTitleText="text-[#162A4B]"
+      badgeYearBg="bg-[#3F6576]"
+      badgeYearText="text-white"
+      boxBg="bg-white/85 backdrop-blur-sm shadow-md"
+      sectionTitleColor="text-[#2C4D67]"
+      textColor="text-[#1F1F1F]"
+      subTextColor="text-[#3A3A3A]"
+      concertsBoxBg="bg-[#F5E7B2]/70"
+      concertsTextColor="text-[#162A4B]"
+      responsibleBoxBg="bg-[#C4D1DF]/60"
+      responsibleTextColor="text-[#162A4B]"
       />
+
+
       <div class="h-12 sm:h-12"></div>
-
     </template>
+
     <template #description>
-      <!-- Full-width carousel inside description -->
-      <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">Was sind wir?</h2>
-      <div class="-mx-10 mt-6 pb-10">
-        <ContentCarousel :images="images" :config="myConfig"/>
-      </div>
+      <section class=" rounded-2xl mx-4 sm:mx-10 my-8 p-6">
+        <h2 class="text-3xl font-bold mb-4 text-[#162A4B]">Was sind wir?</h2>
+        <div class="-mx-10 mt-6 pb-10">
+          <ContentCarousel :images="images" :config="myConfig"/>
+        </div>
+      </section>
 
-      <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">
-        Wer sind wir?
-      </h2>
-      <p class="text-xl font-bold mb-4 px-4 sm:px-10 pb-6 sm:pb-10">
-        zeug und quer e. V. hat sich im April 2015 gegründet und besteht derzeit aus ca. 35 Mitgliedern (großteils
-        Studierende der Musikhochschule Freiburg). Der Kulturverein möchte Verbindungen schaffen, insbesondere
-        interdisziplinärer, interkultureller und generationenübergreifender Art. Genauso sollen laut Satzung zwischen
-        Kunst und ihrer Vermittlung, Tradition und Gegenwart, Anspruch und Vergnügen, dem Profi- und Laienmusikbetrieb
-        Brücken geschlagen werden.
-      </p>
-
+      <section class="bg-gradient-to-b from-[] to-[#FFF8EC] mx-4 sm:mx-10 my-8 p-6">
+        <h2 class="text-3xl font-bold mb-4 text-[#162A4B]">Wer sind wir?</h2>
+        <p class="text-xl font-medium mb-4 text-[#333333] leading-relaxed">
+          zeug und quer e. V. hat sich im April 2015 gegründet und besteht derzeit aus ca. 35 Mitgliedern
+          (großteils Studierende der Musikhochschule Freiburg). Der Kulturverein möchte Verbindungen schaffen,
+          insbesondere interdisziplinärer, interkultureller und generationenübergreifender Art.
+          Genauso sollen laut Satzung zwischen Kunst und ihrer Vermittlung, Tradition und Gegenwart, Anspruch
+          und Vergnügen, dem Profi- und Laienmusikbetrieb Brücken geschlagen werden.
+        </p>
+      </section>
     </template>
 
     <template #sponsorships>
-      <Sponsors :sponsors="sponsors" />
+      <section class="bg-[#3F6576] text-white py-12">
+        <h2 class="text-2xl font-semibold text-center mb-8">Unsere Förderer</h2>
+        <Sponsors :sponsors="sponsors"/>
+      </section>
     </template>
   </ProjectContentBase>
-  <!--  <div class="mt-12">-->
-  <!--    <ContentCarousel :images="images" :config="myConfig" />-->
-  <!--  </div>-->
 </template>
 
 
@@ -82,18 +88,18 @@ import img4 from '@/assets/images/vereinszeug/vereinszeug4.png'
 
 
 const images = [
-  { id: 1, url: img1, alt: 'Image 1' },
-  { id: 2, url: img2, alt: 'Image 2' },
-  { id: 3, url: img3, alt: 'Image 3' },
-  { id: 4, url: img4, alt: 'Image 4' },
+  {id: 1, url: img1, alt: 'Image 1'},
+  {id: 2, url: img2, alt: 'Image 2'},
+  {id: 3, url: img3, alt: 'Image 3'},
+  {id: 4, url: img4, alt: 'Image 4'},
 ]
 
 
 const sponsors = [
-  { id: 1, url: aventis, name: 'Sponsor 1', current: true },
-  { id: 2, url: bundesregierung, name: 'Sponsor 2', current: false },
-  { id: 3, url: bwKunst, name: 'Sponsor 3', current: true },
-  { id: 4, url: bwSoziales, name: 'Sponsor 4', current: false },
+  {id: 1, url: aventis, name: 'Sponsor 1', current: true},
+  {id: 2, url: bundesregierung, name: 'Sponsor 2', current: false},
+  {id: 3, url: bwKunst, name: 'Sponsor 3', current: true},
+  {id: 4, url: bwSoziales, name: 'Sponsor 4', current: false},
 ]
 
 
