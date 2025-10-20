@@ -1,15 +1,13 @@
-﻿<script setup>
-
+﻿<script setup lang="ts">
 import NavigationItem from "@/layouts/NavigationItem.vue";
+
+// Import images so Vite resolves them
+import lowResImage from "@/assets/images/navigation/aktuelles_title.png";
 </script>
 
 <template>
   <NavigationItem
       headline="Aktuelles"
-      image="https://picsum.photos/1920/1080?random=17"
+      :low-res="lowResImage"
   />
 </template>
-
-<style scoped>
-
-</style>

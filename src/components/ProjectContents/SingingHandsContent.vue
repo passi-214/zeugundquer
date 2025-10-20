@@ -78,7 +78,7 @@
             Konzerte
           </h3>
 
-          <div class="flex flex-col items-left space-y-12 gap-12 pb-10">
+          <div class="flex flex-col items-left space-y-12 gap-12 pb-10 min-h-160">
             <ConcertCard
                 v-for="(concert, index) in concerts"
                 :key="index"
@@ -92,7 +92,7 @@
           <h3 class="text-2xl font-semibold text-amber-700 pt-16 pb-8">
             Proben
           </h3>
-          <div class="flex flex-col items-left space-y-12 gap-12 pb-10">
+          <div class="flex flex-col items-left space-y-12 gap-12 pb-10 min-h-240">
             <ConcertCard
                 v-for="(rehearsal, index) in rehearsal"
                 :key="index"
@@ -107,7 +107,7 @@
 
         </div>
       </section>
-      <CollapsibleGallery :images="galleryImages" class="pt-20"/>
+      <CollapsibleGallery :images="galleryImages" class="pt-0"/>
     </template>
 
     <template #sponsorships>

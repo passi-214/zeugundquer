@@ -60,7 +60,7 @@
       <!-- Project Cards Section -->
       <div
           ref="descriptionRef"
-          class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full"
+          class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full min-h-230"
       >
         <MusiCasaProjectCard
             v-for="(entry, index) in musiCasaProjects"
