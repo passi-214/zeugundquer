@@ -5,8 +5,8 @@ import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 </script>
 
 <template>
-  <ProjectContentBase>
-    <template #profile>
+  <ProjectContentBase :showSponsorships="true">
+  <template #profile>
       <Profile
           title="Schall und Rauch"
           foundingYear="2019"

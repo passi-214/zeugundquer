@@ -88,7 +88,7 @@ onMounted(() => {
 
 
 <template>
-  <ProjectContentBase>
+  <ProjectContentBase :showSponsorships="false">
     <template #description>
       <h2
           ref="aktuellesHeader"

@@ -1,6 +1,6 @@
 ﻿<template>
-  <ProjectContentBase>
-    <template #profile>
+  <ProjectContentBase :showSponsorships="true">
+  <template #profile>
       <Profile title="Orchester Con Anima" foundingYear="2018"
                :projects="[ { title: 'Sozialmusikprojekt / interkulturelles Orchester', subitems: [ '32 aktive Musizierende', '11 Herkunftsländern', ] } ]"
                concertsPerYear="2-5 Konzerte pro Jahr" responsible="Carola Christ"

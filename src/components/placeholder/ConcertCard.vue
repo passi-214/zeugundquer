@@ -1,6 +1,6 @@
 ﻿<template>
   <div
-      class="border border-gray-400 rounded-2xl p-8 pt-6 w-full max-w-lg shadow-sm hover:shadow-md transition-shadow bg-transparent"
+      class="border border-gray-400 rounded-2xl p-8 pt-6  max-w-lg shadow-sm hover:shadow-md transition-shadow bg-transparent"
   >
     <!-- Title -->
     <h2 class="text-2xl font-semibold text-gray-900 mb-8 pb-4">

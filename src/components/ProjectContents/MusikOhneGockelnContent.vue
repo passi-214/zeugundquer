@@ -32,8 +32,8 @@ defineShortcuts({
 
 
 <template>
-  <ProjectContentBase>
-    <template #profile>
+  <ProjectContentBase :showSponsorships="true">
+  <template #profile>
       <Profile
           title="Musik ohne Gockeln"
           foundingYear="2024"

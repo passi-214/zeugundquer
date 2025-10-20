@@ -1,6 +1,6 @@
 <template>
-  <ProjectContentBase>
-    <template #profile>
+  <ProjectContentBase :showSponsorships="true">
+  <template #profile>
       <Profile
           title="ensemble scope"
           foundingYear="2019"

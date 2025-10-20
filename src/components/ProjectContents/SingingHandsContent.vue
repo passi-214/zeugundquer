@@ -1,5 +1,5 @@
 <template>
-  <ProjectContentBase>
+  <ProjectContentBase :showSponsorships="true">
     <template #profile>
       <Profile title="Singende Hände Freiburg" foundingYear="2023"
                :projects="[ { title: '', subitems: [ 'ca. 20 Musizierende'] } ]"
@@ -34,21 +34,25 @@
             Bei Fragen könnt ihr uns gerne per E-Mail kontaktieren.
           </p>
 
-          <SecondaryButton button-text="Mail" link="mailto:singendehaendefreiburg@gmail.com"/>
-          <SecondaryButton button-text="Instagram" link="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjm6Y-y07CQAxWARPEDHSdyBvkQFnoECBkQAQ&url=https%3A%2F%2Fwww.instagram.com%2Fsingendehaendefreiburg%2F&usg=AOvVaw08oT8hmG0YLzu2LS-QBKts&opi=89978449"/>
+          <SecondaryButton button-text="Mail" link="mailto:singendehaendefreiburg@gmail.com" width-class="w-50"/>
+          <SecondaryButton button-text="Instagram"
+                           link="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjm6Y-y07CQAxWARPEDHSdyBvkQFnoECBkQAQ&url=https%3A%2F%2Fwww.instagram.com%2Fsingendehaendefreiburg%2F&usg=AOvVaw08oT8hmG0YLzu2LS-QBKts&opi=89978449"
+                           width-class="w-50"/>
 
 
           <h2 class="text-3xl font-semibold text-amber-700 pt-8">
             Zeitungsberichte
           </h2>
-          <div class="self-start flex flex-wrap gap-4 -ml-6 justify-center">
+          <div class="self-start flex flex-wrap gap-4 -ml-6 justify-center pt-6">
             <SecondaryButton
                 buttonText="SWR-Artikel"
                 link="https://www.swr.de/swraktuell/baden-wuerttemberg/suedbaden/gehoerlosen-chor-freiburg-singende-haende-100.html"
+                width-class="w-50"
             />
             <SecondaryButton
                 button-text="Chilli Artikel"
                 link="https://www.chilli-freiburg.de/musik/wenn-gehoerlose-singen-freiburg-hat-einen-wohl-einzigartigen-inklusiven-chor/"
+                width-class="w-50"
             />
           </div>
 
@@ -86,7 +90,7 @@
                 :date="concert.date"
                 :location="concert.location"
                 :maps-url="concert.mapsUrl"
-                class="w-full max-w-2xl transform hover:scale-[1.02] transition-transform duration-300"
+                class="w-200 max-w-2xl transform hover:scale-[1.02] transition-transform duration-300"
             />
           </div>
           <h3 class="text-2xl font-semibold text-amber-700 pt-16 pb-8">
@@ -153,8 +157,7 @@ const concerts = ref<Array<{
   mapsUrl: string
 }>>([])
 
-function sendEmail()
-{
+function sendEmail() {
   window.location = "mailto:xyz@yourapplicationdomain.com";
 }
 

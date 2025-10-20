@@ -1,5 +1,5 @@
 <template>
-  <ProjectContentBase >
+  <ProjectContentBase :showSponsorships="true">
     <template #profile>
       <Profile
           title="zeug und quer e.V."

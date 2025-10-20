@@ -1,6 +1,6 @@
 <template>
-  <ProjectContentBase>
-    <template #profile>
+  <ProjectContentBase :showSponsorships="true">
+  <template #profile>
       <Profile
           title="NEUES ZEUG"
           foundingYear="2014"

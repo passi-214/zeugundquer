@@ -12,7 +12,10 @@
     </section>
 
     <!-- Sponsorships -->
-    <section class="mb-12 p-10 bg-gradient-to-r from-indigo-50 via-purple-50 to-indigo-50 rounded-xl shadow-inner">
+    <section
+        v-if="showSponsorships"
+        class="mb-12 p-10 bg-gradient-to-r from-indigo-50 via-purple-50 to-indigo-50 rounded-xl shadow-inner"
+    >
       <h2 class="text-3xl font-bold mb-6 pb-8 text-indigo-900">Förderer und Sponsoren</h2>
       <slot name="sponsorships">
         <p>[Default sponsorships placeholder]</p>
@@ -28,4 +31,11 @@
 
 <script setup lang="ts">
 import Footer from "@/components/Footer.vue";
+
+defineProps({
+  showSponsorships: {
+    type: Boolean,
+    default: true
+  }
+});
 </script>
