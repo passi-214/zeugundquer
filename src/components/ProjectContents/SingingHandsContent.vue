@@ -190,6 +190,8 @@ const imageSrc = ref('/images/orchestra.jpg')
 
 const placeholder = 'https://via.placeholder.com/800x500?text=Singing_Hands'
 
+const BASE_URL = import.meta.env.BASE_URL
+
 const handleImageError = () => {
   imageSrc.value = placeholder
 }
@@ -218,15 +220,16 @@ function sendEmail() {
 
 onMounted(async () => {
   try {
-    const response = await fetch('/data/singing_hands/singing_hands_concerts.json')
+    const response = await fetch(`${BASE_URL}data/singing_hands/singing_hands_concerts.json`)
     if (!response.ok) throw new Error('Failed to load concert data')
     concerts.value = await response.json()
   } catch (error) {
     console.error('Error loading concert data:', error)
   }
 
+
   try {
-    const response = await fetch('/data/singing_hands/singing_hands_probe.json')
+    const response = await fetch(`${BASE_URL}/data/singing_hands/singing_hands_probe.json`)
     if (!response.ok) throw new Error('Failed to load rehearsal data')
     rehearsal.value = await response.json()
   } catch (error) {

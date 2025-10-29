@@ -105,10 +105,10 @@ const musiCasaProjects = ref([]);
 const activeCard = ref(null);
 const descriptionRef = ref(null);
 const pastProjectsHeader = ref(null);
-
+const BASE_URL = import.meta.env.BASE_URL
 // Fetch JSON data
 onMounted(async () => {
-  const res = await fetch("/data/musi_casa/musicasa_projects.json");
+  const res = await fetch(`${BASE_URL}data/musi_casa/musicasa_projects.json`);
   musiCasaProjects.value = await res.json();
 });
 

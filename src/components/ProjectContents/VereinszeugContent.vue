@@ -50,15 +50,17 @@
       </section>
 
 
-      <section class="flex flex-col items-center bg-gradient-to-b from-[] to-[#FFF8EC] mx-4 sm:mx-10 my-8 p-6">
-        <h2 class="text-3xl font-bold mb-4 text-[#162A4B]">Wer sind wir?</h2>
-        <p class="text-xl font-medium mb-4 text-[#333333] leading-relaxed pt-6 pr-20 pl-20">
+      <section class="flex flex-col items-center px-6 text-gray-800 leading-relaxed">
+        <div class="w-full max-w-4xl space-y-8 text-left md:text-justify text-lg md:text-xl">
+          <h2 class="text-3xl font-bold mb-4 text-[#162A4B]">Wer sind wir?</h2>
+          <p class="text-xl font-medium mb-4 text-[#333333] leading-relaxed pt-6">
           zeug und quer e. V. hat sich im April 2015 gegründet und besteht derzeit aus ca. 35 Mitgliedern
           (großteils Studierende der Musikhochschule Freiburg). Der Kulturverein möchte Verbindungen schaffen,
           insbesondere interdisziplinärer, interkultureller und generationenübergreifender Art.
           Genauso sollen laut Satzung zwischen Kunst und ihrer Vermittlung, Tradition und Gegenwart, Anspruch
           und Vergnügen, dem Profi- und Laienmusikbetrieb Brücken geschlagen werden.
         </p>
+        </div>
       </section>
     </template>
 

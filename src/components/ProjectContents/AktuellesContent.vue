@@ -8,10 +8,11 @@ const aktuellesData = ref([]);
 const activeCard = ref(null);
 const descriptionRef = ref(null);
 const aktuellesHeader = ref(null); // ✅ add a ref for the header
+const BASE_URL = import.meta.env.BASE_URL
 
 // Fetch JSON from public folder at runtime
 onMounted(async () => {
-  const res = await fetch("/data/aktuelles/aktuelles.json");
+  const res = await fetch(`${BASE_URL}data/aktuelles/aktuelles.json`);
   const json = await res.json();
   aktuellesData.value = json.Aktuelles;
 

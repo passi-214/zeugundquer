@@ -16,7 +16,6 @@
     </div>
 
     <!-- Image -->
-    <!-- Image -->
     <div
         v-if="entry.image_path"
         :style="{
