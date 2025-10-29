@@ -49,9 +49,10 @@
         </div>
       </section>
 
-      <section class="bg-gradient-to-b from-[] to-[#FFF8EC] mx-4 sm:mx-10 my-8 p-6">
+
+      <section class="flex flex-col items-center bg-gradient-to-b from-[] to-[#FFF8EC] mx-4 sm:mx-10 my-8 p-6">
         <h2 class="text-3xl font-bold mb-4 text-[#162A4B]">Wer sind wir?</h2>
-        <p class="text-xl font-medium mb-4 text-[#333333] leading-relaxed">
+        <p class="text-xl font-medium mb-4 text-[#333333] leading-relaxed pt-6 pr-20 pl-20">
           zeug und quer e. V. hat sich im April 2015 gegründet und besteht derzeit aus ca. 35 Mitgliedern
           (großteils Studierende der Musikhochschule Freiburg). Der Kulturverein möchte Verbindungen schaffen,
           insbesondere interdisziplinärer, interkultureller und generationenübergreifender Art.
@@ -71,7 +72,7 @@
 
 
 <script setup lang="ts">
-import {ref, onMounted, onUnmounted, computed} from 'vue';
+import {computed, onMounted, onUnmounted, ref} from 'vue';
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import ContentCarousel from "@/components/placeholder/ImageContentCarousel.vue";

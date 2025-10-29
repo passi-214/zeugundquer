@@ -104,10 +104,18 @@
               </div>
             </div>
           </div>
+          <section class="flex flex-col items-center px-6 py-15 text-[#012420]  leading-relaxed">
+            <div class="w-full max-w-4xl space-y-8 text-justify md:text-justify text-lg md:text-xl">
+              <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 text-center pb-20">
+                Termine
+              </h2>
+              <h3 class="text-2xl font-bold mb-4 px-4 text-center">
+                Konzerte
+              </h3>
+            </div>
+          </section>
 
-          <h2 class="text-3xl font-semibold text-[#012420] pt-8">Termine</h2>
-          <h3 class="text-2xl font-semibold text-[#012420] pt-8 pb-8">Konzerte</h3>
-          <div class="flex flex-col items-left space-y-12 gap-12 pb-10 min-h-160">
+          <div class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full min-h-160 pb-10">
             <ConcertCard
                 v-for="(concert, index) in concerts"
                 :key="index"
@@ -118,15 +126,19 @@
                 class="w-full max-w-2xl transform hover:scale-[1.02] transition-transform duration-300"
                 borderColor="#012420"
                 fontColor="#012420"
-            titleColor="#012420"
-            textColor="#012420"
-            linkColor="#012420"
+                titleColor="#012420"
+                textColor="#012420"
+                linkColor="#012420"
             />
-
           </div>
-
-          <h3 class="text-2xl font-semibold text-[#012420] pt-16 pb-8">Proben</h3>
-          <div class="flex flex-col items-left space-y-12 gap-12 pb-10 min-h-240">
+          <section class="flex flex-col items-center px-6 py-20 text-[#012420]  leading-relaxed">
+            <div class="w-full max-w-4xl space-y-8 text-justify md:text-justify text-lg md:text-xl">
+              <h3 class="text-2xl font-bold mb-4 px-4 text-center">
+                Proben
+              </h3>
+            </div>
+          </section>
+          <div class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full min-h-240">
             <ConcertCard
                 v-for="(rehearsal, index) in rehearsal"
                 :key="index"
@@ -168,9 +180,8 @@
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
-import {ref, onMounted} from 'vue'
+import {onMounted, ref} from 'vue'
 import ConcertCard from "@/components/placeholder/ConcertCard.vue";
-import Gallery from "@/components/placeholder/Gallery.vue";
 import bwSoziales from '@/assets/images/sponsor/bw_soziales.avif'
 import {useGallery} from "@/composables/useGallery";
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";

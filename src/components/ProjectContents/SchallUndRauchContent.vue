@@ -42,7 +42,6 @@ import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
     </template>
     <template #description>
       <section class="flex flex-col items-center px-6 py-20 text-gray-800 leading-relaxed">
-        <!-- ✅ Left-aligned title, justified text only on larger screens -->
         <div class="w-full max-w-4xl space-y-8 text-left md:text-justify text-lg md:text-xl">
           <p>Mit unserem Duo Schall & Rauch laden wir das Publikum auf eine interaktive musikalische Reise ein, die
             Generationen verbindet, Erinnerungen weckt und durch Chansons, Volks- und Kultlieder zum gemeinsamen Erleben

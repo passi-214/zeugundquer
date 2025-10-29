@@ -1,6 +1,6 @@
 <template>
   <ProjectContentBase :showSponsorships="true">
-  <template #profile>
+    <template #profile>
       <Profile
           title="MusiCasa"
           foundingYear="2024"
@@ -38,23 +38,33 @@
 
     <template #description>
       <!-- Static intro section -->
-      <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">Über das Projekt</h2>
-      <p class="text-xl font-bold mb-4 px-4 sm:px-10 pb-6 sm:pb-10">
-        Durch gemeinsames Musizieren Begegnungen über sprachliche Grenzen hinaus zu ermöglichen – mit diesem Ansatz
-        richtet sich MusiCasa hauptsächlich an Kinder und Jugendliche mit unterschiedlichen kulturellen Hintergründen,
-        nicht nur, aber vor allem mit Flucht- und Migrationshintergrund.
-        <br><br>
-        Das Erfinden, Experimentieren und Spielen von Musik, aber vor allem auch die Begegnung und der Austausch
-        zwischen Kindern und jungen Menschen aus verschiedenen Herkunftsländern sind zentrale Aspekte von MusiCasa.
-      </p>
+      <section class="flex flex-col items-center px-6 py-20 text-gray-800 leading-relaxed">
+        <!-- ✅ Left-aligned title, justified text only on larger screens -->
+        <div class="w-full max-w-4xl space-y-8 text-left md:text-justify text-lg md:text-xl">
+          <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">Über das Projekt</h2>
+          <p class="text-xl font-bold mb-4 px-4 sm:px-10 pb-2 sm:pb-2">
+            Durch gemeinsames Musizieren Begegnungen über sprachliche Grenzen hinaus zu ermöglichen – mit diesem Ansatz
+            richtet sich MusiCasa hauptsächlich an Kinder und Jugendliche mit unterschiedlichen kulturellen
+            Hintergründen,
+            nicht nur, aber vor allem mit Flucht- und Migrationshintergrund.
+            <br><br>
+            Das Erfinden, Experimentieren und Spielen von Musik, aber vor allem auch die Begegnung und der Austausch
+            zwischen Kindern und jungen Menschen aus verschiedenen Herkunftsländern sind zentrale Aspekte von MusiCasa.
+          </p>
+        </div>
+      </section>
 
       <!-- Section title -->
-      <h2
-          ref="pastProjectsHeader"
-          class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10"
-      >
-        Vergangene Projekte
-      </h2>
+      <section class="flex flex-col items-center px-6 py-20 text-gray-800 leading-relaxed">
+        <div class="w-full max-w-4xl space-y-8 text-justify md:text-justify text-lg md:text-xl">
+          <h2
+              ref="pastProjectsHeader"
+              class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10 text-center"
+          >
+            Vergangene Projekte
+          </h2>
+        </div>
+      </section>
 
 
       <!-- Project Cards Section -->
@@ -81,13 +91,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick } from "vue"; // ✅ added nextTick import
+import {nextTick, onMounted, ref} from "vue"; // ✅ added nextTick import
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import MusiCasaProjectCard from "@/components/placeholder/MusiCasaProjectCard.vue";
 import aventis from "@/assets/images/sponsor/aventis_foundation.avif";
 import bundesregierung from "@/assets/images/sponsor/bundesregierung.avif";
 import bwKunst from "@/assets/images/sponsor/bw_kunst.avif";
 import bwSoziales from "@/assets/images/sponsor/bw_soziales.avif";
+import Profile from "@/components/placeholder/Profile.vue";
 
 
 const musiCasaProjects = ref([]);
@@ -98,8 +109,7 @@ const pastProjectsHeader = ref(null);
 // Fetch JSON data
 onMounted(async () => {
   const res = await fetch("/data/musicasa_projects.json");
-  const json = await res.json();
-  musiCasaProjects.value = json;
+  musiCasaProjects.value = await res.json();
 });
 
 const handleCardClick = async (entry) => {
@@ -131,10 +141,10 @@ function getTitleAlignment(index) {
 }
 
 const sponsors = [
-  { id: 1, url: aventis, name: 'Sponsor 1', current: true },
-  { id: 2, url: bundesregierung, name: 'Sponsor 2', current: false },
-  { id: 3, url: bwKunst, name: 'Sponsor 3', current: true },
-  { id: 4, url: bwSoziales, name: 'Sponsor 4', current: false },
+  {id: 1, url: aventis, name: 'Sponsor 1', current: true},
+  {id: 2, url: bundesregierung, name: 'Sponsor 2', current: false},
+  {id: 3, url: bwKunst, name: 'Sponsor 3', current: true},
+  {id: 4, url: bwSoziales, name: 'Sponsor 4', current: false},
 ]
 
 onMounted(() => {

@@ -1,6 +1,6 @@
 ﻿<script setup>
 import 'vue3-carousel/carousel.css'
-import { Carousel, Slide, Navigation } from 'vue3-carousel'
+import {Carousel, Navigation, Slide} from 'vue3-carousel'
 
 // Props for slides and configuration
 defineProps({
@@ -87,6 +87,8 @@ defineProps({
   font-size: 1rem;
   line-height: 1.4;
   color: #555;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 /* Navigation arrows */

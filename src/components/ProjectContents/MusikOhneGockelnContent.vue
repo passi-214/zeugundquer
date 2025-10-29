@@ -1,12 +1,9 @@
 ﻿<script setup lang="ts">
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
-import Gallery from "@/components/placeholder/Gallery.vue";
 import {useGallery} from "@/composables/useGallery";
 import Profile from "@/components/placeholder/Profile.vue";
-import {ref, computed} from 'vue';
-import {ChevronRight} from 'lucide-vue-next'
+import {computed, ref} from 'vue';
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
-import Sponsors from "@/components/placeholder/Sponsors.vue";
 
 
 // Low-res images
@@ -77,8 +74,8 @@ defineShortcuts({
 
     <!-- Description Section -->
     <template #description>
-      <section class="px-6 py-20 w-full">
-        <div class="w-full max-w-4xl mx-auto space-y-8 text-left md:text-justify text-lg md:text-xl text-[#1E1E1E]">
+      <section class="flex flex-col items-center px-6 py-20 text-gray-800 leading-relaxed">
+        <div class="w-full max-w-4xl mx-auto space-y-8 text-center md:text-justify text-lg md:text-xl text-[#1E1E1E]">
           <p>
             Wir sind ein Instrumental- und Vokalensemble aus erfahrenen Musiker:innen und jungen Musikstudierenden,
             verbunden durch unser Unwohlsein über Machtstrukturen im Musikbetrieb und unser Bedürfnis, einengende Muster

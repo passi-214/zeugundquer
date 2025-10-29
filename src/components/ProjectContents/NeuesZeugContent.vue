@@ -37,7 +37,7 @@
     </template>
 
     <template #description>
-      <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">
+      <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10 text-center">
         Die fünf zentralen Aspekte von NEUES ZEUG:
       </h2>
 
@@ -49,7 +49,7 @@
 
       <!-- only render iframe when we have a valid embedUrl -->
       <div class="p-11">
-        <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">
+        <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10 text-center">
           Projekt Teaser
         </h2>
         <Video url="https://www.youtube.com/watch?v=iwqa6B6KHRI" title="Neues Zeug Video"/>
@@ -60,6 +60,7 @@
           paragraph="Erfahre mehr über das Projekt:"
           buttonText="NEUES ZEUG"
           link="https://clemenskthomas.de/neues-zeug-musik-aus-dem-jetzt"
+          class="pb-12"
       />
     </template>
 
@@ -72,7 +73,7 @@
 <script setup lang="ts">
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import TextContentCarousel from "@/components/placeholder/TextContentCarousel.vue";
-import {ref, computed, onMounted, onUnmounted} from "vue";
+import {computed, onMounted, onUnmounted, ref} from "vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import Sponsors from "@/components/placeholder/Sponsors.vue";
 import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";

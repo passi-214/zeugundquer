@@ -1,5 +1,5 @@
 ﻿<script setup>
-import {ref, onMounted, nextTick} from "vue"; // ✅ added nextTick
+import {nextTick, onMounted, ref} from "vue"; // ✅ added nextTick
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import AktuellesCard from "@/components/placeholder/AktuellesCard.vue";
 import {useRouter} from "vue-router";
@@ -92,14 +92,14 @@ onMounted(() => {
     <template #description>
       <h2
           ref="aktuellesHeader"
-          class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10"
+          class="text-3xl font-bold mb-4 px-4 sm:px-10 pb-20 text-center"
       >
         Aktuelles
       </h2>
 
       <div
           ref="descriptionRef"
-          class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full min-h-300"
+          class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full min-h-300 pb-20"
       >
         <AktuellesCard
             v-for="(entry, index) in aktuellesData"
