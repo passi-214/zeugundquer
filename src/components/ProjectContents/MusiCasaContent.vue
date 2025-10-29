@@ -108,7 +108,7 @@ const pastProjectsHeader = ref(null);
 
 // Fetch JSON data
 onMounted(async () => {
-  const res = await fetch("/data/musicasa_projects.json");
+  const res = await fetch("/data/musi_casa/musicasa_projects.json");
   musiCasaProjects.value = await res.json();
 });
 

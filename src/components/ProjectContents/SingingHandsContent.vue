@@ -218,7 +218,7 @@ function sendEmail() {
 
 onMounted(async () => {
   try {
-    const response = await fetch('/data/singing_hands_concerts.json')
+    const response = await fetch('/data/singing_hands/singing_hands_concerts.json')
     if (!response.ok) throw new Error('Failed to load concert data')
     concerts.value = await response.json()
   } catch (error) {
@@ -226,7 +226,7 @@ onMounted(async () => {
   }
 
   try {
-    const response = await fetch('/data/singing_hands_probe.json')
+    const response = await fetch('/data/singing_hands/singing_hands_probe.json')
     if (!response.ok) throw new Error('Failed to load rehearsal data')
     rehearsal.value = await response.json()
   } catch (error) {

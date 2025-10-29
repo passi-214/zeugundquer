@@ -11,7 +11,7 @@ const aktuellesHeader = ref(null); // ✅ add a ref for the header
 
 // Fetch JSON from public folder at runtime
 onMounted(async () => {
-  const res = await fetch("/data/aktuelles.json");
+  const res = await fetch("/data/aktuelles/aktuelles.json");
   const json = await res.json();
   aktuellesData.value = json.Aktuelles;
 

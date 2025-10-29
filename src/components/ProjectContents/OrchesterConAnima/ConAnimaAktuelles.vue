@@ -1,5 +1,5 @@
 ﻿<script setup lang="ts">
-import {ref, onMounted} from 'vue'
+import {onMounted, ref} from 'vue'
 import ConcertCard from "@/components/placeholder/ConcertCard.vue";
 
 const concerts = ref<Array<{
@@ -11,7 +11,7 @@ const concerts = ref<Array<{
 
 onMounted(async () => {
   try {
-    const response = await fetch('/data/con_anima_concerts.json')
+    const response = await fetch('/data/con_anima/con_anima_concerts.json')
     if (!response.ok) throw new Error('Failed to load concert data')
     concerts.value = await response.json()
   } catch (error) {

@@ -16,15 +16,22 @@
     </div>
 
     <!-- Image -->
+    <!-- Image -->
     <div
-        v-if="entry.image_path && entry.image_path.trim() !== ''"
+        v-if="entry.image_path"
+        :style="{
+    backgroundImage: `url(${entry.image_path})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }"
         :class="[
-          'rounded-lg bg-gray-700 transition-all duration-500',
-          isActive
-            ? 'w-full md:w-3/4 h-64 md:h-80 mb-6 mx-auto' // keep image size
-            : 'w-40 h-50 flex-shrink-0'
-        ]"
-    ></div>
+    'rounded-lg bg-gray-200 transition-all duration-500',
+    isActive
+      ? 'w-full md:w-3/4 h-64 md:h-80 mb-6 mx-auto'
+      : 'w-40 h-50 flex-shrink-0'
+  ]"
+    />
+
 
     <!-- Text content -->
     <div
