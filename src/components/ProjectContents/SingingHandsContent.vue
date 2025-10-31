@@ -219,21 +219,23 @@ function sendEmail() {
 }
 
 onMounted(async () => {
+
   try {
-    const response = await fetch(`${BASE_URL}data/singing_hands/singing_hands_concerts.json`)
-    if (!response.ok) throw new Error('Failed to load concert data')
-    concerts.value = await response.json()
-  } catch (error) {
-    console.error('Error loading concert data:', error)
+    const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_SINGING_HANDS_CONCERTS;
+    const res = await fetch(cloudinaryUrl);
+    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+    concerts.value = await res.json();
+  } catch (err) {
+    console.error('Failed to fetch singing hands concert data:', err);
   }
 
-
   try {
-    const response = await fetch(`${BASE_URL}/data/singing_hands/singing_hands_probe.json`)
-    if (!response.ok) throw new Error('Failed to load rehearsal data')
-    rehearsal.value = await response.json()
-  } catch (error) {
-    console.error('Error loading rehearsal data:', error)
+    const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_SINGING_HANDS_PROBE;
+    const res = await fetch(cloudinaryUrl);
+    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+    rehearsal.value = await res.json();
+  } catch (err) {
+    console.error('Failed to fetch singing hands rehearsal data:', err);
   }
 })
 

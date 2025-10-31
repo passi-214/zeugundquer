@@ -108,8 +108,14 @@ const pastProjectsHeader = ref(null);
 const BASE_URL = import.meta.env.BASE_URL
 // Fetch JSON data
 onMounted(async () => {
-  const res = await fetch(`${BASE_URL}data/musi_casa/musicasa_projects.json`);
-  musiCasaProjects.value = await res.json();
+  try {
+    const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_MUSI_CASA_PROJECTS;
+    const res = await fetch(cloudinaryUrl);
+    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+    musiCasaProjects.value = await res.json();
+  } catch (err) {
+    console.error('Failed to fetch Musi Casa data:', err);
+  }
 });
 
 const handleCardClick = async (entry) => {

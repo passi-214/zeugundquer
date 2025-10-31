@@ -9,16 +9,15 @@ const concerts = ref<Array<{
   mapsUrl: string
 }>>([])
 
-const BASE_URL = import.meta.env.BASE_URL
 
 onMounted(async () => {
   try {
-    const response = await fetch(`${BASE_URL}data/con_anima/con_anima_concerts.json`)
-
-    if (!response.ok) throw new Error('Failed to load concert data')
-    concerts.value = await response.json()
-  } catch (error) {
-    console.error('Error loading concert data:', error)
+    const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_CON_ANIMA_CONCERTS;
+    const res = await fetch(cloudinaryUrl);
+    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+    concerts.value = await res.json();
+  } catch (err) {
+    console.error('Failed to fetch concert data:', err);
   }
 })
 </script>
