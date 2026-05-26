@@ -43,14 +43,14 @@
 
     <template #description>
       <section class=" rounded-2xl mx-4 sm:mx-10 my-8 p-6">
-        <h2 class="text-3xl font-bold mb-4 text-[#162A4B]">Was sind wir?</h2>
+        <h2 class="text-3xl font-bold mb-4 text-[#162A4B] pb-8">Was sind wir?</h2>
         <div class="-mx-10 mt-6 pb-10">
           <ContentCarousel :images="images" :config="myConfig"/>
         </div>
       </section>
 
 
-      <section class="flex flex-col items-center px-6 text-gray-800 leading-relaxed">
+      <section class="flex flex-col items-center px-6 pb-12 text-gray-800 leading-relaxed">
         <div class="w-full max-w-4xl space-y-8 text-left md:text-justify text-lg md:text-xl">
           <h2 class="text-3xl font-bold mb-4 text-[#162A4B]">Wer sind wir?</h2>
           <p class="text-xl font-medium mb-4 text-[#333333] leading-relaxed pt-6">

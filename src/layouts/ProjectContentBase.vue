@@ -23,7 +23,7 @@
     </section>
 
     <!-- Footer -->
-    <section class="mb-12 pb-12">
+    <section class="mb-12">
       <Footer />
     </section>
   </div>
