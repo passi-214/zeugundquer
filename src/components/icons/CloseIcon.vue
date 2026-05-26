@@ -18,9 +18,8 @@ function handleClose() {
 <template>
   <button
       @click="handleClose"
-      class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-12 h-12 rounded-full bg-black/70 text-white flex items-center justify-center shadow-lg hover:bg-black/90 transition"
+      class="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-12 h-12 rounded-full bg-black/70 text-white flex items-center justify-center shadow-lg hover:bg-black/80 transition md:w-18 md:h-18 md:bg-black md:text-lg"
   >
     ✕
   </button>
-
 </template>
