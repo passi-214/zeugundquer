@@ -20,15 +20,15 @@ const currentIndex = ref(0)
 const activeComponent = ref<null | any>(null)
 
 const items = [
-  { name: 'Vereinszeug', component: Vereinszeug },
-  { name: 'MusiCasa', component: MusiCasa },
-  { name: 'SingingHands', component: SingingHands },
-  { name: 'EnsembleScope', component: EnsembleScope },
-  { name: 'NeuesZeug', component: NeuesZeug },
-  { name: 'Aktuelles', component: Aktuelles },
-  { name: 'OrchesterConAnima', component: OrchesterConAnima },
-  { name: 'SchallUndRauch', component: SchallUndRauch },
-  { name: 'MusikOhneGockeln', component: MusikOhneGockeln }
+  { name: 'vereinszeug', component: Vereinszeug },
+  { name: 'musicasa', component: MusiCasa },
+  { name: 'singendehaende', component: SingingHands },
+  { name: 'ensemblescope', component: EnsembleScope },
+  { name: 'neueszeug', component: NeuesZeug },
+  { name: 'aktuelles', component: Aktuelles },
+  { name: 'orchesterconanima', component: OrchesterConAnima },
+  { name: 'schallundrauch', component: SchallUndRauch },
+  { name: 'musikohnegockeln', component: MusikOhneGockeln }
 ]
 
 function scrollToProfile() {

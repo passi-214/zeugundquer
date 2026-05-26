@@ -22,16 +22,16 @@ const routes = [
     {
         path: '/zeugundquer', component: Zeugundquer,
         children: [
-            {path: 'Vereinszeug', component: VereinszeugContent},
-            {path: 'MusiCasa', component: MusiCasaContent},
-            {path: 'SingingHands', component: SingingHandsContent},
-            {path: 'EnsembleScope', component: EnsembleScopeContent},
-            {path: 'NeuesZeug', component: NeuesZeugContent},
-            {path: 'SchallUndRauch', component: SchallUndRauchContent},
-            {path: 'MusikOhneGockeln', component: MusikOhneGockelnContent},
+            {path: 'vereinszeug', component: VereinszeugContent},
+            {path: 'musicasa', component: MusiCasaContent},
+            {path: 'singendehaende', component: SingingHandsContent},
+            {path: 'ensemblescope', component: EnsembleScopeContent},
+            {path: 'neueszeug', component: NeuesZeugContent},
+            {path: 'schallundrauch', component: SchallUndRauchContent},
+            {path: 'musikohnegockeln', component: MusikOhneGockelnContent},
             { path: 'impressum', component: Impressum, name: 'impressum' },
 
-            {path: 'Aktuelles/:slug?', component: AktuellesContent}, // optional slug
+            {path: 'aktuelles/:slug?', component: AktuellesContent}, // optional slug
             {
                 path: 'OrchesterConAnima',
                 component: OrchesterConAnimaContent,
