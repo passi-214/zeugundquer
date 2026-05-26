@@ -6,7 +6,7 @@ import NeuesZeug from '../components/NeuesZeug.vue'
 import Vereinszeug from '../components/Vereinszeug.vue'
 import CloseIcon from "@/components/icons/CloseIcon.vue"
 import { useRouter, useRoute } from 'vue-router'
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch, nextTick } from 'vue'
 import Aktuelles from "@/components/Aktuelles.vue";
 import OrchesterConAnima from "@/components/OrchesterConAnima.vue";
 import SchallUndRauch from "@/components/SchallUndRauch.vue";
@@ -31,6 +31,17 @@ const items = [
   { name: 'MusikOhneGockeln', component: MusikOhneGockeln }
 ]
 
+function scrollToProfile() {
+  nextTick(() => {
+    setTimeout(() => {
+      const element = document.getElementById('profile-section')
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 10)
+  })
+}
+
 function openItem(itemName: string) {
   const index = items.findIndex(i => i.name === itemName)
   if (index !== -1) {
@@ -39,6 +50,9 @@ function openItem(itemName: string) {
     showControls.value = false
     showCloseIcon.value = true
     router.push(`/zeugundquer/${itemName}`)
+
+    // Trigger the auto-scroll
+    scrollToProfile()
   }
 }
 
@@ -53,32 +67,27 @@ function handleClose() {
 watch(
     () => route.fullPath,
     (path) => {
-      // early exit for impressum: make sure carousel isn't shifted & close icon hidden
       if (path === '/zeugundquer/impressum') {
-        // ensure we do not trigger any carousel open/shift logic for Impressum
         showCloseIcon.value = false
         showControls.value = true
         return
       }
 
-      const parts = path.split('/').filter(Boolean) // e.g. ['zeugundquer', 'orchester_con_anima']
-      const firstChild = parts[1] // first-level child of Zeugundquer
-      const isNested = parts.length > 2 // true if nested route
+      const parts = path.split('/').filter(Boolean)
+      const firstChild = parts[1]
+      const isNested = parts.length > 2
 
       if (!isNested && firstChild && items.some(i => i.name === firstChild)) {
         openItem(firstChild)
+        // Also scroll if the user reloaded/landed directly onto a sub-URL
+        scrollToProfile()
       } else if (!isNested) {
         showCloseIcon.value = false
         showControls.value = true
       }
-      // if isNested, do nothing → nested child will render normally
     },
     { immediate: true }
 )
-
-
-
-
 </script>
 
 <template>
