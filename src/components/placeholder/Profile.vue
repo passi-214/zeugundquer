@@ -1,75 +1,60 @@
 ﻿<template>
   <div
       :class="[
-      'shadow-lg rounded-2xl p-4 sm:p-10',
+      'shadow-lg rounded-2xl p-6 sm:p-10',
       containerBg
     ]"
   >
-    <!-- Header -->
-    <div class="border-b pb-6 mb-8">
-      <h3 :class="['text-3xl font-extrabold', headerTextColor]">
-        Projekt-Steckbrief: <span :class="titleTextColor">{{ title }}</span>
+    <!-- Header: Titel links, Gründungsjahr rechts -->
+    <div class="pb-8 mb-8 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+      <h3 :class="['text-3xl font-extrabold tracking-tight', headerTextColor]">
+        Steckbrief: <span :class="titleTextColor">{{ title }}</span>
       </h3>
+      <span :class="['text-lg font-semibold sm:ml-auto opacity-80', headerTextColor]">
+        Gegründet: {{ foundingYear }}
+       </span>
     </div>
 
-    <div class="h-6 sm:h-8"></div>
-
-    <!-- Badges -->
-    <div class="flex flex-wrap gap-4 mb-8">
-      <span
-          class="flex-1 min-w-[180px] font-semibold text-lg px-4 py-3 rounded-full shadow-sm hover:scale-102 transform transition text-center"
-          :class="[badgeTitleBg, badgeTitleText]"
-      >
-        Projekttitel: {{ title }}
-      </span>
-      <span
-          class="flex-1 min-w-[180px] font-semibold text-lg px-4 py-3 rounded-full shadow-sm hover:scale-102 transform transition text-center"
-          :class="[badgeYearBg, badgeYearText]"
-      >
-        Gründungsjahr: {{ foundingYear }}
-      </span>
-    </div>
-
-    <div class="h-6 sm:h-8"></div>
-
-    <!-- Projekte & Initiativen -->
-    <div :class="['p-6 sm:p-8 rounded-xl shadow-inner mb-8 w-full sm:w-auto', boxBg]">
+    <!-- Kurz-Info (ehemals Projekte & Initiativen) -->
+    <div :class="['p-6 sm:p-8 rounded-xl shadow-inner mb-8 w-full', boxBg]">
       <h4 :class="['font-semibold text-2xl mb-4', sectionTitleColor]">Projekte & Initiativen</h4>
       <ul class="list-disc pl-6 space-y-3 text-xl" :class="textColor">
         <template v-for="(item, index) in projects" :key="index">
-          <!-- Case 1: item has a title -->
-          <li v-if="item.title && item.title.trim() !== ''">
+          <!-- Case 1: item is an object with a title -->
+          <li v-if="typeof item === 'object' && item.title && item.title.trim() !== ''">
             {{ item.title }}
-            <ul v-if="item.subitems" class="list-disc pl-6 mt-1 space-y-4 text-lg" :class="subTextColor">
+            <ul v-if="item.subitems" class="list-disc pl-6 mt-1 space-y-2 text-lg" :class="subTextColor">
               <li v-for="(sub, subIndex) in item.subitems" :key="subIndex">{{ sub }}</li>
             </ul>
           </li>
 
-          <!-- Case 2: no title, just show subitems -->
-          <template v-else-if="item.subitems">
-            <ul class="list-disc pl-6 space-y-4 text-lg" :class="subTextColor">
+          <!-- Case 2: item is an object with no title, just show subitems -->
+          <template v-else-if="typeof item === 'object' && item.subitems">
+            <ul class="list-disc pl-6 space-y-2 text-lg" :class="subTextColor">
               <li v-for="(sub, subIndex) in item.subitems" :key="subIndex">{{ sub }}</li>
             </ul>
           </template>
-        </template>
 
+          <!-- Case 3: item is a simple string -->
+          <li v-else-if="typeof item === 'string'">
+            {{ item }}
+          </li>
+        </template>
       </ul>
     </div>
 
-
-    <!-- Spacer -->
-    <div class="h-6 sm:h-8"></div>
-
     <!-- Konzerte & Verantwortliche -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-      <div :class="['p-6 sm:p-8 rounded-xl shadow-md flex flex-col items-start hover:scale-105 transform transition', concertsBoxBg]">
-        <span :class="['text-3xl font-bold mb-3', concertsTextColor]">🎵 {{ concertsPerYear }}</span>
-<!--        <span :class="['text-lg font-medium', concertsTextColor]">Konzerte pro Jahr</span>-->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 pt-8">
+      <div
+          :class="['p-6 sm:p-8 rounded-xl shadow-md flex flex-col items-start hover:scale-102 transform transition', concertsBoxBg]">
+        <span :class="['text-2xl font-bold mb-1', concertsTextColor]">🎵 Konzerte pro Jahr</span>
+        <span :class="['text-xl font-medium opacity-90', concertsTextColor]">{{ concertsPerYear }}</span>
       </div>
 
-      <div :class="['p-6 sm:p-8 rounded-xl shadow-md flex flex-col items-start hover:scale-105 transform transition', responsibleBoxBg]">
-        <span :class="['text-2xl font-semibold mb-3', responsibleTextColor]">👥 {{ responsible }}</span>
-        <span :class="['text-lg font-medium', responsibleTextColor]">Verantwortliche</span>
+      <div
+          :class="['p-6 sm:p-8 rounded-xl shadow-md flex flex-col items-start hover:scale-102 transform transition', responsibleBoxBg]">
+        <span :class="['text-2xl font-semibold mb-1', responsibleTextColor]">👥 Verantwortliche</span>
+        <span :class="['text-xl font-medium opacity-90', responsibleTextColor]">{{ responsible }}</span>
       </div>
     </div>
   </div>
@@ -87,10 +72,6 @@ defineProps<{
   containerBg?: string;
   headerTextColor?: string;
   titleTextColor?: string;
-  badgeTitleBg?: string;
-  badgeTitleText?: string;
-  badgeYearBg?: string;
-  badgeYearText?: string;
   boxBg?: string;
   sectionTitleColor?: string;
   textColor?: string;
