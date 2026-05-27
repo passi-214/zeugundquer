@@ -68,20 +68,23 @@
 
 
       <!-- Project Cards Section -->
-      <div
+      <TransitionGroup
+          tag="div"
+          name="project-grid"
           ref="descriptionRef"
-          class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full min-h-230"
+          class="rounded-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20 px-4 md:px-6 lg:px-8 w-full max-w-6xl mx-auto items-start pb-20"
       >
         <MusiCasaProjectCard
             v-for="(entry, index) in musiCasaProjects"
-            :key="index"
+            :key="entry.title || index"
             :entry="entry"
             :isActive="activeCard === entry"
+            :anyActive="!!activeCard"
             :titleAlign="getTitleAlignment(index)"
             @click="handleCardClick(entry)"
-            v-show="!activeCard || activeCard === entry"
+            @close="activeCard = null"
         />
-      </div>
+      </TransitionGroup>
     </template>
 
     <template #sponsorships>
@@ -91,7 +94,7 @@
 </template>
 
 <script setup>
-import {nextTick, onMounted, ref} from "vue"; // ✅ added nextTick import
+import {nextTick, onMounted, onUnmounted, ref} from "vue"; // ✅ added nextTick import
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import MusiCasaProjectCard from "@/components/placeholder/MusiCasaProjectCard.vue";
 import aventis from "@/assets/images/sponsor/aventis_foundation.avif";
@@ -119,18 +122,9 @@ onMounted(async () => {
 });
 
 const handleCardClick = async (entry) => {
+  // Wenn die Karte bereits aktiv ist, nichts tun (verhindert erneuten Autoscroll)
+  if (activeCard.value === entry) return;
   activeCard.value = entry;
-
-  // Wait for DOM update before scrolling
-  await nextTick();
-
-  if (pastProjectsHeader.value) {
-    const headerOffset = pastProjectsHeader.value.getBoundingClientRect().top + window.scrollY - 80; // adjust offset if needed
-    window.scrollTo({
-      top: headerOffset,
-      behavior: "smooth",
-    });
-  }
 };
 
 // Collapse expanded card when clicking outside
@@ -155,6 +149,10 @@ const sponsors = [
 
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", handleClickOutside);
 });
 </script>
 
