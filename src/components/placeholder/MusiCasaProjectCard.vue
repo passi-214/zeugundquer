@@ -5,7 +5,7 @@
       isActive
         ? 'md:col-span-2 lg:col-span-3 scale-100 z-10 shadow-xl'
         : anyActive
-          ? 'opacity-40 hover:opacity-90 scale-95 pointer-events-none md:pointer-events-auto'
+          ? 'opacity-70 hover:opacity-90 scale-95 md:pointer-events-auto'
           : 'scale-100'
     ]"
   >
