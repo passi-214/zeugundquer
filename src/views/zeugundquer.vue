@@ -86,17 +86,17 @@ watch(
       const isNested = parts.length > 2
 
       if (!isNested && firstChild && items.some(i => i.name === firstChild)) {
-        const index = items.findIndex(i => i.name === firstChild)
-        if (index !== -1) currentIndex.value = index
+        if (currentOpenedItemName.value !== firstChild) {
+          const index = items.findIndex(i => i.name === firstChild)
+          if (index !== -1) currentIndex.value = index
 
-        openItem(firstChild)
-        scrollToProfile()
+          openItem(firstChild)
+        }
       } else if (!isNested) {
-        // HIER SIND WIR ZURÜCK AUF DER REINEN HAUPTSEITE
         showCloseIcon.value = false
         showControls.value = true
+        currentOpenedItemName.value = null // <-- Reset on back home navigation
 
-        // 1. Warten auf den Vue-Scheduler
         await nextTick();
 
         const savedIndexRaw = sessionStorage.getItem('last_carousel_index')

@@ -1,6 +1,7 @@
 ﻿<script setup>
 import 'vue3-carousel/carousel.css'
-import {Carousel, Navigation, Slide} from 'vue3-carousel'
+// Added 'Pagination' to the imports
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 
 // Props for slides and configuration
 defineProps({
@@ -37,12 +38,13 @@ defineProps({
 
     <template #addons>
       <Navigation v-if="config.showNavigation" />
+      <!-- Render pagination dots below the viewport -->
+      <Pagination class="mobile-pagination-only" />
     </template>
   </Carousel>
 </template>
 
 <style>
-
 .preline { white-space: pre-line; }
 
 .slide-content {
@@ -111,6 +113,41 @@ defineProps({
 
 .carousel__next {
   right: 4%;
+}
+
+/*
+  Mobile-Only Pagination Targeting
+  Hides indicators on desktop viewports (640px and up)
+*/
+.mobile-pagination-only {
+  margin-top: 15px;
+  bottom: -40px;
+}
+
+@media (min-width: 640px) {
+  .mobile-pagination-only {
+    display: none !important;
+  }
+}
+
+/* Custom styling override to make default pagination buttons cleaner and finger-friendly */
+.carousel__pagination-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0 5px;
+  padding: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.carousel__pagination-button::after {
+  display: none; /* Disables default vue3-carousel rectangle shapes */
+}
+
+.carousel__pagination-button--active {
+  background-color: #333;
+  transform: scale(1.2);
 }
 
 /* 3D and transition styles kept from original */
