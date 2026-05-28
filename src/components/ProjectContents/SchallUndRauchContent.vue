@@ -7,36 +7,7 @@ import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 <template>
   <ProjectContentBase :showSponsorships="true">
   <template #profile>
-      <Profile
-          title="Schall und Rauch"
-          foundingYear="2019"
-          :projects="[
-          { title: ' “Melodien des Lebens” - Musik und Lebensgeschichten im Dialog  ',
-            subitems: [
-              'Duo Schall&Rauch',
-              'Teilnehmende am Projekt des Seniorenheims ',
-            ]
-          }
-        ]"
-          concertsPerYear="2-3 Projekt-Konzerte im Jahr "
-          responsible="Clara Bauer und Lena Widdermann"
-
-          containerBg="bg-gradient-to-br from-indigo-50 to-purple-50"
-          headerTextColor="text-purple-700"
-          titleTextColor="text-purple-900"
-          badgeTitleBg="bg-purple-200"
-          badgeTitleText="text-purple-900"
-          badgeYearBg="bg-indigo-200"
-          badgeYearText="text-indigo-900"
-          boxBg="bg-white"
-          sectionTitleColor="text-indigo-700"
-          textColor="text-gray-800"
-          subTextColor="text-gray-600"
-          concertsBoxBg="bg-yellow-100"
-          concertsTextColor="text-yellow-900"
-          responsibleBoxBg="bg-green-100"
-          responsibleTextColor="text-green-800"
-      />
+      <Profile :data="schallUndRauchData"/>
       <div class="h-12 sm:h-12"></div>
 
     </template>
@@ -65,3 +36,7 @@ import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 <style scoped>
 
 </style>
+
+<script>
+import schallUndRauchData from '@/assets/data/schall_und_rauch/schallundrauch_steckbrief.json';
+</script>

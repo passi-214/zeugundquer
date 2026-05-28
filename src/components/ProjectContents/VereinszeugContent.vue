@@ -4,40 +4,7 @@
       class="bg-gradient-to-b from-[#F7B267] via-[#FFD89B] to-[#FFF8EC] min-h-screen"
   >
     <template #profile>
-      <Profile
-          title="zeug und quer e.V."
-          foundingYear="2015"
-          :projects="[
-      {
-        title: '6 dauerhafte Projekte, etliche einmalige Initiativen und Projekt-Starthilfen insbesondere in den Bereichen:',
-        subitems: [
-          'Kulturelle Bildung und Teilhabe',
-          'Inklusion',
-          'Musikvermittlung in postmigrantischen Communities'
-        ]
-      }
-    ]"
-          concertsPerYear="ca. 15–20 Konzerte pro Jahr"
-          responsible="Vereinsvorstand: Katharina Schmauder, Samira Nowarra, Hansjörg Schmauder"
-
-          containerBg="bg-gradient-to-br from-[#B8C8D6]/60 via-[#E9EEF3]/80 to-white shadow-md border border-[#3F6576]/30 rounded-2xl"
-          headerTextColor="text-[#12243D]"
-          titleTextColor="text-[#12243D]"
-          badgeTitleBg="bg-[#F5E7B2]"
-          badgeTitleText="text-[#162A4B]"
-          badgeYearBg="bg-[#3F6576]"
-          badgeYearText="text-white"
-          boxBg="bg-white/85 backdrop-blur-sm shadow-md"
-          sectionTitleColor="text-[#2C4D67]"
-          textColor="text-[#1F1F1F]"
-          subTextColor="text-[#3A3A3A]"
-          concertsBoxBg="bg-[#F5E7B2]/70"
-          concertsTextColor="text-[#162A4B]"
-          responsibleBoxBg="bg-[#C4D1DF]/60"
-          responsibleTextColor="text-[#162A4B]"
-      />
-
-
+      <Profile :data="zeugUndQuerData" />
       <div class="h-12 sm:h-12"></div>
     </template>
 
@@ -90,8 +57,8 @@ import img1 from '@/assets/images/vereinszeug/vereinszeug1.png'
 import img2 from '@/assets/images/vereinszeug/vereinszeug2.png'
 import img3 from '@/assets/images/vereinszeug/vereinszeug3.png'
 import img4 from '@/assets/images/vereinszeug/vereinszeug4.png'
-import Aktuelles from "@/components/Aktuelles.vue";
 import AktuellesContent from "@/components/ProjectContents/AktuellesContent.vue";
+import zeugUndQuerData from '@/assets/data/vereinszeug/zeugundquer_steckbrief.json';
 
 
 const images = [

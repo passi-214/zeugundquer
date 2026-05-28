@@ -7,7 +7,7 @@ import lowResImage from "@/assets/images/navigation/neues_zeugs_title.jpeg";
 
 <template>
   <NavigationItem
-      headline="Neues Zeugs"
+      headline="Neues Zeug"
       :low-res="lowResImage"
   />
 </template>

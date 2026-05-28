@@ -5,30 +5,7 @@
   >
 
     <template #profile>
-      <Profile
-          title="Singende Hände Freiburg"
-          foundingYear="2023"
-          :projects="[ { title: '', subitems: [ 'ca. 20 Musizierende'] } ]"
-          concertsPerYear="3-4 Konzerte im Jahr"
-          responsible="Sophia Kirstein und Stephanie Mündel-Möhr"
-          containerBg="bg-[#012420]/95 backdrop-blur-md"
-          headerTextColor="text-gray-300"
-          titleTextColor="text-gray-200"
-          badgeTitleBg="bg-[#014F4F]/80"
-          badgeTitleText="text-gray-300"
-          badgeYearBg="bg-[#32CCCC]/60"
-          badgeYearText="text-gray-300"
-          boxBg="bg-[#012420]/90"
-          sectionTitleColor="text-[#32CCCC]"
-          textColor="text-gray-200"
-          subTextColor="text-gray-300"
-          concertsBoxBg="bg-[#014F4F]/50"
-          concertsTextColor="text-gray-300"
-          responsibleBoxBg="bg-[#014F4F]/50"
-          responsibleTextColor="text-gray-200"
-      />
-
-
+      <Profile :data="singingHandsData"/>
       <div class="h-12 sm:h-12"></div>
     </template>
 
@@ -185,6 +162,7 @@ import ConcertCard from "@/components/placeholder/ConcertCard.vue";
 import bwSoziales from '@/assets/images/sponsor/bw_soziales.avif'
 import {useGallery} from "@/composables/useGallery";
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
+import singingHandsData from '@/assets/data/singing_hands/singing_hands_steckbrief.json';
 
 const imageSrc = ref('/images/orchestra.jpg')
 

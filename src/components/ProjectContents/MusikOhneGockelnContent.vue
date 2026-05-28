@@ -4,7 +4,7 @@ import {useGallery} from "@/composables/useGallery";
 import Profile from "@/components/placeholder/Profile.vue";
 import {computed, ref} from 'vue';
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
-
+import musikOhneGockelnData from "@/assets/data/musik_ohne_gockeln/musikohnegockeln_steckbrief.json"
 
 // Low-res images
 const lowResMusik = import.meta.glob('@/assets/images/musik_ohne_gockeln/*.{jpg,jpeg}', {
@@ -37,37 +37,7 @@ defineShortcuts({
 
     <!-- Profile Section -->
     <template #profile>
-      <Profile
-          title="Musik ohne Gockeln"
-          foundingYear="2024"
-          :projects="[
-            {
-              title: '14 Musiker:innen',
-              subitems: [
-                'Vokal',
-                'Barockinstrumente',
-                'Rezitation',
-              ]
-            }
-          ]"
-          concertsPerYear="2 Konzerte im Jahr"
-          responsible="Carola Bauer-Scheid, Katharina Skala"
-
-          containerBg="bg-gradient-to-br from-[#D8D3DF]/60 via-[#8C9FB1]/20 to-[#3B2A3D]/60 rounded-2xl"
-          headerTextColor="text-[#2A2E43]"
-          titleTextColor="text-[#2A2E43]"
-          badgeTitleBg="bg-[#D97A66]/60"
-          badgeTitleText="text-gray-200"
-          badgeYearBg="bg-[#3B2A3D]"
-          badgeYearText="text-gray-200"
-          boxBg="bg-[#E8E3EB]/90 backdrop-blur-sm"
-          sectionTitleColor="text-[#3B2A3D]"
-          textColor="text-[#1E1E1E]"
-          subTextColor="text-[#3A3A3A]"
-          concertsBoxBg="bg-[#D97A66]/60"
-          concertsTextColor="text-gray-200"
-          responsibleBoxBg="bg-[#E8CFA9]/60"
-          responsibleTextColor="text-[#2A2E43]"
+      <Profile :data="musikOhneGockelnData"
       />
       <div class="h-12 sm:h-12"></div>
     </template>

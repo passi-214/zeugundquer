@@ -1,37 +1,7 @@
 <template>
   <ProjectContentBase :showSponsorships="true">
     <template #profile>
-      <Profile
-          title="MusiCasa"
-          foundingYear="2024"
-          :projects="[
-          { title: '14 Musiker:innen',
-            subitems: [
-              'Vokal',
-              'Barockinstrumente',
-              'Rezitation'
-            ]
-          }
-        ]"
-          concertsPerYear="2 Konzerte pro Jahr"
-          responsible="Carola Bauer-Scheid, Katharina Skala"
-
-          containerBg="bg-gradient-to-br from-indigo-50 to-purple-50"
-          headerTextColor="text-purple-700"
-          titleTextColor="text-purple-900"
-          badgeTitleBg="bg-purple-200"
-          badgeTitleText="text-purple-900"
-          badgeYearBg="bg-indigo-200"
-          badgeYearText="text-indigo-900"
-          boxBg="bg-white"
-          sectionTitleColor="text-indigo-700"
-          textColor="text-gray-800"
-          subTextColor="text-gray-600"
-          concertsBoxBg="bg-yellow-100"
-          concertsTextColor="text-yellow-900"
-          responsibleBoxBg="bg-green-100"
-          responsibleTextColor="text-green-800"
-      />
+      <Profile :data="musiCasaData"/>
       <div class="h-12 sm:h-12"></div>
 
     </template>
@@ -98,6 +68,7 @@ import bundesregierung from "@/assets/images/sponsor/bundesregierung.avif";
 import bwKunst from "@/assets/images/sponsor/bw_kunst.avif";
 import bwSoziales from "@/assets/images/sponsor/bw_soziales.avif";
 import Profile from "@/components/placeholder/Profile.vue";
+import musiCasaData from "@/assets/data/musi_casa/musicasa_steckbrief.json";
 
 
 const musiCasaProjects = ref([]);

@@ -5,35 +5,7 @@
   >
 
     <template #profile>
-      <Profile
-          title="Orchester Con Anima"
-          foundingYear="2018"
-          :projects="[
-          {
-            title: 'Sozialmusikprojekt / interkulturelles Orchester',
-            subitems: [
-              '32 aktive Musizierende',
-              '11 Herkunftsländern',
-            ]
-          }
-        ]"
-          concertsPerYear="2-5 Konzerte pro Jahr"
-          responsible="Carola Christ"
-          containerBg="bg-white/80 backdrop-blur-md"
-          headerTextColor="text-[#A34865]"
-          titleTextColor="text-[#C40F3C]"
-          badgeTitleBg="bg-[#F5B95F]/50"
-          badgeTitleText="text-[#2A2A2A]"
-          badgeYearBg="bg-[#FAE308]/50"
-          badgeYearText="text-[#2A2A2A]"
-          boxBg="bg-white/90"
-          sectionTitleColor="text-[#E9A716]"
-          textColor="text-[#2A2A2A]"
-          subTextColor="text-[#A34865]/80"
-          concertsBoxBg="bg-[#FCCD85]/30"
-          concertsTextColor="text-[#C40F3C]"
-          responsibleBoxBg="bg-[#FAE308]/30"
-          responsibleTextColor="text-[#2A2A2A]"
+      <Profile :data="conAnimaData"
       />
       <div class="h-12 sm:h-12"></div>
     </template>
@@ -97,6 +69,7 @@ import Profile from "@/components/placeholder/Profile.vue";
 import SquareButton from "@/components/placeholder/SquareButton.vue";
 import { useGallery } from "@/composables/useGallery";
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
+import conAnimaData from "@/assets/data/orchester_con_anima/con_anima_steckbrief.json"
 
 const buttons = [
   {label: "Aktuelles", to: "Aktuelles"},

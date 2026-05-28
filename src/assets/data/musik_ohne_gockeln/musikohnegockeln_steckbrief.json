@@ -1,0 +1,33 @@
+﻿{
+  "title": "Musik ohne Gockeln",
+  "foundingYear": "2024",
+  "concertsPerYear": "2 Konzerte im Jahr",
+  "responsible": "Carola Bauer-Scheid, Katharina Skala",
+  "projects": [
+    {
+      "title": "14 Musiker:innen",
+      "subitems": [
+        "Vokal",
+        "Barockinstrumente",
+        "Rezitation"
+      ]
+    }
+  ],
+  "colors": {
+    "containerBg": "bg-gradient-to-br from-[#D8D3DF]/60 via-[#8C9FB1]/20 to-[#3B2A3D]/60 rounded-2xl",
+    "headerTextColor": "text-[#2A2E43]",
+    "titleTextColor": "text-[#2A2E43]",
+    "badgeTitleBg": "bg-[#D97A66]/60",
+    "badgeTitleText": "text-gray-200",
+    "badgeYearBg": "bg-[#3B2A3D]",
+    "badgeYearText": "text-gray-200",
+    "boxBg": "bg-[#E8E3EB]/90 backdrop-blur-sm",
+    "sectionTitleColor": "text-[#3B2A3D]",
+    "textColor": "text-[#1E1E1E]",
+    "subTextColor": "text-[#3A3A3A]",
+    "concertsBoxBg": "bg-[#D97A66]/60",
+    "concertsTextColor": "text-gray-200",
+    "responsibleBoxBg": "bg-[#E8CFA9]/60",
+    "responsibleTextColor": "text-[#2A2E43]"
+  }
+}

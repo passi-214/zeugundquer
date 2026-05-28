@@ -27,7 +27,7 @@ onMounted(async () => {
     const json = await res.json();
     aktuellesData.value = json.Aktuelles;
   } catch (err) {
-    console.error('Failed to fetch aktuelles data:', err);
+    console.error('Failed to fetch vereinszeug data:', err);
   }
 
   // Check if URL has a slug on load
