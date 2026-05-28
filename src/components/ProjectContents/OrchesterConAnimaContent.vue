@@ -4,7 +4,6 @@
       class="bg-gradient-to-b from-[#F7D28D] via-[#FBE1B5] to-[#E9A972] min-h-screen"
   >
 
-
     <template #profile>
       <Profile
           title="Orchester Con Anima"
@@ -41,8 +40,13 @@
 
     <template #description>
       <div class="p-5">
-        <div class="button-panel grid gap-4 justify-center justify-items-center mb-4"
-             style="grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); max-width: 40rem; margin-inline: auto;">
+        <!-- We keep the panelRef to track our component grid area -->
+        <div
+            ref="panelRef"
+            class="button-panel grid gap-4 justify-center justify-items-center mb-4"
+            style="grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); max-width: 40rem; margin-inline: auto;"
+        >
+          <!-- Removed .stop so the global document listener can handle the toggle/collapse -->
           <SquareButton
               v-for="(btn, index) in buttons"
               :key="index"
@@ -55,11 +59,10 @@
               activeBgColor="#C40F3C"
               textColor="#FFF8EC"
           />
-
-
-
         </div>
+
         <router-view :key="$route.fullPath"/>
+
         <CollapsibleGallery
             class="pt-20"
             :images="galleryImages"
@@ -80,56 +83,80 @@
     </template>
   </ProjectContentBase>
 </template>
+
 <script setup lang="ts">
-import {ref} from 'vue'
-import {useRouter} from 'vue-router'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import SquareButton from "@/components/placeholder/SquareButton.vue";
-import Gallery from "@/components/placeholder/Gallery.vue";
-import {useGallery} from "@/composables/useGallery";
+import { useGallery } from "@/composables/useGallery";
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
 
 const buttons = [
-  {label: "Aktuelles", to: "conAnimaAktuelles"},
-  {label: "ConAnima", to: "conAnima"},
-  {label: "Orchester", to: "conAnimaOrchester"},
-  {label: "Team", to: "conAnimaTeam"},
-  {label: "Mitspielen", to: "conAnimaMitspielen"},
-  {label: "Unterstützen", to: "conAnimaSupport"}
+  {label: "Aktuelles", to: "Aktuelles"},
+  {label: "ConAnima", to: "ConAnima"},
+  {label: "Orchester", to: "Orchester"},
+  {label: "Team", to: "Team"},
+  {label: "Mitspielen", to: "Mitspielen"},
+  {label: "Unterstützen", to: "Unterstützen"}
 ]
 
 const clickedButton = ref<string | null>(null)
-const router = useRouter()  // <-- Add this
+const panelRef = ref<HTMLElement | null>(null)
+const router = useRouter()
+
+// Used to flag if a button click just occurred in this lifecycle tick
+let isButtonClicking = false
 
 function handleClick(to: string) {
   if (clickedButton.value === to) {
-    // Reset clicked button
-    clickedButton.value = null
-    // Navigate to parent route explicitly
-    router.replace({path: '/zeugundquer/OrchesterConAnima'})
-  } else {
-    clickedButton.value = to
-    router.push({name: to})
+    // If clicking the already active button, let the global listener handle collapsing
+    return
   }
+
+  // Set the flag so the global handler knows to expand, not collapse
+  isButtonClicking = true
+  clickedButton.value = to
+  router.push({ name: to })
 }
 
+const handleGlobalClick = (event: MouseEvent) => {
+  // If the user just clicked an unselected button to expand it, do nothing
+  if (isButtonClicking) {
+    isButtonClicking = false
+    return
+  }
 
-// Low-res images
+  // Otherwise, ANY click collapses the panel:
+  // - Clicking outside the panel area completely
+  // - Clicking the already active, visible button within the panel
+  clickedButton.value = null
+}
+
+onMounted(() => {
+  document.addEventListener("click", handleGlobalClick);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", handleGlobalClick);
+});
+
+// Low-res images setup
 const lowResMusik = import.meta.glob('@/assets/images/orchester_con_anima/*.{jpg,jpeg}', {
   eager: true,
   import: 'default'
 });
 
-
 const galleryImages = useGallery(lowResMusik);
-
 </script>
 
-<style scoped> @media (min-width: 800px) {
+<style scoped>
+@media (min-width: 800px) {
   .button-panel {
-    max-width: 60rem; /* allow more space for 3 buttons */
+    max-width: 60rem;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    gap: 4rem; /* bigger spacing on desktop */
+    gap: 4rem;
   }
-} </style>
+}
+</style>

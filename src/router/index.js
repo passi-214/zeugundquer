@@ -33,15 +33,15 @@ const routes = [
 
             {path: 'aktuelles/:slug?', component: AktuellesContent}, // optional slug
             {
-                path: 'OrchesterConAnima',
+                path: 'orchesterconanima',
                 component: OrchesterConAnimaContent,
                 children: [
-                    {path: 'Aktuelles', component: ConAnimaAktuelles, name: 'conAnimaAktuelles'},
-                    {path: 'ConAnima', component: ConAnima, name: 'conAnima'},
-                    {path: 'Orchester', component: ConAnimaOrchester, name: 'conAnimaOrchester'},
-                    {path: 'Team', component: ConAnimaTeam, name: 'conAnimaTeam'},
-                    {path: 'Mitspielen', component: ConAnimaMitspielen, name: 'conAnimaMitspielen'},
-                    {path: 'Unterstuetzen', component: ConAnimaSupport, name: 'conAnimaSupport'},
+                    {path: 'Aktuelles', component: ConAnimaAktuelles, name: 'Aktuelles'},
+                    {path: 'ConAnima', component: ConAnima, name: 'ConAnima'},
+                    {path: 'Orchester', component: ConAnimaOrchester, name: 'Orchester'},
+                    {path: 'Team', component: ConAnimaTeam, name: 'Team'},
+                    {path: 'Mitspielen', component: ConAnimaMitspielen, name: 'Mitspielen'},
+                    {path: 'Unterstützen', component: ConAnimaSupport, name: 'Unterstützen'},
                 ]
             }
         ]
