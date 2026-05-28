@@ -10,7 +10,7 @@
           target="_blank"
           rel="noopener noreferrer"
           :class="[
-          'block font-semibold px-6 py-2 rounded-md transition-all duration-300',
+          'inline-flex items-center justify-center gap-2 font-semibold px-6 py-2 rounded-md transition-all duration-300',
           widthClass
         ]"
           :style="{
@@ -20,7 +20,20 @@
           @mouseover="hovering = true"
           @mouseleave="hovering = false"
       >
-        {{ buttonText }}
+        <!-- Optional External Link Icon -->
+        <svg
+            v-if="showExternalIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.2"
+            stroke="currentColor"
+            class="w-4 h-4 shrink-0"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+        </svg>
+
+        <span>{{ buttonText }}</span>
       </a>
     </div>
   </div>
@@ -37,6 +50,7 @@ const props = defineProps<{
   bgColor?: string
   hoverBgColor?: string
   textColor?: string
+  showExternalIcon?: boolean // Added optional prop
 }>()
 
 const hovering = ref(false)

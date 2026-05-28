@@ -99,11 +99,13 @@ const handleImageError = () => {
             buttonText="VdM"
             link="https://www.musikschulen.de/suche/musikschulsuche/"
             widthClass="w-50"
+            showExternalIcon="true"
         />
         <SecondaryButton
             buttonText="Musikschulfinder"
             link="https://www.musikschulfinder.de"
             widthClass="w-50"
+            showExternalIcon="true"
         />
       </div>
 
