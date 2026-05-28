@@ -35,7 +35,7 @@
     <template #description>
       <section class="flex flex-col items-center px-6 py-20 text-[#E0F7F7] leading-relaxed">
         <div class="w-full max-w-4xl space-y-8 text-left md:text-justify text-lg md:text-xl">
-          <h2 class="text-3xl font-semibold text-[#012420]">Über uns</h2>
+          <h2 class="text-3xl font-semibold text-[#012420]">Über Singende Hände</h2>
           <p class="pt-8">
             Wir sind ein Ensemble aus hörenden und Tauben Menschen in Freiburg und verbinden Chormusik und
             Gebärdenpoesie.

@@ -41,7 +41,7 @@
       <section class="flex flex-col items-center px-6 py-20 text-gray-800 leading-relaxed">
         <!-- ✅ Left-aligned title, justified text only on larger screens -->
         <div class="w-full max-w-4xl space-y-8 text-left md:text-justify text-lg md:text-xl">
-          <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">Über das Projekt</h2>
+          <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">Über MusiCasa</h2>
           <p class="text-xl font-bold mb-4 px-4 sm:px-10 pb-2 sm:pb-2">
             Durch gemeinsames Musizieren Begegnungen über sprachliche Grenzen hinaus zu ermöglichen – mit diesem Ansatz
             richtet sich MusiCasa hauptsächlich an Kinder und Jugendliche mit unterschiedlichen kulturellen
