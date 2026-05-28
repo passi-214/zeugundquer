@@ -18,6 +18,7 @@ const showControls = ref(true)
 const showCloseIcon = ref(false)
 const currentIndex = ref(0)
 const activeComponent = ref<null | any>(null)
+const currentOpenedItemName = ref<string | null>(null)
 
 // Template Ref für das UCarousel
 const carouselRef = ref<any>(null)

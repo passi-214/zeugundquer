@@ -1,13 +1,22 @@
 ﻿<script setup>
-import {nextTick, onMounted, ref} from "vue"; // ✅ added nextTick
+import { nextTick, onMounted, ref } from "vue";
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import AktuellesCard from "@/components/placeholder/AktuellesCard.vue";
-import {useRouter} from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const aktuellesData = ref([]);
 const activeCard = ref(null);
 const descriptionRef = ref(null);
-const aktuellesHeader = ref(null); // ✅ add a ref for the header
+const aktuellesHeader = ref(null);
+
+const router = useRouter();
+const route = useRoute();
+
+// Unified close function that manages state and updates routing
+const closeActiveCard = () => {
+  activeCard.value = null;
+  router.replace({ path: '/zeugundquer/aktuelles' });
+};
 
 // Fetch JSON from public folder at runtime
 onMounted(async () => {
@@ -21,7 +30,7 @@ onMounted(async () => {
     console.error('Failed to fetch aktuelles data:', err);
   }
 
-  // Check if URL has a slug
+  // Check if URL has a slug on load
   const slugFromUrl = route.params.slug;
   if (slugFromUrl) {
     const decodedSlug = decodeURIComponent(slugFromUrl);
@@ -31,33 +40,23 @@ onMounted(async () => {
     );
     if (card) {
       activeCard.value = card;
-
-      // Scroll to the top of the section
-      await nextTick();
-      if (aktuellesHeader.value) {
-        const headerOffset =
-            aktuellesHeader.value.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({
-          top: headerOffset,
-          behavior: "smooth",
-        });
-      }
     }
   }
 });
 
-
-// Handle card click
-
-const router = useRouter();
-
+// Handle card clicks (toggles open / closed states)
 const handleCardClick = async (entry) => {
+  // REQUIREMENT: Close the card if clicked while already active
+  if (activeCard.value === entry) {
+    closeActiveCard();
+    return;
+  }
+
   activeCard.value = entry;
 
   // Update the URL without reloading
   const slug = encodeURIComponent(entry.title.toLowerCase().replace(/\s+/g, '-'));
-  router.replace({ path: `/zeugundquer/Aktuelles/${slug}` });
-
+  router.replace({ path: `/zeugundquer/aktuelles/${slug}` });
 
   // Wait for DOM updates before scrolling
   await nextTick();
@@ -65,33 +64,30 @@ const handleCardClick = async (entry) => {
   if (aktuellesHeader.value) {
     const headerOffset =
         aktuellesHeader.value.getBoundingClientRect().top + window.scrollY - 80;
-    window.scrollTo({
-      top: headerOffset,
-      behavior: "smooth",
-    });
   }
 };
 
+// Handle clicks outside the description grid bounds
+const handleClickOutside = (event) => {
+  // FIX: If the target element has been unmounted or detached from the DOM
+  // (which happens instantly when clicking the close button), ignore the outside click event entirely.
+  if (!event.target || !document.body.contains(event.target)) {
+    return;
+  }
 
-// Handle clicks outside the description
-const handleClickOutside = async (event) => {
   const path = event.composedPath();
   if (descriptionRef.value && !path.includes(descriptionRef.value)) {
     if (activeCard.value) {
-      activeCard.value = null;
-
-      // Only replace route if there was an active card
+      closeActiveCard();
     }
   }
 };
-
 
 // Attach global click listener
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
 });
 </script>
-
 
 <template>
   <ProjectContentBase :showSponsorships="false">
@@ -103,6 +99,10 @@ onMounted(() => {
         Aktuelles
       </h2>
 
+      <!--
+        REQUIREMENT: Removed 'v-show' from AktuellesCard loop.
+        All background cards remain cleanly rendered in order below or above the opened one.
+      -->
       <div
           ref="descriptionRef"
           class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full min-h-300 pb-20"
@@ -113,10 +113,9 @@ onMounted(() => {
             :entry="entry"
             :isActive="activeCard === entry"
             @click="handleCardClick(entry)"
-            v-show="!activeCard || activeCard === entry"
+            @close="closeActiveCard"
         />
       </div>
     </template>
   </ProjectContentBase>
 </template>
-
