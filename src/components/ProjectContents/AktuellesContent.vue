@@ -15,7 +15,7 @@ const route = useRoute();
 // Unified close function that manages state and updates routing
 const closeActiveCard = () => {
   activeCard.value = null;
-  router.replace({ path: '/zeugundquer/aktuelles' });
+  router.replace({ path: '/zeugundquer/vereinszeug' });
 };
 
 // Fetch JSON from public folder at runtime
@@ -56,7 +56,7 @@ const handleCardClick = async (entry) => {
 
   // Update the URL without reloading
   const slug = encodeURIComponent(entry.title.toLowerCase().replace(/\s+/g, '-'));
-  router.replace({ path: `/zeugundquer/aktuelles/${slug}` });
+  router.replace({ path: `/zeugundquer/vereinszeug/${slug}` });
 
   // Wait for DOM updates before scrolling
   await nextTick();
@@ -90,8 +90,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <ProjectContentBase :showSponsorships="false">
-    <template #description>
       <h2
           ref="aktuellesHeader"
           class="text-3xl font-bold mb-4 px-4 sm:px-10 pb-20 text-center"
@@ -116,6 +114,4 @@ onMounted(() => {
             @close="closeActiveCard"
         />
       </div>
-    </template>
-  </ProjectContentBase>
 </template>

@@ -29,7 +29,6 @@ const items = [
   {name: 'singendehaende', component: SingingHands},
   {name: 'ensemblescope', component: EnsembleScope},
   {name: 'neueszeug', component: NeuesZeug},
-  {name: 'aktuelles', component: Aktuelles},
   {name: 'orchesterconanima', component: OrchesterConAnima},
   {name: 'schallundrauch', component: SchallUndRauch},
   {name: 'musikohnegockeln', component: MusikOhneGockeln}
@@ -53,10 +52,16 @@ function openItem(itemName: string) {
     activeComponent.value = items[index].component
     showControls.value = false
     showCloseIcon.value = true
-    router.push(`/zeugundquer/${itemName}`)
 
-    // Trigger the auto-scroll
-    scrollToProfile()
+    // 🚀 THE FIX: Check if the route is ALREADY inside this base path track
+    // If we are just closing a sub-card, route.path is already '/zeugundquer/vereinszeug'
+    const targetPath = `/zeugundquer/${itemName}`
+    if (route.path !== targetPath) {
+      router.push(targetPath)
+
+      // ONLY scroll if we are actually entering the section from the home/carousel view!
+      scrollToProfile()
+    }
   }
 }
 

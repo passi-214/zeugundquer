@@ -31,7 +31,7 @@ const routes = [
             {path: 'musikohnegockeln', component: MusikOhneGockelnContent},
             { path: 'impressum', component: Impressum, name: 'impressum' },
 
-            {path: 'aktuelles/:slug?', component: AktuellesContent}, // optional slug
+            {path: 'vereinszeug/:slug?', component: VereinszeugContent}, // optional slug
             {
                 path: 'orchesterconanima',
                 component: OrchesterConAnimaContent,

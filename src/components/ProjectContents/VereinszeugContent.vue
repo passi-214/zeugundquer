@@ -22,19 +22,19 @@
 
           containerBg="bg-gradient-to-br from-[#B8C8D6]/60 via-[#E9EEF3]/80 to-white shadow-md border border-[#3F6576]/30 rounded-2xl"
           headerTextColor="text-[#12243D]"
-      titleTextColor="text-[#12243D]"
-      badgeTitleBg="bg-[#F5E7B2]"
-      badgeTitleText="text-[#162A4B]"
-      badgeYearBg="bg-[#3F6576]"
-      badgeYearText="text-white"
-      boxBg="bg-white/85 backdrop-blur-sm shadow-md"
-      sectionTitleColor="text-[#2C4D67]"
-      textColor="text-[#1F1F1F]"
-      subTextColor="text-[#3A3A3A]"
-      concertsBoxBg="bg-[#F5E7B2]/70"
-      concertsTextColor="text-[#162A4B]"
-      responsibleBoxBg="bg-[#C4D1DF]/60"
-      responsibleTextColor="text-[#162A4B]"
+          titleTextColor="text-[#12243D]"
+          badgeTitleBg="bg-[#F5E7B2]"
+          badgeTitleText="text-[#162A4B]"
+          badgeYearBg="bg-[#3F6576]"
+          badgeYearText="text-white"
+          boxBg="bg-white/85 backdrop-blur-sm shadow-md"
+          sectionTitleColor="text-[#2C4D67]"
+          textColor="text-[#1F1F1F]"
+          subTextColor="text-[#3A3A3A]"
+          concertsBoxBg="bg-[#F5E7B2]/70"
+          concertsTextColor="text-[#162A4B]"
+          responsibleBoxBg="bg-[#C4D1DF]/60"
+          responsibleTextColor="text-[#162A4B]"
       />
 
 
@@ -54,13 +54,16 @@
         <div class="w-full max-w-4xl space-y-8 text-left md:text-justify text-lg md:text-xl">
           <h2 class="text-3xl font-bold mb-4 text-[#162A4B]">Wer sind wir?</h2>
           <p class="text-xl font-medium mb-4 text-[#333333] leading-relaxed pt-6">
-          zeug und quer e. V. hat sich im April 2015 gegründet und besteht derzeit aus ca. 35 Mitgliedern
-          (großteils Studierende der Musikhochschule Freiburg). Der Kulturverein möchte Verbindungen schaffen,
-          insbesondere interdisziplinärer, interkultureller und generationenübergreifender Art.
-          Genauso sollen laut Satzung zwischen Kunst und ihrer Vermittlung, Tradition und Gegenwart, Anspruch
-          und Vergnügen, dem Profi- und Laienmusikbetrieb Brücken geschlagen werden.
-        </p>
+            zeug und quer e. V. hat sich im April 2015 gegründet und besteht derzeit aus ca. 35 Mitgliedern
+            (großteils Studierende der Musikhochschule Freiburg). Der Kulturverein möchte Verbindungen schaffen,
+            insbesondere interdisziplinärer, interkultureller und generationenübergreifender Art.
+            Genauso sollen laut Satzung zwischen Kunst und ihrer Vermittlung, Tradition und Gegenwart, Anspruch
+            und Vergnügen, dem Profi- und Laienmusikbetrieb Brücken geschlagen werden.
+          </p>
         </div>
+      </section>
+      <section class="pt-20">
+        <AktuellesContent></AktuellesContent>
       </section>
     </template>
 
@@ -87,6 +90,8 @@ import img1 from '@/assets/images/vereinszeug/vereinszeug1.png'
 import img2 from '@/assets/images/vereinszeug/vereinszeug2.png'
 import img3 from '@/assets/images/vereinszeug/vereinszeug3.png'
 import img4 from '@/assets/images/vereinszeug/vereinszeug4.png'
+import Aktuelles from "@/components/Aktuelles.vue";
+import AktuellesContent from "@/components/ProjectContents/AktuellesContent.vue";
 
 
 const images = [
