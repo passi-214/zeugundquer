@@ -40,19 +40,23 @@
 
     <template #description>
       <div class="p-5">
-        <!-- We keep the panelRef to track our component grid area -->
         <div
             ref="panelRef"
             class="button-panel grid gap-4 justify-center justify-items-center mb-4"
             style="grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); max-width: 40rem; margin-inline: auto;"
         >
-          <!-- Removed .stop so the global document listener can handle the toggle/collapse -->
+          <!--
+            Clean Update:
+            - Passed clean label directly without string hacks.
+            - Added dynamic :showCloseIcon parameter tracking button activation.
+          -->
           <SquareButton
               v-for="(btn, index) in buttons"
               :key="index"
               :label="btn.label"
               :to="btn.to"
               :isActive="clickedButton === btn.to"
+              :showCloseIcon="clickedButton === btn.to"
               @click="handleClick(btn.to)"
               v-show="!clickedButton || clickedButton === btn.to"
               bgColor="#A34865"
@@ -61,6 +65,7 @@
           />
         </div>
 
+        <!-- The text content area -->
         <router-view :key="$route.fullPath"/>
 
         <CollapsibleGallery
@@ -86,7 +91,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import SquareButton from "@/components/placeholder/SquareButton.vue";
@@ -105,33 +110,35 @@ const buttons = [
 const clickedButton = ref<string | null>(null)
 const panelRef = ref<HTMLElement | null>(null)
 const router = useRouter()
+const route = useRoute()
 
-// Used to flag if a button click just occurred in this lifecycle tick
 let isButtonClicking = false
 
 function handleClick(to: string) {
   if (clickedButton.value === to) {
-    // If clicking the already active button, let the global listener handle collapsing
     return
   }
 
-  // Set the flag so the global handler knows to expand, not collapse
   isButtonClicking = true
   clickedButton.value = to
   router.push({ name: to })
 }
 
+function collapseSection() {
+  clickedButton.value = null
+
+  if (route.name !== 'orchesterconanima' && route.path !== '/zeugundquer/orchesterconanima') {
+    router.push('/zeugundquer/orchesterconanima')
+  }
+}
+
 const handleGlobalClick = (event: MouseEvent) => {
-  // If the user just clicked an unselected button to expand it, do nothing
   if (isButtonClicking) {
     isButtonClicking = false
     return
   }
 
-  // Otherwise, ANY click collapses the panel:
-  // - Clicking outside the panel area completely
-  // - Clicking the already active, visible button within the panel
-  clickedButton.value = null
+  collapseSection()
 }
 
 onMounted(() => {
@@ -142,7 +149,6 @@ onUnmounted(() => {
   document.removeEventListener("click", handleGlobalClick);
 });
 
-// Low-res images setup
 const lowResMusik = import.meta.glob('@/assets/images/orchester_con_anima/*.{jpg,jpeg}', {
   eager: true,
   import: 'default'
