@@ -35,14 +35,11 @@
       <div class="h-12 sm:h-12"></div>
 
     </template>
-
     <template #description>
-      <!-- Static intro section -->
       <section class="flex flex-col items-center px-6 py-20 text-gray-800 leading-relaxed">
-        <!-- ✅ Left-aligned title, justified text only on larger screens -->
         <div class="w-full max-w-4xl space-y-8 text-left md:text-justify text-lg md:text-xl">
           <h2 class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10">Über MusiCasa</h2>
-          <p class="text-xl font-bold mb-4 px-4 sm:px-10 pb-2 sm:pb-2">
+          <p class="text-xl font-bold mb-4 px-4 sm:px-10">
             Durch gemeinsames Musizieren Begegnungen über sprachliche Grenzen hinaus zu ermöglichen – mit diesem Ansatz
             richtet sich MusiCasa hauptsächlich an Kinder und Jugendliche mit unterschiedlichen kulturellen
             Hintergründen,
@@ -54,37 +51,36 @@
         </div>
       </section>
 
-      <!-- Section title -->
-      <section class="flex flex-col items-center px-6 py-20 text-gray-800 leading-relaxed">
-        <div class="w-full max-w-4xl space-y-8 text-justify md:text-justify text-lg md:text-xl">
+      <section class="flex flex-col items-center px-6 py-2 text-gray-800 leading-relaxed">
+        <div class="w-full max-w-4xl space-y-8 text-center text-lg md:text-xl">
           <h2
               ref="pastProjectsHeader"
-              class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-25 pb-10 text-center"
+              class="text-3xl font-bold mb-4 px-4 sm:px-10 pt-12 sm:pt-12 pb-10 text-center"
           >
             Vergangene Projekte
           </h2>
         </div>
       </section>
 
-
-      <!-- Project Cards Section -->
-      <TransitionGroup
-          tag="div"
-          name="project-grid"
-          ref="descriptionRef"
-          class="rounded-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20 px-4 md:px-6 lg:px-8 w-full max-w-6xl mx-auto items-start pb-20"
-      >
-        <MusiCasaProjectCard
-            v-for="(entry, index) in musiCasaProjects"
-            :key="entry.title || index"
-            :entry="entry"
-            :isActive="activeCard === entry"
-            :anyActive="!!activeCard"
-            :titleAlign="getTitleAlignment(index)"
-            @click="handleCardClick(entry)"
-            @close="activeCard = null"
-        />
-      </TransitionGroup>
+      <div class="w-full flex justify-center">
+        <TransitionGroup
+            tag="div"
+            name="project-grid"
+            ref="descriptionRef"
+            class="rounded-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20 px-4 md:px-6 lg:px-8 w-full max-w-6xl justify-items-center justify-center pb-20"
+        >
+          <MusiCasaProjectCard
+              v-for="(entry, index) in musiCasaProjects"
+              :key="entry.title || index"
+              :entry="entry"
+              :isActive="activeCard === entry"
+              :anyActive="!!activeCard"
+              :titleAlign="getTitleAlignment(index)"
+              @click="handleCardClick(entry)"
+              @close="activeCard = null"
+          />
+        </TransitionGroup>
+      </div>
     </template>
 
     <template #sponsorships>
