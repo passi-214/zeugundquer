@@ -1,5 +1,5 @@
 ﻿<script setup lang="ts">
-import SquareButton from "@/components/placeholder/SquareButton.vue";
+import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
 </script>
 
 <template>
@@ -13,30 +13,37 @@ import SquareButton from "@/components/placeholder/SquareButton.vue";
         <p class="mt-2 text-gray-600">Kultur & Gemeinschaft erleben</p>
       </div>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-center items-center mt-6">
+        <SecondaryButton
+            paragraph="Schreib uns eine E-Mail"
+            buttonText="Kontakt"
+            link="mailto:info@zeugundquer.de"
+            class="text-gray-800"
+        />
+
         <SecondaryButton
             paragraph="Folge uns auf Facebook"
             buttonText="Facebook"
             link="https://www.facebook.com"
-            class=" text-gray-800"
+            class="text-gray-800"
         />
         <SecondaryButton
             paragraph="Folge uns auf Instagram"
             buttonText="Instagram"
             link="https://www.instagram.com"
-            class=" text-gray-800"
+            class="text-gray-800"
         />
         <SecondaryButton
             paragraph="Folge uns auf YouTube"
             buttonText="YouTube"
             link="https://www.youtube.com"
-            class=" text-gray-800 "
+            class="text-gray-800"
         />
         <SecondaryButton
             paragraph="Folge uns auf SoundCloud"
             buttonText="SoundCloud"
             link="https://soundcloud.com"
-            class=" text-gray-800"
+            class="text-gray-800"
         />
       </div>
 
