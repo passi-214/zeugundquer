@@ -60,7 +60,7 @@
 </template>
 
 <script setup>
-import {nextTick, onMounted, onUnmounted, ref} from "vue"; // ✅ added nextTick import
+import { onMounted, onUnmounted, ref} from "vue"; // ✅ added nextTick import
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import MusiCasaProjectCard from "@/components/placeholder/MusiCasaProjectCard.vue";
 import Profile from "@/components/placeholder/Profile.vue";

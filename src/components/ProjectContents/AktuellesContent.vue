@@ -1,6 +1,5 @@
 ﻿<script setup>
 import { nextTick, onMounted, ref } from "vue";
-import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import AktuellesCard from "@/components/placeholder/AktuellesCard.vue";
 import { useRouter, useRoute } from "vue-router";
 import aktuelles from "@/assets/data/vereinszeug/aktuelles.json";
@@ -58,8 +57,7 @@ const handleCardClick = async (entry) => {
   await nextTick();
 
   if (aktuellesHeader.value) {
-    const headerOffset =
-        aktuellesHeader.value.getBoundingClientRect().top + window.scrollY - 80;
+    aktuellesHeader.value.getBoundingClientRect().top + window.scrollY - 80;
   }
 };
 

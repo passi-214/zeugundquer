@@ -157,7 +157,7 @@
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
-import {onMounted, ref} from 'vue'
+import {ref} from 'vue'
 import ConcertCard from "@/components/placeholder/ConcertCard.vue";
 import {useGallery} from "@/composables/useGallery";
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
