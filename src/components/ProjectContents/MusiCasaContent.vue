@@ -63,31 +63,21 @@
 import {nextTick, onMounted, onUnmounted, ref} from "vue"; // ✅ added nextTick import
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import MusiCasaProjectCard from "@/components/placeholder/MusiCasaProjectCard.vue";
-import aventis from "@/assets/images/sponsor/aventis_foundation.avif";
-import bundesregierung from "@/assets/images/sponsor/bundesregierung.avif";
-import bwKunst from "@/assets/images/sponsor/bw_kunst.avif";
-import bwSoziales from "@/assets/images/sponsor/bw_soziales.avif";
 import Profile from "@/components/placeholder/Profile.vue";
 import musiCasaData from "@/assets/data/musi_casa/musicasa_steckbrief.json";
 import musiCasaContent from "@/assets/data/musi_casa/musi_casa_content.json";
+import musiCasaProjectsData from "@/assets/data/musi_casa/musicasa_projects.json"
 
 
-const musiCasaProjects = ref([]);
 const activeCard = ref(null);
 const descriptionRef = ref(null);
 const pastProjectsHeader = ref(null);
 const BASE_URL = import.meta.env.BASE_URL
 // Fetch JSON data
-onMounted(async () => {
-  try {
-    const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_MUSI_CASA_PROJECTS;
-    const res = await fetch(cloudinaryUrl);
-    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-    musiCasaProjects.value = await res.json();
-  } catch (err) {
-    console.error('Failed to fetch Musi Casa data:', err);
-  }
-});
+
+const musiCasaProjects = ref([]);
+ musiCasaProjects.value = musiCasaProjectsData;
+
 
 const handleCardClick = async (entry) => {
   // Wenn die Karte bereits aktiv ist, nichts tun (verhindert erneuten Autoscroll)

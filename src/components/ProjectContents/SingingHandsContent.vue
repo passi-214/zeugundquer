@@ -159,10 +159,11 @@ import Profile from "@/components/placeholder/Profile.vue";
 import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
 import {onMounted, ref} from 'vue'
 import ConcertCard from "@/components/placeholder/ConcertCard.vue";
-import bwSoziales from '@/assets/images/sponsor/bw_soziales.avif'
 import {useGallery} from "@/composables/useGallery";
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
 import singingHandsData from '@/assets/data/singing_hands/singing_hands_steckbrief.json';
+import singingHandsConcerts from '@/assets/data/singing_hands/singing_hands_concerts.json';
+import singingHandsRehearsal from '@/assets/data/singing_hands/singing_hands_probe.json';
 import singingHandsContent from '@/assets/data/singing_hands/singing_hands_content.json';
 
 const imageSrc = ref('/images/orchestra.jpg')
@@ -195,26 +196,8 @@ function sendEmail() {
   window.location = "mailto:xyz@yourapplicationdomain.com";
 }
 
-onMounted(async () => {
-
-  try {
-    const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_SINGING_HANDS_CONCERTS;
-    const res = await fetch(cloudinaryUrl);
-    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-    concerts.value = await res.json();
-  } catch (err) {
-    console.error('Failed to fetch singing hands concert data:', err);
-  }
-
-  try {
-    const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_SINGING_HANDS_PROBE;
-    const res = await fetch(cloudinaryUrl);
-    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-    rehearsal.value = await res.json();
-  } catch (err) {
-    console.error('Failed to fetch singing hands rehearsal data:', err);
-  }
-})
+concerts.value = singingHandsConcerts;
+rehearsal.value = singingHandsRehearsal;
 
 // Low-res images
 const lowResMusik = import.meta.glob('@/assets/images/singing_hands/*.{jpg,jpeg}', {

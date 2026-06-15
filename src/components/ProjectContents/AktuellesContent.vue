@@ -3,6 +3,7 @@ import { nextTick, onMounted, ref } from "vue";
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import AktuellesCard from "@/components/placeholder/AktuellesCard.vue";
 import { useRouter, useRoute } from "vue-router";
+import aktuelles from "@/assets/data/vereinszeug/aktuelles.json";
 
 const aktuellesData = ref([]);
 const activeCard = ref(null);
@@ -20,15 +21,10 @@ const closeActiveCard = () => {
 
 // Fetch JSON from public folder at runtime
 onMounted(async () => {
-  try {
-    const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_AKTUELLES;
-    const res = await fetch(cloudinaryUrl);
-    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-    const json = await res.json();
-    aktuellesData.value = json.Aktuelles;
-  } catch (err) {
-    console.error('Failed to fetch vereinszeug data:', err);
-  }
+    aktuellesData.value = aktuelles.Aktuelles;
+
+    console.log(aktuellesData.value)
+
 
   // Check if URL has a slug on load
   const slugFromUrl = route.params.slug;

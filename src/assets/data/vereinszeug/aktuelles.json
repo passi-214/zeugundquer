@@ -2,7 +2,7 @@
   "Aktuelles": [
     {
       "title": "#sur.face",
-      "image_path": "https://res.cloudinary.com/dusniinki/image/upload/v1761776813/01b_Proben_Foto__Con_Anima_pez6su.jpg",
+      "image_path": "/images/musi_casa/Pi7compressed014_DSC04682.jpg",
       "short_description": "Das neueste Video von uns",
       "long_description": "Cyrcyre ist die Komposition von Lucia Kilger, die eigens für das ensemble scope im Rahmen des Projekts sur:face komponiert wurde.",
       "date": "01.08.2023"
@@ -10,21 +10,21 @@
     {
       "title": "OCA - Konzert und Innovationsfonds",
       "youtube_url": "",
-      "image_path": "https://res.cloudinary.com/dusniinki/image/upload/v1761776813/01c_Probe_2019_aktiv_Foto__Katharina_Skala_dgno98.jpg",
+      "image_path": "/images/musi_casa/Pi7compressed018_DSC04701.jpg",
       "short_description": "Innovative Musik: Orchester con anima erhält Förderung und lädt zur Sommerserenade",
       "long_description": "Das Orchester con anima erhält den Innovationsfonds des Ministeriums für Wissenschaft, Forschung und Kunst Baden-Württemberg für ein geplantes Side-by-Side-Projekt mit Studierenden der Musikhochschule. Das Projekt wird in einem gemeinsamen Konzert im Juni 2019 münden. Nun lädt das Ensemble zunächst zu seiner Sommerserenade am 22. August 2018, 19.30h im Historischen Kaufhaus am Münsterplatz ein!",
       "date": "06.05.2023"
     },
     {
       "title": "Bechstein Klavierwettbewerb",
-      "image_path": "https://res.cloudinary.com/dusniinki/image/upload/v1761776811/01a_Titelfoto_Foto_GiovanniPenne_brs1vw.jpg",
+      "image_path": "/images/musi_casa/Pi7compressed063_DSC04926.jpg",
       "short_description": "Kurze Beschreibung für Eintrag 3",
       "long_description": "Lange Beschreibung für Eintrag 3. Hier steht detaillierter Text zu diesem Eintrag.",
       "date": "03.02.2023"
     },
     {
       "title": "Interkulturelle Orchester",
-      "image_path": "/pictures/aktuelles/interkulturelle_orchester.jpg",
+      "image_path": "/images/musi_casa/Pi7compressed063_DSC04926.jpg",
       "short_description": "Kurze Beschreibung für Eintrag 4",
       "long_description": "Lange Beschreibung für Eintrag 4. Hier steht detaillierter Text zu diesem Eintrag.",
       "date": "22.01.2023"

@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
 
-const imageSrc = ref('/images/orchestra.jpg')
+const imageSrc = ref('/images/conAnima/03a Konzert MH Foto_ Giovanni Penne.jpg')
 const placeholder = 'https://via.placeholder.com/800x500?text=Con+Anima+Orchester'
 
 const handleImageError = () => {
@@ -44,7 +44,7 @@ const handleImageError = () => {
         <img
             :src="imageSrc"
             alt="Con Anima Orchester"
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-[1.03]"
+            class="absolute inset-0 w-full h-full object-cover transition-transform"
             @error="handleImageError"
         />
         <div
