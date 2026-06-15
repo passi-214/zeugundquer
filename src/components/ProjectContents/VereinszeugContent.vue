@@ -59,6 +59,7 @@ import img3 from '@/assets/images/vereinszeug/vereinszeug3.png'
 import img4 from '@/assets/images/vereinszeug/vereinszeug4.png'
 import AktuellesContent from "@/components/ProjectContents/AktuellesContent.vue";
 import zeugUndQuerData from '@/assets/data/vereinszeug/zeugundquer_steckbrief.json';
+import zeugUndQuerContent from '@/assets/data/vereinszeug/zeug_und_quer_content.json';
 
 
 const images = [
@@ -69,12 +70,7 @@ const images = [
 ]
 
 
-const sponsors = [
-  {id: 1, url: aventis, name: 'Sponsor 1', current: true},
-  {id: 2, url: bundesregierung, name: 'Sponsor 2', current: false},
-  {id: 3, url: bwKunst, name: 'Sponsor 3', current: true},
-  {id: 4, url: bwSoziales, name: 'Sponsor 4', current: false},
-]
+const sponsors = zeugUndQuerContent.sponsor
 
 
 // Reactive width

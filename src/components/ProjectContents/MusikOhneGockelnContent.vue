@@ -5,6 +5,10 @@ import Profile from "@/components/placeholder/Profile.vue";
 import {computed, ref} from 'vue';
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
 import musikOhneGockelnData from "@/assets/data/musik_ohne_gockeln/musikohnegockeln_steckbrief.json"
+import musikOhneGockelnContent from "@/assets/data/musik_ohne_gockeln/musik_ohne_gockeln_content.json"
+import Sponsors from "@/components/placeholder/Sponsors.vue";
+
+const sponsors = musikOhneGockelnContent.sponsor
 
 // Low-res images
 const lowResMusik = import.meta.glob('@/assets/images/musik_ohne_gockeln/*.{jpg,jpeg}', {
@@ -82,10 +86,7 @@ defineShortcuts({
 
     <!-- Sponsorships Section -->
     <template #sponsorships>
-      <section class="text-white py-12">
-        <h2 class="text-2xl font-semibold text-center mb-8">Unsere Förderer</h2>
-        <!--        <Sponsors :sponsors="sponsors"/>-->
-      </section>
+      <Sponsors :sponsors="sponsors"/>
     </template>
   </ProjectContentBase>
 </template>

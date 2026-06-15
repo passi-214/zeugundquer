@@ -9,7 +9,7 @@
             class="flex justify-center items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition"
         >
           <img
-              :src="sponsor.url"
+              :src="sponsorImages[sponsor.url]"
               :alt="sponsor.name"
               class="max-h-24 sm:max-h-28 w-full object-contain"
           />
@@ -26,7 +26,7 @@
             class="flex justify-center items-center p-4 bg-gray-100 rounded-lg"
         >
           <img
-              :src="sponsor.url"
+              :src="sponsorImages[sponsor.url]"
               :alt="sponsor.name"
               class="max-h-24 sm:max-h-28 w-full object-contain grayscale"
           />
@@ -38,6 +38,18 @@
 
 <script setup lang="ts">
 import { computed, defineProps } from 'vue';
+import aventis from '@/assets/images/sponsor/aventis_foundation.avif'
+import bundesregierung from '@/assets/images/sponsor/bundesregierung.avif'
+import bwKunst from '@/assets/images/sponsor/bw_kunst.avif'
+import bwSoziales from '@/assets/images/sponsor/bw_soziales.avif'
+import deutscheOrchesterStiftung from '@/assets/images/sponsor/deutsche_orchester_stiftung.avif'
+import kulturStiftungDerLaender from '@/assets/images/sponsor/kultur_stiftung_der_laender.avif'
+import kulturamtFreiburg from '@/assets/images/sponsor/kulturamt_freiburg.avif'
+import lbbw from '@/assets/images/sponsor/lbbw.avif'
+import neustartkultur from '@/assets/images/sponsor/neustartkultur.avif'
+import prohelvetia from '@/assets/images/sponsor/prohelvetia.avif'
+import sickStiftung from '@/assets/images/sponsor/sick_stiftung.avif'
+import sparkasse from '@/assets/images/sponsor/sparkasse.avif'
 
 interface Sponsor {
   id: number;
@@ -49,6 +61,21 @@ interface Sponsor {
 const props = defineProps<{
   sponsors: Sponsor[];
 }>()
+
+const sponsorImages: Record<string, string> = {
+  aventis,
+  bundesregierung,
+  bwKunst,
+  bwSoziales,
+  deutscheOrchesterStiftung,
+  kulturStiftungDerLaender,
+  kulturamtFreiburg,
+  lbbw,
+  neustartkultur,
+  prohelvetia,
+  sickStiftung,
+  sparkasse,
+}
 
 const currentSponsors = computed(() => props.sponsors.filter(s => s.current));
 const pastSponsors = computed(() => props.sponsors.filter(s => !s.current));

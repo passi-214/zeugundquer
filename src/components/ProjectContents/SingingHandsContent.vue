@@ -163,6 +163,7 @@ import bwSoziales from '@/assets/images/sponsor/bw_soziales.avif'
 import {useGallery} from "@/composables/useGallery";
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
 import singingHandsData from '@/assets/data/singing_hands/singing_hands_steckbrief.json';
+import singingHandsContent from '@/assets/data/singing_hands/singing_hands_content.json';
 
 const imageSrc = ref('/images/orchestra.jpg')
 
@@ -174,9 +175,7 @@ const handleImageError = () => {
   imageSrc.value = placeholder
 }
 
-const sponsors = [
-  {id: 1, url: bwSoziales, name: 'Sponsor 1', current: true},
-];
+const sponsors = singingHandsContent.sponsor
 
 const rehearsal = ref<Array<{
   title: string

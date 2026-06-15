@@ -2,6 +2,7 @@
 
 import Profile from "@/components/placeholder/Profile.vue";
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
+import Sponsors from "@/components/placeholder/Sponsors.vue";
 </script>
 
 <template>
@@ -28,7 +29,7 @@ import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
       </section>
     </template>
     <template #sponsorships>
-
+      <Sponsors :sponsors="sponsors"/>
     </template>
   </ProjectContentBase>
 </template>
@@ -39,4 +40,6 @@ import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 
 <script>
 import schallUndRauchData from '@/assets/data/schall_und_rauch/schallundrauch_steckbrief.json';
+import schallUndRauchContent from '@/assets/data/schall_und_rauch/schall_und_rauch_content.json';
+const sponsors = schallUndRauchContent.sponsor
 </script>

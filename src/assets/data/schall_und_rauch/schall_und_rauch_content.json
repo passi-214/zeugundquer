@@ -1,0 +1,30 @@
+﻿{
+  "content": {
+  },
+  "sponsor": [
+    {
+      "id": 1,
+      "url": "aventis",
+      "name": "Sponsor 1",
+      "current": true
+    },
+    {
+      "id": 2,
+      "url": "bundesregierung",
+      "name": "Sponsor 2",
+      "current": false
+    },
+    {
+      "id": 3,
+      "url": "bwKunst",
+      "name": "Sponsor 3",
+      "current": true
+    },
+    {
+      "id": 4,
+      "url": "bwSoziales",
+      "name": "Sponsor 4",
+      "current": false
+    }
+  ]
+}

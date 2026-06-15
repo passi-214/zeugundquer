@@ -47,11 +47,19 @@ import {computed, onMounted, onUnmounted, ref} from "vue";
 import Profile from "@/components/placeholder/Profile.vue";
 import Sponsors from "@/components/placeholder/Sponsors.vue";
 import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
+import neuesZeugData from "@/assets/data/neues_zeug/neues_zeug_steckbrief.json"
 import aventis from '@/assets/images/sponsor/aventis_foundation.avif'
 import bundesregierung from '@/assets/images/sponsor/bundesregierung.avif'
 import bwKunst from '@/assets/images/sponsor/bw_kunst.avif'
 import bwSoziales from '@/assets/images/sponsor/bw_soziales.avif'
-import neuesZeugData from "@/assets/data/neues_zeug/neues_zeug_steckbrief.json"
+import deutsche_orchester_stiftung from '@/assets/images/sponsor/deutsche_orchester_stiftung.avif'
+import kultur_stiftung_der_laender from '@assets/images/sponsor/kultur_stiftung_der_laender.avif'
+import kulturamt_freiburg from '@assets/images/sponsor/kulturamt_freiburg.avif'
+import lbbw from '@assets/images/sponsor/lbbw.avif'
+import neustartkultur from '@assets/images/sponsor/neustartkultur.avif'
+import prohelvetia from '@assets/images/sponsor/prohelvetia.avif'
+import sick_stiftung from '@assets/images/sponsor/sick_stiftung.avif'
+import sparkasse from '@assets/images/sponsor/sparkasse.avif'
 
 // Reactive window width
 const windowWidth = ref(window.innerWidth);

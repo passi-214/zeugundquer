@@ -69,6 +69,7 @@ import bwKunst from "@/assets/images/sponsor/bw_kunst.avif";
 import bwSoziales from "@/assets/images/sponsor/bw_soziales.avif";
 import Profile from "@/components/placeholder/Profile.vue";
 import musiCasaData from "@/assets/data/musi_casa/musicasa_steckbrief.json";
+import musiCasaContent from "@/assets/data/musi_casa/musi_casa_content.json";
 
 
 const musiCasaProjects = ref([]);
@@ -107,12 +108,7 @@ function getTitleAlignment(index) {
   return patterns[index % patterns.length];
 }
 
-const sponsors = [
-  {id: 1, url: aventis, name: 'Sponsor 1', current: true},
-  {id: 2, url: bundesregierung, name: 'Sponsor 2', current: false},
-  {id: 3, url: bwKunst, name: 'Sponsor 3', current: true},
-  {id: 4, url: bwSoziales, name: 'Sponsor 4', current: false},
-]
+const sponsors = musiCasaContent.sponsor
 
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);

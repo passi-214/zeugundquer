@@ -53,10 +53,7 @@
     </template>
 
     <template #sponsorships>
-      <ul class="list-disc pl-6">
-        <li>Sponsor A</li>
-        <li>Sponsor B</li>
-      </ul>
+      <Sponsors :sponsors="sponsors"/>
     </template>
   </ProjectContentBase>
 </template>
@@ -69,7 +66,9 @@ import Profile from "@/components/placeholder/Profile.vue";
 import SquareButton from "@/components/placeholder/SquareButton.vue";
 import { useGallery } from "@/composables/useGallery";
 import CollapsibleGallery from "@/components/placeholder/CollapsibleGallery.vue";
-import conAnimaData from "@/assets/data/orchester_con_anima/con_anima_steckbrief.json"
+import conAnimaData from "@/assets/data/con_anima/con_anima_steckbrief.json"
+import conAnimaContent from "@/assets/data/con_anima/con_anima_content.json"
+import Sponsors from "@/components/placeholder/Sponsors.vue";
 
 const buttons = [
   {label: "Aktuelles", to: "Aktuelles"},
@@ -121,6 +120,8 @@ onMounted(() => {
 onUnmounted(() => {
   document.removeEventListener("click", handleGlobalClick);
 });
+
+const sponsors = conAnimaContent.sponsor
 
 const lowResMusik = import.meta.glob('@/assets/images/orchester_con_anima/*.{jpg,jpeg}', {
   eager: true,
