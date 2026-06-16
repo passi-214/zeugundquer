@@ -5,7 +5,6 @@ import MusiCasaContent from "@/components/ProjectContents/MusiCasaContent.vue";
 import SingingHandsContent from "@/components/ProjectContents/SingingHandsContent.vue";
 import EnsembleScopeContent from "@/components/ProjectContents/EnsembleScopeContent.vue";
 import NeuesZeugContent from "@/components/ProjectContents/NeuesZeugContent.vue";
-import AktuellesContent from "@/components/ProjectContents/AktuellesContent.vue";
 import OrchesterConAnimaContent from "@/components/ProjectContents/OrchesterConAnimaContent.vue";
 import ConAnimaAktuelles from "@/components/ProjectContents/OrchesterConAnima/ConAnimaAktuelles.vue";
 import ConAnima from "@/components/ProjectContents/OrchesterConAnima/ConAnima.vue";
