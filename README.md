@@ -36,6 +36,7 @@ npm run build
 - [Singende Hände Konzerte und Proben](#singende-hände-konzerte-und-proben)
 - [MusiCasa Projekte](#musicasa-projekte)
 - [Navigationshintergründe](#navigationshintergründe)
+- [Impressum](#impressum)
 
 
 ## Gallerie
@@ -433,6 +434,24 @@ Es werden jpeg, png, jpg unterstützt.
 
 Beachtet, dass Bilder verwendet werden, die mit unterschiedlichen Bildschirmformaten funktionieren sollen.
 
+
+### Nachbereitung
+- Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
+
+
+### Impressum
+
+Das Impressum ist nur ein grobes Template für euch. Bitte selbständig noch ausfüllen, bearbeiten und erweitern.
+
+Die Datei ist in `src->views->impressum.vue`. 
+
+Um Inhalte zu verändern, empfiehlt es sich für unerfahrene Entwickler mittels AI Tools, wie ChatGPT, Gemini oder Claude den Inhalt im Template mit den korrekten Inhalten aufzufüllen.
+
+#### Potentieller Prompt
+
+Bitte die Impressum.vue Datei dem Chatbot geben und folgendes dazuschreiben:
+Please update the contents of the impressum.vue inside the template with following new content:
+`bitte hier die neuen Inhalte einfügen`
 
 ### Nachbereitung
 - Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
