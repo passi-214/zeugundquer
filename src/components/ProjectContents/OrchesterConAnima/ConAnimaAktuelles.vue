@@ -1,6 +1,7 @@
 ﻿<script setup lang="ts">
 import {onMounted, ref} from 'vue'
 import ConcertCard from "@/components/placeholder/ConcertCard.vue";
+import ConAnimaConcerts from "@/assets/data/con_anima/con_anima_concerts.json"
 
 const concerts = ref<Array<{
   title: string
@@ -9,17 +10,8 @@ const concerts = ref<Array<{
   mapsUrl: string
 }>>([])
 
+concerts.value = ConAnimaConcerts;
 
-onMounted(async () => {
-  try {
-    const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_CON_ANIMA_CONCERTS;
-    const res = await fetch(cloudinaryUrl);
-    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-    concerts.value = await res.json();
-  } catch (err) {
-    console.error('Failed to fetch concert data:', err);
-  }
-})
 </script>
 
 <template>

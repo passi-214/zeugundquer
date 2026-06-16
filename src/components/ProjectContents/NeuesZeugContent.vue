@@ -48,6 +48,7 @@ import Profile from "@/components/placeholder/Profile.vue";
 import Sponsors from "@/components/placeholder/Sponsors.vue";
 import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
 import neuesZeugData from "@/assets/data/neues_zeug/neues_zeug_steckbrief.json"
+import neuesZeugContent from "@/assets/data/neues_zeug/neues_zeug_content.json"
 import aventis from '@/assets/images/sponsor/aventis_foundation.avif'
 import bundesregierung from '@/assets/images/sponsor/bundesregierung.avif'
 import bwKunst from '@/assets/images/sponsor/bw_kunst.avif'
@@ -149,12 +150,7 @@ const sampleSlides = [
   },
 ];
 
-const sponsors = [
-  { id: 1, url: aventis, name: 'Sponsor 1', current: true },
-  { id: 2, url: bundesregierung, name: 'Sponsor 2', current: false },
-  { id: 3, url: bwKunst, name: 'Sponsor 3', current: true },
-  { id: 4, url: bwSoziales, name: 'Sponsor 4', current: false },
-];
+const sponsors = neuesZeugContent;
 
 </script>
 
