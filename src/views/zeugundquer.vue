@@ -120,12 +120,17 @@ watch(
 
 <template>
   <div class="page-wrapper">
-    <!-- Carousel -->
     <div
         v-if="route.path !== '/zeugundquer/impressum'"
         class="carousel-container"
         :class="{ 'shifted': showCloseIcon }"
     >
+      <img
+          src="@/assets/images/navigation/logo.png"
+          alt="Logo"
+          class="carousel-logo"
+      />
+
       <UCarousel
           ref="carouselRef"
           v-slot="{ item }"
@@ -150,10 +155,8 @@ watch(
       </UCarousel>
     </div>
 
-    <!-- Close button -->
     <CloseIcon v-if="showCloseIcon" @close="handleClose"/>
 
-    <!-- Router view content -->
     <div class="router-container">
       <router-view/>
     </div>
@@ -195,6 +198,16 @@ watch(
     position: relative;
     z-index: 5;
   }
+}
+
+.carousel-logo {
+  position: absolute;
+  top: 20px;       /* Adjust spacing from the top edge as needed */
+  left: 20px;      /* Adjust spacing from the left edge as needed */
+  z-index: 30;     /* Ensures it sits safely above the UCarousel controls (z-20) */
+  width: auto;     /* Set a explicit width/height if needed, e.g., width: 120px; */
+  height: clamp(40px, 8vw, 60px); /* Optional: responsive height sizing */
+  pointer-events: none; /* Allows clicks to pass through if the carousel or a link is behind it */
 }
 
 .slide-up-enter-active,
