@@ -48,8 +48,8 @@ defineShortcuts({
 
     <!-- Description Section -->
     <template #description>
-      <section class="flex flex-col items-center px-6 py-20 text-gray-800 leading-relaxed">
-        <div class="w-full max-w-4xl mx-auto space-y-8 text-center md:text-justify text-lg md:text-xl text-[#1E1E1E]">
+      <section class="flex flex-col text-left items-center px-6 py-20 text-gray-800 leading-relaxed">
+        <div class="w-full max-w-4xl mx-auto space-y-8 text-left md:text-justify text-lg md:text-xl text-[#1E1E1E]">
           <p>
             Wir sind ein Instrumental- und Vokalensemble aus erfahrenen Musiker:innen und jungen Musikstudierenden,
             verbunden durch unser Unwohlsein über Machtstrukturen im Musikbetrieb und unser Bedürfnis, einengende Muster
