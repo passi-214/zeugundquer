@@ -10,9 +10,30 @@ Sollten Inhalte hier fehlen, bitte umgehend kontaktieren.
 
 ## Project Setup
 
+### Lokale Entwicklungsumgebung einrichten 
+
+- installiere eine Entwicklungsumgebung, z.B. [Webstorm](https://www.jetbrains.com/webstorm/)
+- erstelle einen GitHub-Account auf [GitHub](https://github.com) 
+- erstelle einen Fork vom [zeugundquer projekt](https://github.com/passi-214/zeugundquer)
+
+![img.png](img.png)
+
+- folge der [Anleitung](https://www.jetbrains.com/help/webstorm/set-up-a-git-repository.html), um das Projekt in Webstorm herunterzuladen. Wichtig ab dem Bereich Check out a project from a remote host.
+
+- wenn das Projekt gecloned ist, dann:
+
 ```sh
 npm install
 ```
+
+Nun ist die grobe Einrichtung abgeschlossen und es können Änderungen am Projekt gemacht werden.
+
+Folge der [Content Management Doku](#dokumentation-content-management), um Änderungen vorzunehmen.
+
+
+### Lokales testen
+
+Um das projekt lokal testen zu können, diesen Befehl unten im Terminal ausführen:
 
 ### Compile and Hot-Reload for Development
 
@@ -20,11 +41,38 @@ npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
+![img_1.png](img_1.png)
+
+Sobald der Befehl lief, werden Änderungen fast immer in Echtzeit neugeladen.
+
+Dann auf den localhost Link klicken (Network Link geht auch) und das Projekt sollte sich im Browser automatisch öffnen:
+![img_2.png](img_2.png)
+
+### Kompilieren und komprimieren
+
+Dieser Schritt ist für euch nicht notwendig. Das passiert auf dem Live-Server automatisch.
 
 ```sh
 npm run build
 ```
+
+## Änderungen speichern und Live stellen
+Sobald Änderungen gemacht worden sind, werden sie links oben in der Entwicklungsumgebung gezeigt:
+![img_3.png](img_3.png)
+- alle hinzugefügten oder veränderten Dateien anhaken.
+- kurze passende Commit-Message schreiben
+- Commit and Push drücken
+
+### Pull request erstellen
+Das muss gemacht werden, damit ich die Änderungen vorerst technisch überprüfen kann. Danach geht alles online.
+Eine ausführliche Anleitung für [Pull Requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+
+
+## Projekt aktualisieren
+Sollten Projektänderungen von meiner Seite stattfinden, müsst ihr euer Projekt updaten bevor ihr neue Änderungen macht.
+
+Dafür oben bei `main` auf `Update Project` klicken:
+![img_4.png](img_4.png)
 
 ## Dokumentation Content Management
 
