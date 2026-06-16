@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Zeugundquer from '../views/Zeugundquer.vue'
+import Zeugundquer from '../views/zeugundquer.vue'
 import VereinszeugContent from "@/components/ProjectContents/VereinszeugContent.vue";
 import MusiCasaContent from "@/components/ProjectContents/MusiCasaContent.vue";
 import SingingHandsContent from "@/components/ProjectContents/SingingHandsContent.vue";
