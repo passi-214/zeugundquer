@@ -91,10 +91,6 @@ onMounted(() => {
         Aktuelles
       </h2>
 
-      <!--
-        REQUIREMENT: Removed 'v-show' from AktuellesCard loop.
-        All background cards remain cleanly rendered in order below or above the opened one.
-      -->
       <div
           ref="descriptionRef"
           class="flex flex-col items-center gap-20 px-4 md:px-6 lg:px-8 w-full min-h-300 pb-20"
