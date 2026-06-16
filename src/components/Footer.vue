@@ -24,13 +24,13 @@ import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
         <SecondaryButton
             paragraph="Folge uns auf Facebook"
             buttonText="Facebook"
-            link="https://www.facebook.com"
+            link="https://www.facebook.com/zeugundquer"
             class="text-gray-800"
         />
         <SecondaryButton
             paragraph="Folge uns auf Instagram"
             buttonText="Instagram"
-            link="https://www.instagram.com"
+            link="https://www.instagram.com/zeugundquer"
             class="text-gray-800"
         />
         <SecondaryButton
@@ -42,7 +42,7 @@ import SecondaryButton from "@/components/placeholder/SecondaryButton.vue";
         <SecondaryButton
             paragraph="Folge uns auf SoundCloud"
             buttonText="SoundCloud"
-            link="https://soundcloud.com"
+            link="https://soundcloud.com/zeug-und-quer-e-v"
             class="text-gray-800"
         />
       </div>

@@ -3,10 +3,10 @@
 Version 1.0
 
 ## Willkommen
-Die Doku zeigt euch, wie ihr die wichtigsten Inhalte an der Website selbständig bearbeiten könnt. Die Doku wird mit Projektabschluss weiterausgebaut.
+
+Die Doku zeigt euch, wie ihr die wichtigsten Inhalte an der Website selbständig bearbeiten könnt. Die Doku wird mit
+Projektabschluss weiterausgebaut.
 Sollten Inhalte hier fehlen, bitte umgehend kontaktieren.
-
-
 
 ## Project Setup
 
@@ -37,11 +37,12 @@ npm run build
 - [MusiCasa Projekte](#musicasa-projekte)
 - [Navigationshintergründe](#navigationshintergründe)
 - [Impressum](#impressum)
-
+- [Spenden](#spenden)
 
 ## Gallerie
 
 ### Vorbereitung
+
 - Die Bilder komprinieren mit [Image Compressor](https://image.pi7.org/compressor)
 - Es werden jpg, jpeg, png für die Gallerie unterstützt
 
@@ -52,6 +53,7 @@ npm run build
 - Im Projektunterordner das komprimierte Bild hochladen
 
 ### Bilder entfernen
+
 - Hochauflösendes und entsprechend das komprimierte Bild aus der Ordnerstruktur löschen
 
 ```JSON
@@ -70,9 +72,11 @@ npm run build
 ```
 
 ### Nachbereitung
+
 - Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
 
 ### Good to know:
+
 - Es werden primär die komprimierten Bilder genommen.
 - Es sollten immer gleich viele komprimierte und hochauflösende Bilder geben.
 
@@ -97,45 +101,51 @@ Die Aktuelles Karten werden basierend auf der Reihenfolge in dieser Datei angeze
 | date              |            text             |           ✅ |
 
 #### JSON Beispiel
+
 ```yaml
 {
-      "title": "OCA - Konzert und Innovationsfonds",
-      "image_path": "/images/musi_casa/Pi7compressed018_DSC04701.jpg",
-      "short_description": "Innovative Musik: Orchester con anima erhält Förderung und lädt zur Sommerserenade",
-      "long_description": "Das Orchester con anima erhält den Innovationsfonds des Ministeriums für Wissenschaft, Forschung und Kunst Baden-Württemberg für ein geplantes Side-by-Side-Projekt mit Studierenden der Musikhochschule. Das Projekt wird in einem gemeinsamen Konzert im Juni 2019 münden. Nun lädt das Ensemble zunächst zu seiner Sommerserenade am 22. August 2018, 19.30h im Historischen Kaufhaus am Münsterplatz ein!",
-      "date": "06.05.2023"
+  "title": "OCA - Konzert und Innovationsfonds",
+  "image_path": "/images/musi_casa/Pi7compressed018_DSC04701.jpg",
+  "short_description": "Innovative Musik: Orchester con anima erhält Förderung und lädt zur Sommerserenade",
+  "long_description": "Das Orchester con anima erhält den Innovationsfonds des Ministeriums für Wissenschaft, Forschung und Kunst Baden-Württemberg für ein geplantes Side-by-Side-Projekt mit Studierenden der Musikhochschule. Das Projekt wird in einem gemeinsamen Konzert im Juni 2019 münden. Nun lädt das Ensemble zunächst zu seiner Sommerserenade am 22. August 2018, 19.30h im Historischen Kaufhaus am Münsterplatz ein!",
+  "date": "06.05.2023"
 }
 ```
+
 ### Einfügen und Bearbeiten
+
 Um einen neuen Eintrag hinzuzufügen, über den obersten Eintrag, folgendes Template einfügen und bearbeiten:
+
 ```yaml
 {
-      "title": "Titel",
-      "image_path": "/images/.../bildname.jpg",
-      "short_description": "Kurze Beschreibung",
-      "long_description": "Lange Beschreibung",
-      "date": "01.01.2026"
+  "title": "Titel",
+  "image_path": "/images/.../bildname.jpg",
+  "short_description": "Kurze Beschreibung",
+  "long_description": "Lange Beschreibung",
+  "date": "01.01.2026"
 },
 ```
+
 #### Bild hinzufügen
+
 Dafür in den `public->data->images->aktuelles`-Ordner navigieren und das passende Bild hochladen.
 
-
-
 ### Löschen eines Eintrags
+
 In dem Fall einen Eintrag komplett inklusive der direkt umklammerden `{ }` einfach herauslöschen.
 
 ### Good to know
-- Die Einträge müssen zwischen `{ }` mit einem Komma getrennt werden.
-- Keine Zeilenumbrüche in einem Fließtext hinzufügen. Bestenfalls den Text vorher in einem Texteditor schreiben und ohne Formatierung einfügen
 
+- Die Einträge müssen zwischen `{ }` mit einem Komma getrennt werden.
+- Keine Zeilenumbrüche in einem Fließtext hinzufügen. Bestenfalls den Text vorher in einem Texteditor schreiben und ohne
+  Formatierung einfügen
 
 ### Nachbereitung
+
 - Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
 
-
-
 ## Steckbrief
+
 Wie können Steckbriefe bearbeitet werden.
 
 ### Vorbereitung
@@ -157,6 +167,7 @@ In den Ordner `src->assets->data->projekt_unterseite->projekt_steckbrief.json` n
 | projects.subitems | Liste mit text, durch Komma getrennt |           ❌ |
 
 #### Styling
+
 | Variable             |  Inhalt   | Pflichtfeld |
 |:---------------------|:---------:|------------:|
 | containerBg          | css-style |           ✅ |
@@ -178,10 +189,11 @@ In den Ordner `src->assets->data->projekt_unterseite->projekt_steckbrief.json` n
 - für die Texte wird beim CSS-Styling der prefix `text-` verwendet
 - für die Hintergründe wird der prefix `bg-` verwendet
 - gefolgt von `[#hexcode]` und optional `/number` um die Saturation abzuschwächen
-- allgemein kann hier jeder gewünschte CSS code eingefügt werden. Als Unterstützung bieten sich jegliche AI-Tools wie ChatGPT, Claude oder Gemini an.
-
+- allgemein kann hier jeder gewünschte CSS code eingefügt werden. Als Unterstützung bieten sich jegliche AI-Tools wie
+  ChatGPT, Claude oder Gemini an.
 
 #### JSON Beispiel
+
 ```yaml
 {
   "title": "zeug und quer e.V.",
@@ -217,21 +229,24 @@ In den Ordner `src->assets->data->projekt_unterseite->projekt_steckbrief.json` n
   }
 }
 ```
+
 ### Bearbeiten
+
 - Zum Bearbeiten, den Inhalt einer Variable einfach überschreiben.
 - Für die Subitems muss jeder Bulletpoint mit einem Komma getrennt werden.
-- Für die Farben kann einfach der [Colorpicker](https://www.google.com/search?client=opera&q=hex+color+picker&sourceid=opera&ie=UTF-8&oe=UTF-8) für den Hex-Code verwendet werden. Dann muss nur der Inhalt innerhalb der `[]` ausgetauscht werden
-
+- Für die Farben kann einfach
+  der [Colorpicker](https://www.google.com/search?client=opera&q=hex+color+picker&sourceid=opera&ie=UTF-8&oe=UTF-8) für
+  den Hex-Code verwendet werden. Dann muss nur der Inhalt innerhalb der `[]` ausgetauscht werden
 
 ### Good to know
-- Die Einträge müssen zwischen `{ }` mit einem Komma getrennt werden.
-- Keine Zeilenumbrüche in einem Fließtext hinzufügen. Bestenfalls den Text vorher in einem Texteditor schreiben und ohne Formatierung einfügen
 
+- Die Einträge müssen zwischen `{ }` mit einem Komma getrennt werden.
+- Keine Zeilenumbrüche in einem Fließtext hinzufügen. Bestenfalls den Text vorher in einem Texteditor schreiben und ohne
+  Formatierung einfügen
 
 ### Nachbereitung
+
 - Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
-
-
 
 ## Sponsoren
 
@@ -251,17 +266,18 @@ In den Ordner `src->assets->data->projekt_unterseite->projekt_content.json` navi
 | current  |        boolean        |           ✅ |
 
 - die ID muss fortlaufend erhöht werden, startend von 1
-- ein boolean hat entweder den Wert `true` oder `false` - dieser bestimmt, ob ein Sponsor aktuell oder der Vergangenheit angehört.
+- ein boolean hat entweder den Wert `true` oder `false` - dieser bestimmt, ob ein Sponsor aktuell oder der Vergangenheit
+  angehört.
   Aktuelle Sponsoren werden farbig dargestellt und vergangene sind ausgegraut.
 
-
 #### JSON Beispiel
+
 ```yaml
 {
-      "id": 1,
-      "url": "aventis",
-      "name": "Sponsor 1",
-      "current": true
+  "id": 1,
+  "url": "aventis",
+  "name": "Sponsor 1",
+  "current": true
 },
 ```
 
@@ -272,6 +288,7 @@ Die URL ist notwendig um die passende Grafik zu laden.
 Folgende Sponsoren stehen zur Verfügung;
 
 #### Sponsorenliste
+
 | URL                       |                          Sponsor                           |
 |:--------------------------|:----------------------------------------------------------:|
 | aventis                   |                     Aventis Foundation                     |
@@ -288,20 +305,20 @@ Folgende Sponsoren stehen zur Verfügung;
 | sparkasse                 |                         Sparkasse                          |
 
 ### Bearbeiten
+
 Oben stehendes Beispiel verwenden, um einen neuen Eintrag zu machen.
 
 Wenn veralteter Sponsor den Wert bei current auf `false`setzen.
 
-
 ### Good to know
-- Die Einträge müssen zwischen `{ }` mit einem Komma getrennt werden.
-- Keine Zeilenumbrüche in einem Fließtext hinzufügen. Bestenfalls den Text vorher in einem Texteditor schreiben und ohne Formatierung einfügen
 
+- Die Einträge müssen zwischen `{ }` mit einem Komma getrennt werden.
+- Keine Zeilenumbrüche in einem Fließtext hinzufügen. Bestenfalls den Text vorher in einem Texteditor schreiben und ohne
+  Formatierung einfügen
 
 ### Nachbereitung
+
 - Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
-
-
 
 ## Con Anima Konzert
 
@@ -313,45 +330,46 @@ In den Ordner `src->assets->data->con_anima->con_anima_concerts.json` navigieren
 
 ### JSON Aufbau
 
-| Variable |        Inhalt         | Pflichtfeld |
-|:---------|:---------------------:|------------:|
-| title       | text |           ✅ |
-| date      |         text          |           ✅ |
-| location     |         text          |           ✅ |
-| mapsUrl  |        mapsURL        |           ✅ |
+| Variable | Inhalt  | Pflichtfeld |
+|:---------|:-------:|------------:|
+| title    |  text   |           ✅ |
+| date     |  text   |           ✅ |
+| location |  text   |           ✅ |
+| mapsUrl  | mapsURL |           ✅ |
 
 - die maps url ist der Link beim Teilen einer Location von Google Maps
 
-
 #### JSON Beispiel
+
 ```yaml
   {
-    "title": "Con Anima Frühjahreskonzert",
-    "date": "Samstag, 20.06, 11:30 Uhr",
-    "location": "Stadthalle Graz",
-    "mapsUrl": "https://www.google.com/maps/place/Stadthalle+Graz"
-  },
+  "title": "Con Anima Frühjahreskonzert",
+  "date": "Samstag, 20.06, 11:30 Uhr",
+  "location": "Stadthalle Graz",
+  "mapsUrl": "https://www.google.com/maps/place/Stadthalle+Graz"
+},
 ```
 
 ### Bearbeiten
+
 Oben stehendes Beispiel verwenden, um einen neuen Eintrag zu machen und Inhalte entsprechen aktualisieren.
 
 Die Reihenfolge ist abhängig, wie es in dieser Datei eingetragen wird.
 
-
 ### Good to know
-- Die Einträge müssen zwischen `{ }` mit einem Komma getrennt werden.
-- Keine Zeilenumbrüche in einem Fließtext hinzufügen. Bestenfalls den Text vorher in einem Texteditor schreiben und ohne Formatierung einfügen
 
+- Die Einträge müssen zwischen `{ }` mit einem Komma getrennt werden.
+- Keine Zeilenumbrüche in einem Fließtext hinzufügen. Bestenfalls den Text vorher in einem Texteditor schreiben und ohne
+  Formatierung einfügen
 
 ### Nachbereitung
-- Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
 
+- Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
 
 ## Singende Hände Konzerte und Proben
 
-identisch zu [Con Anima Konzerten](#con-anima-konzert). Die Datei befindet sich entsprechend im Unterordner `singing_hands`
-
+identisch zu [Con Anima Konzerten](#con-anima-konzert). Die Datei befindet sich entsprechend im Unterordner
+`singing_hands`
 
 ## MusiCasa Projekte
 
@@ -365,68 +383,76 @@ Die Projekt Karten werden basierend auf der Reihenfolge in dieser Datei angezeig
 
 ### JSON Aufbau
 
-| Variable |  Inhalt  | Pflichtfeld |
-|:-----|:--------:|------:|
-| title   | Titeltext| ✅ |
-| image_path   |  public/images/.../image.jpg  |   ✅ |
-| date   | text |    ✅ |
-| long_description   | langer text |    ✅ |
-| responsible   | Liste an text durch Komma getrennt |    ✅ |
+| Variable         |               Inhalt               | Pflichtfeld |
+|:-----------------|:----------------------------------:|------------:|
+| title            |             Titeltext              |           ✅ |
+| image_path       |    public/images/.../image.jpg     |           ✅ |
+| date             |                text                |           ✅ |
+| long_description |            langer text             |           ✅ |
+| responsible      | Liste an text durch Komma getrennt |           ✅ |
 
 #### JSON Beispiel
+
 ```yaml
   {
-    "title": "Ein Haus aus Klang",
-    "image_path": "/images/musi_casa/Pi7compressed014_DSC04682.jpg",
-    "date": "12.10.2025",
-    "long_description": "\"Wir bauen ein Haus aus Klang\" - Unter diesem Motto sollen im Juli und September jeweils dreitätige Workshops stattfinden, bei denen Kinder verschiedenster kultureller Hintergründe zusammenkommen und gemeinsam aus Alltagsmaterialien eine Klangskulptur bauen. Woraus die Skulptur besteht, dem sind kaum Grenzen gesetzt. Denn auch vermeintlicher Müll ist oft der ideale Klanggeber bei einem solchen Rieseninstrument. Das Alltagsmaterial wird hierbei also mit anderen 'Ohren' erkundet und bewerkelt. Zu Beginn bauen die Kinder in kleinen Gruppen daraus verschiedene Instrumente, die am Ende zu einer Großen Skulptur zusammengebracht werden. Während der drei Tage wird hierauf in unterschiedlichster Weise Musik gemacht: Durch gemeinsame Improvisationen und dem Komponieren eigener Stücke. Damit rückt neben der Sensibilisierung zum Gegenständlichen auch das sozialen Interagieren in der Gruppe in den Fokus. Und zwar sowohl im gemeinsamen Konstruieren und Planen auf sprachlicher Ebene, wie im instrumental-musikalischen auf non-verbaler Ebene.",
-    "responsible": [
-      "Anna Müller",
-      "Lukas Braun",
-      "Mara Stein"
-    ]
+  "title": "Ein Haus aus Klang",
+  "image_path": "/images/musi_casa/Pi7compressed014_DSC04682.jpg",
+  "date": "12.10.2025",
+  "long_description": "\"Wir bauen ein Haus aus Klang\" - Unter diesem Motto sollen im Juli und September jeweils dreitätige Workshops stattfinden, bei denen Kinder verschiedenster kultureller Hintergründe zusammenkommen und gemeinsam aus Alltagsmaterialien eine Klangskulptur bauen. Woraus die Skulptur besteht, dem sind kaum Grenzen gesetzt. Denn auch vermeintlicher Müll ist oft der ideale Klanggeber bei einem solchen Rieseninstrument. Das Alltagsmaterial wird hierbei also mit anderen 'Ohren' erkundet und bewerkelt. Zu Beginn bauen die Kinder in kleinen Gruppen daraus verschiedene Instrumente, die am Ende zu einer Großen Skulptur zusammengebracht werden. Während der drei Tage wird hierauf in unterschiedlichster Weise Musik gemacht: Durch gemeinsame Improvisationen und dem Komponieren eigener Stücke. Damit rückt neben der Sensibilisierung zum Gegenständlichen auch das sozialen Interagieren in der Gruppe in den Fokus. Und zwar sowohl im gemeinsamen Konstruieren und Planen auf sprachlicher Ebene, wie im instrumental-musikalischen auf non-verbaler Ebene.",
+  "responsible": [
+    "Anna Müller",
+    "Lukas Braun",
+    "Mara Stein"
+  ]
 },
 ```
+
 ### Einfügen und Bearbeiten
+
 Um einen neuen Eintrag hinzuzufügen, über den obersten Eintrag, folgendes Template einfügen und bearbeiten:
+
 ```yaml
   {
-    "title": "Titel",
-    "image_path": "/images/musi_casa/bild.jpg",
-    "date": "12.10.2025",
-    "long_description": "lange Beschreibung",
-    "responsible": [
-      "Person 1",
-      "Person 2"
-    ]
-  },
+  "title": "Titel",
+  "image_path": "/images/musi_casa/bild.jpg",
+  "date": "12.10.2025",
+  "long_description": "lange Beschreibung",
+  "responsible": [
+    "Person 1",
+    "Person 2"
+  ]
+},
 ```
+
 #### Bild hinzufügen
+
 Dafür in den `public->data->images->musi_casa`-Ordner navigieren und das passende Bild hochladen.
 
-
 ### Löschen eines Eintrags
+
 In dem Fall eine Eintrag komplett inklusive der direkt umklammerden `{ }` einfach rauslöschen.
 
 ### Good to know
+
 - Die Einträge müssen zwischen `{ }` mit einem Komma getrennt werden.
 - Die Einträge bei `responsible`müssen mit einem Komma getrennt werden
-- Keine Zeilenumbrüche in einem Fließtext hinzufügen. Bestenfalls den Text vorher in einem Texteditor schreiben und ohne Formatierung einfügen
-
+- Keine Zeilenumbrüche in einem Fließtext hinzufügen. Bestenfalls den Text vorher in einem Texteditor schreiben und ohne
+  Formatierung einfügen
 
 ### Nachbereitung
+
 - Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
-
-
 
 ## Navigationshintergründe
 
 ### Vorbereitung
+
 Navigiere zu `src->assets->images->navigation`
 
 ### Bearbeitung
 
-Sollten andere Hintergründe gewünscht werden oder noch Logos hinzugefügt werden, muss entsprechend das Bild hier überschrieben werden.
+Sollten andere Hintergründe gewünscht werden oder noch Logos hinzugefügt werden, muss entsprechend das Bild hier
+überschrieben werden.
 
 **Wichtig** der Dateiname der Bilder darf **NICHT** verändert werden.
 
@@ -434,18 +460,18 @@ Es werden jpeg, png, jpg unterstützt.
 
 Beachtet, dass Bilder verwendet werden, die mit unterschiedlichen Bildschirmformaten funktionieren sollen.
 
-
 ### Nachbereitung
-- Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
 
+- Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
 
 ### Impressum
 
 Das Impressum ist nur ein grobes Template für euch. Bitte selbständig noch ausfüllen, bearbeiten und erweitern.
 
-Die Datei ist in `src->views->impressum.vue`. 
+Die Datei ist in `src->views->impressum.vue`.
 
-Um Inhalte zu verändern, empfiehlt es sich für unerfahrene Entwickler mittels AI Tools, wie ChatGPT, Gemini oder Claude den Inhalt im Template mit den korrekten Inhalten aufzufüllen.
+Um Inhalte zu verändern, empfiehlt es sich für unerfahrene Entwickler mittels AI Tools, wie ChatGPT, Gemini oder Claude
+den Inhalt im Template mit den korrekten Inhalten aufzufüllen.
 
 #### Potentieller Prompt
 
@@ -454,4 +480,28 @@ Please update the contents of the impressum.vue inside the template with followi
 `bitte hier die neuen Inhalte einfügen`
 
 ### Nachbereitung
+
 - Lokal testen und Projekt bauen, siehe [Projekt Setup](#project-setup)
+
+## Spenden
+
+Damit nicht ich die Spenden bekomme, sondern ihr, müssen noch folgende Schritte gemacht werden.
+
+- meldet euch mit dem zeugundquer paypal account hier an: [Paypal](https://www.paypal.com)
+- erstellt einen [Spendenbutton](https://sandbox.paypal.com/donate/buttons)
+- fordert den Button-Code an
+- fügt ihn in der Datei `src->components->ProjectContents->OrchesterConAnima->ConAnimaSupport.vue` ein
+- ersetzt euren Button mit meinem Button
+
+```javascript
+<!-- PayPal Button -->
+<form action="https://www.paypal.com/donate" method="post" target="_blank" class="inline-block">
+    <input type="hidden" name="hosted_button_id" value="3H95J3L6L7A88"/>
+    <button
+        type="submit"
+        class="bg-amber-500 hover:bg-amber-600 text-white text-lg font-semibold py-3 px-8 rounded-xl shadow-lg transition transform hover:scale-105 active:scale-100"
+    >
+        Jetzt Spenden 💛
+    </button>
+</form>
+```

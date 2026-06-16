@@ -5,8 +5,7 @@
   >
 
     <template #profile>
-      <Profile :data="conAnimaData"
-      />
+      <Profile :data="conAnimaData" />
       <div class="h-12 sm:h-12"></div>
     </template>
 
@@ -17,11 +16,6 @@
             class="button-panel grid gap-4 justify-center justify-items-center mb-4"
             style="grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); max-width: 40rem; margin-inline: auto;"
         >
-          <!--
-            Clean Update:
-            - Passed clean label directly without string hacks.
-            - Added dynamic :showCloseIcon parameter tracking button activation.
-          -->
           <SquareButton
               v-for="(btn, index) in buttons"
               :key="index"
@@ -37,7 +31,6 @@
           />
         </div>
 
-        <!-- The text content area -->
         <router-view :key="$route.fullPath"/>
 
         <CollapsibleGallery
@@ -59,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue' // Removed unused onMounted, onUnmounted
 import { useRouter, useRoute } from 'vue-router'
 import ProjectContentBase from "@/layouts/ProjectContentBase.vue";
 import Profile from "@/components/placeholder/Profile.vue";
@@ -84,14 +77,15 @@ const panelRef = ref<HTMLElement | null>(null)
 const router = useRouter()
 const route = useRoute()
 
-let isButtonClicking = false
-
+// Handled entirely within the component loop now!
 function handleClick(to: string) {
+  // If the user clicks the ALREADY active button, collapse it
   if (clickedButton.value === to) {
+    collapseSection()
     return
   }
 
-  isButtonClicking = true
+  // Otherwise, switch to the new section
   clickedButton.value = to
   router.push({ name: to })
 }
@@ -104,22 +98,7 @@ function collapseSection() {
   }
 }
 
-const handleGlobalClick = (event: MouseEvent) => {
-  if (isButtonClicking) {
-    isButtonClicking = false
-    return
-  }
-
-  collapseSection()
-}
-
-onMounted(() => {
-  document.addEventListener("click", handleGlobalClick);
-});
-
-onUnmounted(() => {
-  document.removeEventListener("click", handleGlobalClick);
-});
+// Global click event listeners removed completely to prevent accidental body clicks
 
 const sponsors = conAnimaContent.sponsor
 

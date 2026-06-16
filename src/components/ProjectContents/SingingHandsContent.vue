@@ -165,12 +165,12 @@ import singingHandsData from '@/assets/data/singing_hands/singing_hands_steckbri
 import singingHandsConcerts from '@/assets/data/singing_hands/singing_hands_concerts.json';
 import singingHandsRehearsal from '@/assets/data/singing_hands/singing_hands_probe.json';
 import singingHandsContent from '@/assets/data/singing_hands/singing_hands_content.json';
+import singingHandsImage from '@/assets/images/singing_hands/high_quality/COF09814 (1).jpg'
 
-const imageSrc = ref('/images/orchestra.jpg')
+const imageSrc = ref()
+imageSrc.value = singingHandsImage;
 
 const placeholder = 'https://via.placeholder.com/800x500?text=Singing_Hands'
-
-const BASE_URL = import.meta.env.BASE_URL
 
 const handleImageError = () => {
   imageSrc.value = placeholder
