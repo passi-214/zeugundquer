@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import NavigationItem from "@/layouts/NavigationItem.vue";
-import lowResImage from "@/assets/images/navigation/singing_hands_title.jpg?url";
+import lowResImage from "@/assets/images/navigation/singing_hands_title.png";
 </script>
 
 <template>
