@@ -12,7 +12,7 @@ export default defineConfig({
     vueDevTools(),
       ui(),
   ],
-  base: './',
+  base: '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -21,5 +21,9 @@ export default defineConfig({
   server: {
     host: '0.0.0.0', // allow LAN access
     port: 5173,      // optional (default 5173)
+  },
+  build: {
+    // This forces Vite to compile paths cleanly relative to the true domain root
+    assetsDir: 'assets',
   }
 })
