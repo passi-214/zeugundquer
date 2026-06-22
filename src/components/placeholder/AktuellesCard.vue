@@ -53,7 +53,7 @@
         :class="[
           'rounded-lg bg-gray-200 transition-all duration-500',
           isActive
-            ? 'w-full md:w-3/4 h-64 md:h-80 mb-6 mx-auto mt-6'
+            ? 'w-full md:w-3/4 h-150 mt-6'
             : 'w-40 h-50 flex-shrink-0'
         ]"
     />
