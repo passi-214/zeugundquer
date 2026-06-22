@@ -14,6 +14,7 @@ import ConAnimaMitspielen from "@/components/ProjectContents/OrchesterConAnima/C
 import ConAnimaSupport from "@/components/ProjectContents/OrchesterConAnima/ConAnimaSupport.vue";
 import SchallUndRauchContent from "@/components/ProjectContents/SchallUndRauchContent.vue";
 import MusikOhneGockelnContent from "@/components/ProjectContents/MusikOhneGockelnContent.vue";
+import JugendsinfonieorchesterContent from "@/components/ProjectContents/JugendsinfonieorchesterContent.vue";
 import Impressum from "@/views/impressum.vue";
 
 const routes = [
@@ -28,6 +29,7 @@ const routes = [
             {path: 'neueszeug', component: NeuesZeugContent},
             {path: 'schallundrauch', component: SchallUndRauchContent},
             {path: 'musikohnegockeln', component: MusikOhneGockelnContent},
+            {path: 'jugendsinfonieorchester', component: JugendsinfonieorchesterContent},
             { path: 'impressum', component: Impressum, name: 'impressum' },
 
             {path: 'vereinszeug/:slug?', component: VereinszeugContent}, // optional slug

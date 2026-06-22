@@ -11,6 +11,7 @@ import Aktuelles from "@/components/Aktuelles.vue";
 import OrchesterConAnima from "@/components/OrchesterConAnima.vue";
 import SchallUndRauch from "@/components/SchallUndRauch.vue";
 import MusikOhneGockeln from "@/components/MusikOhneGockeln.vue";
+import Jugendsinfonieorchester from "@/components/Jugendsinfonieorchester.vue";
 
 const router = useRouter()
 const route = useRoute()
@@ -31,7 +32,8 @@ const items = [
   {name: 'neueszeug', component: NeuesZeug},
   {name: 'orchesterconanima', component: OrchesterConAnima},
   {name: 'schallundrauch', component: SchallUndRauch},
-  {name: 'musikohnegockeln', component: MusikOhneGockeln}
+  {name: 'musikohnegockeln', component: MusikOhneGockeln},
+  {name: 'jugendsinfonieorchester', component: Jugendsinfonieorchester}
 ]
 
 function scrollToProfile() {
